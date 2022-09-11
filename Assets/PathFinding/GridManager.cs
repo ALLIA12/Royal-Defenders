@@ -33,7 +33,8 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < gridSize.y; y++)
             {
                 Vector2Int coordinates = new Vector2Int(x, y);
-                grid.Add(coordinates, new NodeClass(coordinates, true));
+                Tile currentTile = GameObject.Find(coordinates.ToString()).GetComponent<Tile>();
+                grid.Add(coordinates, new NodeClass(coordinates, true, currentTile.tileSpeed));
             }
         }
     }

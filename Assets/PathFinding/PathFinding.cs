@@ -12,6 +12,8 @@ public class PathFinding : MonoBehaviour
     NodeClass currentSearchNode;
 
     Queue<NodeClass> frontier = new Queue<NodeClass>();
+    PriorityQueue<NodeClass> frontierUniformCost = new PriorityQueue<NodeClass>();
+
     Dictionary<Vector2Int, NodeClass> reached = new Dictionary<Vector2Int, NodeClass>();
 
     Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
@@ -26,7 +28,6 @@ public class PathFinding : MonoBehaviour
             grid = gridManager.getGrid();
             startNode = grid[startCoordinates];
             endNode = grid[endCoordnaites];
-
         }
 
     }
@@ -42,12 +43,39 @@ public class PathFinding : MonoBehaviour
 
     void Start()
     {
-        getNewPath();
+        // Implement dificulty choice here here 
+         getNewPath();
+        // implement uniform here
+        //getUniformPath();
     }
+
+    
+    /// <summary>
+    /// Get the best path using Uniform cost search
+    /// </summary>
+    /// <returns> uniform cost path </returns>
+    public List<NodeClass> getUniformPath()
+    {
+        return getUniformPath(startCoordinates);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="coordinates"> the starting coordinates</param>
+    /// <returns></returns>
+    public List<NodeClass> getUniformPath(Vector2Int coordinates)
+    {
+        gridManager.ResetNodes();
+        UniformCostSearch(coordinates);
+        return BuildPath();
+    }
+
     public List<NodeClass> getNewPath()
     {
         return getNewPath(startCoordinates);
     }
+
 
     public List<NodeClass> getNewPath(Vector2Int coordinates)
     {
@@ -82,6 +110,31 @@ public class PathFinding : MonoBehaviour
         }
     }
 
+    void ExploreNeighborsUniform()
+    {
+        List<NodeClass> neighbors = new List<NodeClass>();
+
+        foreach (Vector2Int direction in directions)
+        {
+            Vector2Int neighborCoords = currentSearchNode.coordinates + direction;
+
+            if (grid.ContainsKey(neighborCoords))
+            {
+                neighbors.Add(grid[neighborCoords]);
+            }
+        }
+
+        foreach (NodeClass neighbor in neighbors)
+        {
+            if (!reached.ContainsKey(neighbor.coordinates) && neighbor.isWalkable)
+            {
+                neighbor.connection = currentSearchNode;
+                reached.Add(neighbor.coordinates, neighbor);
+                frontierUniformCost.Enqueue(neighbor);
+            }
+        }
+    }
+
     void BreadthFirstSearch(Vector2Int coordinates)
     {
         startNode.isWalkable = true;
@@ -103,6 +156,27 @@ public class PathFinding : MonoBehaviour
         }
     }
 
+    void UniformCostSearch(Vector2Int coordinates)
+    {
+        startNode.isWalkable = true;
+        endNode.isWalkable = true;
+        frontierUniformCost.Clear();
+        reached.Clear();
+        bool isRunning = true;
+        frontierUniformCost.Enqueue(grid[coordinates]);
+        reached.Add(coordinates, grid[coordinates]);
+        while (frontierUniformCost.Count() > 0 && isRunning)
+        {
+            currentSearchNode = frontierUniformCost.Dequeue();
+            currentSearchNode.isExplored = true;
+            ExploreNeighborsUniform();
+            if (currentSearchNode.coordinates == endCoordnaites)
+            {
+                isRunning = false;
+            }
+        }
+    }
+
     List<NodeClass> BuildPath()
     {
         List<NodeClass> path = new List<NodeClass>();
@@ -116,6 +190,15 @@ public class PathFinding : MonoBehaviour
             currentNode.isPath = true;
         }
         path.Reverse();
+        //float sum = 0;
+        //foreach(var thing in path)
+        //{
+        //    Tile currentTile = GameObject.Find(thing.coordinates.ToString()).GetComponent<Tile>();
+        //    sum += currentTile.tileSpeed;
+        //    //Debug.Log(currentTile.tileSpeed);
+        //}
+        //Debug.Log("Speed of all tiles "+sum);
+        //Debug.Log("number of tiles" + path.Count);
         return path;
     }
     public bool willBlockPath(Vector2Int coordinates)
@@ -124,11 +207,15 @@ public class PathFinding : MonoBehaviour
         {
             bool previousState = grid[coordinates].isWalkable;
             grid[coordinates].isWalkable = false;
+            // Add check for difficulty here
             List<NodeClass> newPath = getNewPath();
+            //List<NodeClass> newPath = getUniformPath();
             grid[coordinates].isWalkable = previousState;
             if (newPath.Count <= 1)
             {
+                // Add check for difficulty here
                 getNewPath();
+                //getUniformPath();
                 return true;
             }
         }

@@ -3367,8 +3367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c0fc0a7923a1249b6ebfc364adf426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startCoordinates: {x: 10, y: 4}
-  endCoordnaites: {x: 16, y: 4}
+  startCoordinates: {x: 3, y: 3}
+  endCoordnaites: {x: 19, y: 11}
 --- !u!1001 &188823592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33422,10 +33422,6 @@ PrefabInstance:
     - target: {fileID: 2039551496181148355, guid: 1547bdc42dfd294439f6af6aa1470d10, type: 3}
       propertyPath: poolSize
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2039551496181148355, guid: 1547bdc42dfd294439f6af6aa1470d10, type: 3}
-      propertyPath: spawnTimer
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547bdc42dfd294439f6af6aa1470d10, type: 3}

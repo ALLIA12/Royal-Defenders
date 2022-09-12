@@ -12,7 +12,7 @@ public class NodeClass : IComparable<NodeClass>
     public bool isPath;
     public NodeClass connection;
     public float speed;
-    public float speedTillHere = float.MaxValue;
+    public float costTillHere = 99999f;
     public NodeClass(Vector2Int coordinates, bool isWalkable, float speed)
     {
         this.coordinates = coordinates;
@@ -22,12 +22,12 @@ public class NodeClass : IComparable<NodeClass>
 
     public int CompareTo(NodeClass other)
     {
-        if (this.speedTillHere + other.speed< other.speedTillHere) return -1;
-        else if (this.speed > other.speed) return 1;
+        if (this.costTillHere < other.costTillHere) return -1;
+        else if (this.costTillHere > other.costTillHere) return 1;
         else return 0;
     }
-    public String ToString()
-    {
-        return this.coordinates + " speed is: " + this.speed;
+    override
+    public string ToString() {
+        return this.coordinates.ToString();
     }
 }

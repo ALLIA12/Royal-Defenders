@@ -38,7 +38,9 @@ public class EnemyMover : MonoBehaviour
         }
         StopAllCoroutines();
         path.Clear();
-        path = pathFinding.getNewPath(temp);
+        // Add difficulty choice here;
+        //path = pathFinding.getNewPath(temp);
+        path = pathFinding.getUniformPath(temp);
         StartCoroutine(FollowPath());
     }
 

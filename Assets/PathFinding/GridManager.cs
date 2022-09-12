@@ -34,7 +34,7 @@ public class GridManager : MonoBehaviour
             {
                 Vector2Int coordinates = new Vector2Int(x, y);
                 Tile currentTile = GameObject.Find(coordinates.ToString()).GetComponent<Tile>();
-                grid.Add(coordinates, new NodeClass(coordinates, true, currentTile.tileSpeed));
+                grid.Add(coordinates, new NodeClass(coordinates, !currentTile.GetIsTaken(), currentTile.tileSpeed));
             }
         }
     }
@@ -52,6 +52,7 @@ public class GridManager : MonoBehaviour
             entery.Value.connection = null;
             entery.Value.isExplored = false;
             entery.Value.isPath = false;
+            entery.Value.costTillHere = 99999f;
         }
     }
     public Vector2Int getCoordiantesFromPos(Vector3 position)

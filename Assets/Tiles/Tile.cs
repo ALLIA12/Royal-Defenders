@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
     [SerializeField] Tower tower;
     [SerializeField] bool isTaken;
     [SerializeField]
-    [Range(0f, 4f)] public float tileSpeed = 0.5f;
+    [Range(0f, 1000f)] public float tileSpeed = 0.5f;
     GridManager gridManager;
     PathFinding pathFinding;
     Vector2Int coordinates = new Vector2Int();

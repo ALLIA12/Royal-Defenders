@@ -44,9 +44,9 @@ public class PathFinding : MonoBehaviour
     void Start()
     {
         // Implement dificulty choice here here 
-         getNewPath();
+        // getNewPath();
         // implement uniform here
-        //getUniformPath();
+        getUniformPath();
     }
 
     
@@ -128,9 +128,12 @@ public class PathFinding : MonoBehaviour
         {
             if (!reached.ContainsKey(neighbor.coordinates) && neighbor.isWalkable)
             {
-                neighbor.connection = currentSearchNode;
-                reached.Add(neighbor.coordinates, neighbor);
-                frontierUniformCost.Enqueue(neighbor);
+                if (currentSearchNode.costTillHere + 1/neighbor.speed < neighbor.costTillHere) { 
+                    neighbor.connection = currentSearchNode;
+                    neighbor.costTillHere = currentSearchNode.costTillHere + 1/ neighbor.speed;
+                    reached.Add(neighbor.coordinates, neighbor);
+                    frontierUniformCost.Enqueue(neighbor);
+                }
             }
         }
     }
@@ -163,6 +166,7 @@ public class PathFinding : MonoBehaviour
         frontierUniformCost.Clear();
         reached.Clear();
         bool isRunning = true;
+        grid[coordinates].costTillHere = 0;
         frontierUniformCost.Enqueue(grid[coordinates]);
         reached.Add(coordinates, grid[coordinates]);
         while (frontierUniformCost.Count() > 0 && isRunning)
@@ -190,15 +194,7 @@ public class PathFinding : MonoBehaviour
             currentNode.isPath = true;
         }
         path.Reverse();
-        //float sum = 0;
-        //foreach(var thing in path)
-        //{
-        //    Tile currentTile = GameObject.Find(thing.coordinates.ToString()).GetComponent<Tile>();
-        //    sum += currentTile.tileSpeed;
-        //    //Debug.Log(currentTile.tileSpeed);
-        //}
-        //Debug.Log("Speed of all tiles "+sum);
-        //Debug.Log("number of tiles" + path.Count);
+
         return path;
     }
     public bool willBlockPath(Vector2Int coordinates)
@@ -208,14 +204,14 @@ public class PathFinding : MonoBehaviour
             bool previousState = grid[coordinates].isWalkable;
             grid[coordinates].isWalkable = false;
             // Add check for difficulty here
-            List<NodeClass> newPath = getNewPath();
-            //List<NodeClass> newPath = getUniformPath();
+            //List<NodeClass> newPath = getNewPath();
+            List<NodeClass> newPath = getUniformPath();
             grid[coordinates].isWalkable = previousState;
             if (newPath.Count <= 1)
             {
                 // Add check for difficulty here
-                getNewPath();
-                //getUniformPath();
+                // getNewPath();
+                getUniformPath();
                 return true;
             }
         }

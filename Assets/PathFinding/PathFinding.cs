@@ -16,7 +16,7 @@ public class PathFinding : MonoBehaviour
 
     Dictionary<Vector2Int, NodeClass> reached = new Dictionary<Vector2Int, NodeClass>();
 
-    Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
+    Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1,1), new Vector2Int(1,-1),new Vector2Int(-1,1), new Vector2Int(-1,-1)  };
     GridManager gridManager;
     Dictionary<Vector2Int, NodeClass> grid = new Dictionary<Vector2Int, NodeClass>();
 

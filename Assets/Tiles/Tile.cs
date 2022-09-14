@@ -41,6 +41,7 @@ public class Tile : MonoBehaviour
             if (isTaken)
             {
                 gridManager.blockNode(coordinates);
+                gridManager.changeCostOoNeighbors(coordinates);
                 pathFinding.notifiyReciviers();
             }
         }

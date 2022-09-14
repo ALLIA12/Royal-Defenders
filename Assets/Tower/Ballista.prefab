@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 3144582324300694500}
   bullet: {fileID: 8779568327228246572}
-  shootingRange: 0
+  shootingRange: 30
 --- !u!114 &-8129081288077187653
 MonoBehaviour:
   m_ObjectHideFlags: 0

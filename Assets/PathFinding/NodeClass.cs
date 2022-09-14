@@ -13,6 +13,7 @@ public class NodeClass : IComparable<NodeClass>
     public NodeClass connection;
     public float speed;
     public float costTillHere = 99999f;
+    public float hasTowersAdjecent = 0f;
     public NodeClass(Vector2Int coordinates, bool isWalkable, float speed)
     {
         this.coordinates = coordinates;

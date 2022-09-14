@@ -45,6 +45,19 @@ public class GridManager : MonoBehaviour
             grid[coordinates].isWalkable = false;
         }
     }
+
+    public void changeCostOoNeighbors(Vector2Int coordinates)
+    {
+        Vector2Int[] directionsAll = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1) };
+        float changeValue = 3f;
+        foreach (Vector2Int direction in directionsAll) {
+            grid[coordinates + direction].hasTowersAdjecent+= changeValue;
+            grid[coordinates + (direction*2)].hasTowersAdjecent+= (changeValue/2f);
+            //Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
+            //Debug.Log($"{grid[coordinates + (direction * 2)]}has become {grid[coordinates + (direction * 2)].hasTowersAdjecent}");
+        }
+    }
+
     public void ResetNodes()
     {
         foreach (KeyValuePair<Vector2Int, NodeClass> entery in grid)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,10 +14,12 @@ public class PathFinding : MonoBehaviour
 
     Queue<NodeClass> frontier = new Queue<NodeClass>();
     PriorityQueue<NodeClass> frontierUniformCost = new PriorityQueue<NodeClass>();
+    PriorityQueue<NodeClass> frontierAStar = new PriorityQueue<NodeClass>();
 
     Dictionary<Vector2Int, NodeClass> reached = new Dictionary<Vector2Int, NodeClass>();
 
-    Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1,1), new Vector2Int(1,-1),new Vector2Int(-1,1), new Vector2Int(-1,-1)  };
+    Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
+    Vector2Int[] directionsAll = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1,1), new Vector2Int(1,-1),new Vector2Int(-1,1), new Vector2Int(-1,-1)  };
     GridManager gridManager;
     Dictionary<Vector2Int, NodeClass> grid = new Dictionary<Vector2Int, NodeClass>();
 
@@ -47,9 +50,76 @@ public class PathFinding : MonoBehaviour
         // getNewPath();
         // implement uniform here
         getUniformPath();
+        // implement a* here
+        getAStarPath();
+
+    }
+    ///
+    public List<NodeClass> getAStarPath()
+    {
+        return getAStarPath(startCoordinates);
     }
 
-    
+    public List<NodeClass> getAStarPath(Vector2Int startCoordinates)
+    {
+        gridManager.ResetNodes();
+        AStarSearch(startCoordinates);
+        return BuildPath();
+    }
+
+    private void AStarSearch(Vector2Int coordinates)
+    {
+        startNode.isWalkable = true;
+        endNode.isWalkable = true;
+        frontierAStar.Clear();
+        reached.Clear();
+        bool isRunning = true;
+        grid[coordinates].costTillHere = 0;
+        frontierAStar.Enqueue(grid[coordinates]);
+        reached.Add(coordinates, grid[coordinates]);
+        while (frontierAStar.Count() > 0 && isRunning)
+        {
+            currentSearchNode = frontierAStar.Dequeue();
+            currentSearchNode.isExplored = true;
+            ExploreNeighborsAStar();
+            if (currentSearchNode.coordinates == endCoordnaites)
+            {
+                isRunning = false;
+            }
+        }
+    }
+
+    private void ExploreNeighborsAStar()
+    {
+        List<NodeClass> neighbors = new List<NodeClass>();
+
+        foreach (Vector2Int direction in directionsAll)
+        {
+            Vector2Int neighborCoords = currentSearchNode.coordinates + direction;
+
+            if (grid.ContainsKey(neighborCoords))
+            {
+                neighbors.Add(grid[neighborCoords]);
+            }
+        }
+
+        foreach (NodeClass neighbor in neighbors)
+        {
+            if (!reached.ContainsKey(neighbor.coordinates) && neighbor.isWalkable)
+            {
+                if (currentSearchNode.costTillHere + 1 / neighbor.speed < neighbor.costTillHere)
+                {
+                    neighbor.connection = currentSearchNode;
+                    // add some value for towers here which will be added to the cost 
+                    neighbor.costTillHere = currentSearchNode.costTillHere + 1 / neighbor.speed + neighbor.hasTowersAdjecent;
+                    reached.Add(neighbor.coordinates, neighbor);
+                    frontierAStar.Enqueue(neighbor);
+                }
+            }
+        }
+    }
+
+
     /// <summary>
     /// Get the best path using Uniform cost search
     /// </summary>

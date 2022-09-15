@@ -110,7 +110,7 @@ public class PathFinding : MonoBehaviour
                 if (currentSearchNode.costTillHere + 1 / neighbor.speed < neighbor.costTillHere)
                 {
                     neighbor.connection = currentSearchNode;
-                    // add some value for towers here which will be added to the cost 
+                    // add some value for towers here which will be added to the cost, damage over time, type of 
                     neighbor.costTillHere = currentSearchNode.costTillHere + 1 / neighbor.speed + neighbor.hasTowersAdjecent;
                     reached.Add(neighbor.coordinates, neighbor);
                     frontierAStar.Enqueue(neighbor);

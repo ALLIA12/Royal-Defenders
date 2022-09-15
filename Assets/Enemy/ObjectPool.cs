@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -47,6 +48,27 @@ public class ObjectPool : MonoBehaviour
             enableObjectInPool();
             yield return new WaitForSeconds(spawnTimer);
         }
+    }
+    public void CallSpawnWaves()
+    {
+        StartCoroutine(SpawnWave());
+    }
+
+    IEnumerator SpawnWave()
+    {
+        GameObject UI = GameObject.FindGameObjectWithTag("UI");
+        if (UI == null) yield return null ;
+        Button button = UI.GetComponentInChildren<Button>();
+        button.interactable = false;
+
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(enemy, transform);
+            Debug.Log($"item  {i} has been built");
+            yield return new WaitForSeconds(1f);
+        }
+        button.interactable = true;
+
     }
 
 }

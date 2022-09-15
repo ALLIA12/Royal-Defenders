@@ -72,5 +72,7 @@ public class EnemyMover : MonoBehaviour
     {
         enemy.yoinkGoldOnExit();
         this.gameObject.SetActive(false);
+        // Destroy in case it is spawned with via wave, add check later
+        // Destroy(this.gameObject);
     }
 }

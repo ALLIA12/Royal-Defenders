@@ -19,12 +19,17 @@ public class meshSelect : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        _renderer.material.EnableKeyword("_EMISSION");
-        _renderer.material.SetColor("_EmissionColor", new Color(1.0f,0.6f,0.0f,1.0f) * 1.0f);
+        if (tag== "selectable") { 
+            _renderer.material.EnableKeyword("_EMISSION");
+            _renderer.material.SetColor("_EmissionColor", new Color(1.0f,0.6f,0.0f,1.0f) * 1.0f);
+        }
     }
 
     private void OnMouseExit()
     {
-        _renderer.material.DisableKeyword("_EMISSION");
+        if (tag == "selectable")
+        {
+            _renderer.material.DisableKeyword("_EMISSION");
+        }
     }
 }

@@ -3026,6 +3026,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7052615552342394418, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_text
       value: 20,12
@@ -3427,6 +3431,10 @@ PrefabInstance:
     - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7052615552342394418, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_text
@@ -7098,6 +7106,10 @@ PrefabInstance:
     - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7052615552342394418, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_text
@@ -14995,6 +15007,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7052615552342394418, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_text
       value: 19,12
@@ -15796,6 +15812,10 @@ PrefabInstance:
     - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7052615552342394418, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_text

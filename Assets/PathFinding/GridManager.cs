@@ -55,7 +55,7 @@ public class GridManager : MonoBehaviour
             if (grid.ContainsKey(coordinates + direction) && grid[coordinates + direction].isWalkable)
             {
                 grid[coordinates + direction].hasTowersAdjecent += changeValue;
-                Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
+                //Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
             }
         }
         Vector2Int[] directionsx2 = { Vector2Int.up*2, Vector2Int.down * 2, Vector2Int.left * 2, Vector2Int.right * 2,
@@ -69,7 +69,7 @@ public class GridManager : MonoBehaviour
             if (grid.ContainsKey(coordinates + direction) && grid[coordinates + direction].isWalkable)
             {
                 grid[coordinates + direction].hasTowersAdjecent += (changeValue / 2f);
-                Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
+                //Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
             }
         }
     }

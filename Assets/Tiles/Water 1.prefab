@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.208333, y: 6.25, z: 5.208333}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5835857497937952696}
   m_RootOrder: 2
@@ -147,7 +148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_Name
-      value: (2, -3)
+      value: Water 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956102858805560038, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7052615552342394418, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_text

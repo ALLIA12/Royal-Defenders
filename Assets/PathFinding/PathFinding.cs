@@ -49,7 +49,7 @@ public class PathFinding : MonoBehaviour
         // Implement dificulty choice here here 
         // getNewPath();
         // implement uniform here
-        getUniformPath();
+        //getUniformPath();
         // implement a* here
         getAStarPath();
 
@@ -269,19 +269,22 @@ public class PathFinding : MonoBehaviour
     }
     public bool willBlockPath(Vector2Int coordinates)
     {
+        if (coordinates == endCoordnaites) return true;
         if (grid.ContainsKey(coordinates))
         {
             bool previousState = grid[coordinates].isWalkable;
             grid[coordinates].isWalkable = false;
             // Add check for difficulty here
             //List<NodeClass> newPath = getNewPath();
-            List<NodeClass> newPath = getUniformPath();
+            //List<NodeClass> newPath = getUniformPath();
+            List<NodeClass> newPath = getAStarPath();
             grid[coordinates].isWalkable = previousState;
             if (newPath.Count <= 1)
             {
                 // Add check for difficulty here
-                // getNewPath();
-                getUniformPath();
+                //getNewPath();
+                // getUniformPath();
+                getAStarPath();
                 return true;
             }
         }

@@ -48,13 +48,29 @@ public class GridManager : MonoBehaviour
 
     public void changeCostOoNeighbors(Vector2Int coordinates)
     {
-        Vector2Int[] directionsAll = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1) };
+        Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1) };
         float changeValue = 3f;
-        foreach (Vector2Int direction in directionsAll) {
-            grid[coordinates + direction].hasTowersAdjecent+= changeValue;
-            grid[coordinates + (direction*2)].hasTowersAdjecent+= (changeValue/2f);
-            //Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
-            //Debug.Log($"{grid[coordinates + (direction * 2)]}has become {grid[coordinates + (direction * 2)].hasTowersAdjecent}");
+        foreach (Vector2Int direction in directions)
+        {
+            if (grid.ContainsKey(coordinates + direction) && grid[coordinates + direction].isWalkable)
+            {
+                grid[coordinates + direction].hasTowersAdjecent += changeValue;
+                Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
+            }
+        }
+        Vector2Int[] directionsx2 = { Vector2Int.up*2, Vector2Int.down * 2, Vector2Int.left * 2, Vector2Int.right * 2,
+                                      new Vector2Int(1, 2), new Vector2Int(2, 1), new Vector2Int(2, 2),
+                                      new Vector2Int(1, -2), new Vector2Int(2, -1), new Vector2Int(2, -2),
+                                      new Vector2Int(-1, -2), new Vector2Int(-2, -1), new Vector2Int(-2, -2),
+                                      new Vector2Int(-1, 2), new Vector2Int(-2, 1), new Vector2Int(-2, 2)
+        };
+        foreach (Vector2Int direction in directionsx2)
+        {
+            if (grid.ContainsKey(coordinates + direction) && grid[coordinates + direction].isWalkable)
+            {
+                grid[coordinates + direction].hasTowersAdjecent += (changeValue / 2f);
+                Debug.Log($"{grid[coordinates + direction]}has become {grid[coordinates + direction].hasTowersAdjecent}");
+            }
         }
     }
 

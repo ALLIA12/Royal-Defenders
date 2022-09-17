@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class Tile : MonoBehaviour
     }
     private void Start()
     {
+
         if (gridManager != null)
         {
             coordinates = gridManager.getCoordiantesFromPos(this.transform.position);
@@ -32,7 +34,9 @@ public class Tile : MonoBehaviour
     {
         return isTaken;
     }
-    private void OnMouseDown()
+
+
+    void buildTower()
     {
         if (gridManager.getGridNode(coordinates).isWalkable && !pathFinding.willBlockPath(coordinates))
         {
@@ -45,5 +49,7 @@ public class Tile : MonoBehaviour
                 pathFinding.notifiyReciviers();
             }
         }
+        
     }
+    
 }

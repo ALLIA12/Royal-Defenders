@@ -20,19 +20,14 @@ public class TowerBtnCode : MonoBehaviour
 
     private void Start()
     {
+        _keyNumber = transform.GetSiblingIndex() + 1;
         _text.SetActive(false);
         btn = GetComponent<Button>();
         _colorBlock = btn.colors;
         originalColor = btn.colors;
         btn.onClick.AddListener(pickTower);
     }
-
-    private void OnValidate()
-    {
-        _keyNumber = transform.GetSiblingIndex() + 1;
-    }
     
-
     private void pickTower()
     {
         
@@ -71,7 +66,7 @@ public class TowerBtnCode : MonoBehaviour
         IEnumerator ShowText()
         {
             _text.SetActive(true);
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(3f);
             _text.SetActive(false);
         }
         

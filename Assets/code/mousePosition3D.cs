@@ -21,7 +21,6 @@ public class mousePosition3D : MonoBehaviour
         //only detects tile layer due to layerMask
         if (Physics.Raycast(ray, out Hit , float.MaxValue, layerMask))
         {
-            //Debug.Log("aaaaaa");
             //change position
             transform.position = Hit.point;
             

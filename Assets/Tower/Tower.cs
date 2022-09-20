@@ -7,8 +7,12 @@ public class Tower : MonoBehaviour
     [SerializeField] int cost = 50;
     [SerializeField] float DelayTimer = 1f;
 
+    private int TowerType;
+    private int TowerPrice;
+
     private void Start()
     {
+        TowerType = 1;
         StartCoroutine(BuildTower());
     }
     
@@ -33,5 +37,16 @@ public class Tower : MonoBehaviour
         temp.SetActive(true);
         yield return new WaitForSeconds(DelayTimer);
         temp2.SetActive(true);
+    }
+
+    //method for choosing the type of tower from the Tower Hotbar
+    private void TowerPicker(int towerNO)
+    {
+        TowerType = towerNO;
+    }
+
+    public int getTowerPrice(int towerNO)
+    {
+        return cost;
     }
 }

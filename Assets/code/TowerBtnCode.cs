@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class TowerBtnCode : MonoBehaviour
 {
-    [SerializeField] private Bank _bank;
+    [SerializeField] Bank _bank;
     [SerializeField] Tower _tower;
+    [SerializeField] mousePosition3D _mouse;
     [SerializeField] GameObject _text;
     private int _keyNumber;
     public Color ChosenBtnClr;
@@ -38,12 +39,11 @@ public class TowerBtnCode : MonoBehaviour
         if (_bank.getCurrentGold()>=_tower.getTowerPrice(_keyNumber))
         {
             
-            Debug.Log(_keyNumber);
-            int ChildNum = btn.transform.parent.childCount;
+            _mouse.SendMessage("TowerPicker", _keyNumber);
             
+            int ChildNum = btn.transform.parent.childCount;
             for (int i = 0; i < ChildNum; i++)
             {
-                Debug.Log(i + " _ " + _keyNumber);
                 if (i==_keyNumber-1)
                 {
                     _colorBlock.normalColor = ChosenBtnClr;
@@ -76,7 +76,5 @@ public class TowerBtnCode : MonoBehaviour
         }
         
     }
-
-    
     
 }

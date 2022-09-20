@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
+  _mouse: {fileID: 1019471273}
 --- !u!114 &11361538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12183,6 +12184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  _mouse: {fileID: 1019471273}
   _text: {fileID: 387001351}
   ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &765943002
@@ -16531,6 +16533,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
+  TowerType: 0
 --- !u!4 &1019471274
 Transform:
   m_ObjectHideFlags: 0
@@ -18449,6 +18452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  _mouse: {fileID: 1019471273}
   _text: {fileID: 387001351}
   ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1108594050 stripped
@@ -20157,6 +20161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  _mouse: {fileID: 1019471273}
   _text: {fileID: 387001351}
   ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1224812676
@@ -20316,6 +20321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  _mouse: {fileID: 1019471273}
   _text: {fileID: 387001351}
   ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1234854906
@@ -21040,6 +21046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  _mouse: {fileID: 1019471273}
   _text: {fileID: 387001351}
   ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1267619962
@@ -23400,6 +23407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
+  _mouse: {fileID: 1019471273}
 --- !u!114 &1397632619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24479,6 +24487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
+  _mouse: {fileID: 1019471273}
 --- !u!114 &1457914607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33144,6 +33153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
+  _mouse: {fileID: 1019471273}
 --- !u!4 &1982910695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4956102858805560033, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
@@ -34023,6 +34033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  _mouse: {fileID: 1019471273}
   _text: {fileID: 387001351}
   ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2026856009

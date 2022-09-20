@@ -19,7 +19,6 @@ public class Tile : MonoBehaviour
     }
     private void Start()
     {
-
         if (gridManager != null)
         {
             coordinates = gridManager.getCoordiantesFromPos(this.transform.position);
@@ -36,7 +35,7 @@ public class Tile : MonoBehaviour
     }
 
 
-    void buildTower()
+    void buildTower(int towertype)
     {
         if (gridManager.getGridNode(coordinates).isWalkable && !pathFinding.willBlockPath(coordinates))
         {

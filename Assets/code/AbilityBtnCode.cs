@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class AbilityBtnCode : MonoBehaviour
 {
     [SerializeField] private Bank _bank;
-
-    private Button yourButton;
     private int _keyNumber;
     private KeyCode _keycode;
 

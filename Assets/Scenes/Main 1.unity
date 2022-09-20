@@ -12184,6 +12184,7 @@ MonoBehaviour:
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   _text: {fileID: 387001351}
+  ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &765943002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18449,6 +18450,7 @@ MonoBehaviour:
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   _text: {fileID: 387001351}
+  ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1108594050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5835857497937952696, guid: 259c8c704f37eca4aaa78b19fab3a65e, type: 3}
@@ -20156,6 +20158,7 @@ MonoBehaviour:
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   _text: {fileID: 387001351}
+  ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1224812676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20314,6 +20317,7 @@ MonoBehaviour:
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   _text: {fileID: 387001351}
+  ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1234854906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21037,6 +21041,7 @@ MonoBehaviour:
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   _text: {fileID: 387001351}
+  ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1267619962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34019,6 +34024,7 @@ MonoBehaviour:
   _bank: {fileID: 1466765201}
   _tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   _text: {fileID: 387001351}
+  ChosenBtnClr: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2026856009
 MonoBehaviour:
   m_ObjectHideFlags: 0

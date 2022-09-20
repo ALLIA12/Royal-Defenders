@@ -27,6 +27,22 @@ public class TowerBtnCode : MonoBehaviour
         originalColor = btn.colors;
         btn.onClick.AddListener(pickTower);
     }
+
+    private void Update()
+    {
+        if (_bank.getCurrentGold()<_tower.getTowerPrice(_keyNumber))
+        {
+            ColorBlock lockedClr = btn.colors;
+            lockedClr.normalColor = Color.black;
+            lockedClr.highlightedColor = Color.gray;
+            lockedClr.pressedColor = Color.gray;
+            lockedClr.selectedColor = Color.gray;
+            lockedClr.disabledColor = Color.gray;
+            btn.colors = lockedClr;
+            btn.colors = originalColor;
+            _mouse.SendMessage("TowerPicker", -1);
+        }
+    }
     
     private void pickTower()
     {
@@ -59,7 +75,7 @@ public class TowerBtnCode : MonoBehaviour
         }
         else
         {
-            
+            btn.colors = originalColor;
             StartCoroutine(ShowText());
         }
 

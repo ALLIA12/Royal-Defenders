@@ -10,11 +10,6 @@ public class mousePosition3D : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     public int TowerType;
 
-    private void Start()
-    {
-        TowerType = 1;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -31,9 +26,12 @@ public class mousePosition3D : MonoBehaviour
             
             if (Hit.collider.tag == "selectable")
             {
-                //send message to tile object (buldTower) function to build tower
-                if (Input.GetMouseButtonDown(0)) Hit.transform.SendMessage("buildTower", TowerType);
-                
+                if (TowerType>0)
+                {
+                    //send message to tile object (buldTower) function to build tower
+                    if (Input.GetMouseButtonDown(0)) Hit.transform.SendMessage("buildTower", TowerType);
+                }
+
             }
             
         }
@@ -45,6 +43,5 @@ public class mousePosition3D : MonoBehaviour
     public void TowerPicker(int towerNO)
     {
         TowerType = towerNO;
-        Debug.Log(TowerType);
     }
 }

@@ -13,8 +13,7 @@ public class meshSelect : MonoBehaviour
     {
         _renderer = GetComponentInChildren<Renderer>();
     }
-
-    // Update is called once per frame
+    
     
 
     private void OnMouseEnter()

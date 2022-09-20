@@ -6,7 +6,6 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] int cost = 50;
     [SerializeField] float DelayTimer = 1f;
-    
     private int TowerPrice;
 
     private void Start()
@@ -26,6 +25,7 @@ public class Tower : MonoBehaviour
         }
         else { return false; }
     }
+    
     IEnumerator BuildTower()
     {
         GameObject temp = this.transform.GetChild(0).gameObject;

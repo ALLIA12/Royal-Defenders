@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c21247f3f451eb47a9546377a04bd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  towers:
+  - {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  - {fileID: 608658239774256739, guid: 46da4de2011fe914598c1bbe7c1e492c, type: 3}
   isTaken: 0
   tileSpeed: 0.5
 --- !u!65 &1638582236067544620

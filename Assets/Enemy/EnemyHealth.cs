@@ -6,12 +6,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int MaxHealth;
-    int currentHealth = 0;
+    float currentHealth = 0;
     [Tooltip("This adds to max hp every time the enemy dies")]
     [SerializeField] int difficulityRamp = 60;
     Enemy enemy;
     private void OnEnable()
     {
+        MaxHealth += difficulityRamp;
         currentHealth = MaxHealth;
     }
     private void Start()
@@ -21,11 +22,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        currentHealth -= 20;
+        currentHealth -= other.GetComponent<Damage>().getDamage();
         if (currentHealth <= 0)
         {
             enemy.giveGoldOnDeath();
-            MaxHealth += difficulityRamp;
             this.gameObject.SetActive(false);
         }
     }

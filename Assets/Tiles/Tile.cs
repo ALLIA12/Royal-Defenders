@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] Tower tower;
+    [SerializeField] Tower[] towers;
     [SerializeField] bool isTaken;
     [SerializeField]
     [Range(0f, 4f)] public float tileSpeed = 0.5f;
@@ -37,9 +37,14 @@ public class Tile : MonoBehaviour
 
     void buildTower(int towertype)
     {
+        // This shit is temp
+        if (towertype != 1 && towertype != 2) {
+            Debug.Log($"{towertype} is COPE");
+            return;
+        }
         if (gridManager.getGridNode(coordinates).isWalkable && !pathFinding.willBlockPath(coordinates))
         {
-            bool isPlaced = tower.CreateTower(tower, this.transform.position);
+            bool isPlaced = towers[towertype-1].CreateTower(towers[towertype-1], this.transform.position);
             isTaken = isPlaced;
             if (isTaken)
             {

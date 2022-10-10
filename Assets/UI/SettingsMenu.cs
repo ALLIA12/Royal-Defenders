@@ -9,17 +9,21 @@ using System;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public TextMeshProUGUI label;
+    public TMP_Dropdown graphicsDropDown;
     public Resolution[] resolutions;
     public TMP_Dropdown resolutionDropDown;
 
     private void Start()
     {
+        ChangeGraphisUI();
         AddOptions();
-
-        ChangeQuailtyUI();
     }
 
+    private void ChangeGraphisUI()
+    {
+        graphicsDropDown.value = QualitySettings.GetQualityLevel();
+        graphicsDropDown.RefreshShownValue();
+    }
 
     private void AddOptions()
     {
@@ -43,14 +47,6 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropDown.AddOptions(options);
         resolutionDropDown.value = temp;
         resolutionDropDown.RefreshShownValue();
-    }
-
-    private void ChangeQuailtyUI()
-    {
-        label = GameObject.FindGameObjectWithTag("graphicsText").GetComponent<TextMeshProUGUI>();
-        if (label == null) return;
-        string temp = QualitySettings.names[QualitySettings.GetQualityLevel()];
-        label.text = temp.ToUpper();
     }
 
     public void SetVolume(float decimalVolume) {

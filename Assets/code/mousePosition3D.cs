@@ -13,7 +13,7 @@ public class mousePosition3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PauseMenu.gameIsPaused) { return; }
         //raycast
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;

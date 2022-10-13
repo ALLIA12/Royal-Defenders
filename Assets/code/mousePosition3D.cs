@@ -10,6 +10,8 @@ public class mousePosition3D : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Tower [] TowerA;
     public int TowerType;
+    public AudioSource sound;
+    public AudioClip buildSound;
     
     // Update is called once per frame
     void Update()
@@ -45,6 +47,7 @@ public class mousePosition3D : MonoBehaviour
                         bool isPlaced = TowerA[TowerType - 1].CreateTower(TowerA[TowerType - 1], Hit.transform.position);
                         Tile tile = Hit.transform.GetComponent<Tile>();
                         tile.isTaken = isPlaced;
+                        sound.PlayOneShot(buildSound);
                         if (tile.isTaken)
                         {
                             tile.gridManager.blockNode(tile.coordinates);

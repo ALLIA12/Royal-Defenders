@@ -10,7 +10,7 @@ public class mousePosition3D : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Tower [] TowerA;
     public int TowerType;
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -27,8 +27,12 @@ public class mousePosition3D : MonoBehaviour
             
             if (Hit.collider.tag == "selectable")
             {
+                
                 if (TowerType>0)
                 {
+                    Hit.collider.SendMessage("LightUp");
+                    
+                    
                     // This shit is temp
                     if (TowerType != 1 && TowerType != 2) {
                         Debug.Log($"{TowerType} is COPE");
@@ -36,7 +40,7 @@ public class mousePosition3D : MonoBehaviour
                     }
                     
                     //Code to build Tower
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButtonDown(0) && !Hit.transform.GetComponent<Tile>().isTaken)
                     {
                         bool isPlaced = TowerA[TowerType - 1].CreateTower(TowerA[TowerType - 1], Hit.transform.position);
                         Tile tile = Hit.transform.GetComponent<Tile>();
@@ -46,17 +50,19 @@ public class mousePosition3D : MonoBehaviour
                             tile.gridManager.blockNode(tile.coordinates);
                             tile.gridManager.changeCostOoNeighbors(tile.coordinates);
                             tile.pathFinding.notifiyReciviers();
+                            
                         }
                     }
+                    
                 }
 
             }
             
         }
-        
-        
+
     }
-    
+
+
     //method for choosing the type of tower from the Tower Hotbar
     public void TowerPicker(int towerNO)
     {

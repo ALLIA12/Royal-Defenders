@@ -35,7 +35,6 @@ public class TowerBtnCode : MonoBehaviour
             brnA[i] = btn.transform.parent.transform.GetChild(i).GetComponent<Button>();
         }
         btn.onClick.AddListener(pickTower);
-        
     }
 
     private void Update()

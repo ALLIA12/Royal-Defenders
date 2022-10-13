@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class TowerBtnCode : MonoBehaviour
 {
@@ -16,7 +18,8 @@ public class TowerBtnCode : MonoBehaviour
     private ColorBlock _colorBlock;
     private ColorBlock originalColor;
     private Button btn;
-
+    public Button[] brnA;
+    
 
     private void Start()
     {
@@ -25,12 +28,19 @@ public class TowerBtnCode : MonoBehaviour
         btn = GetComponent<Button>();
         _colorBlock = btn.colors;
         originalColor = btn.colors;
+        int ChildNum = btn.transform.parent.childCount;
+        brnA = new Button[ChildNum];
+        for (int i = 0; i < ChildNum; i++)
+        {
+            brnA[i] = btn.transform.parent.transform.GetChild(i).GetComponent<Button>();
+        }
         btn.onClick.AddListener(pickTower);
+        
     }
 
     private void Update()
     {
-        if (_bank.getCurrentGold()<_tower.getTowerPrice(_keyNumber))
+        if (_bank.getCurrentGold()<_tower.getTowerPrice(_keyNumber) | Input.GetMouseButtonDown(1))
         {
             ColorBlock lockedClr = btn.colors;
             lockedClr.normalColor = Color.black;
@@ -40,20 +50,22 @@ public class TowerBtnCode : MonoBehaviour
             lockedClr.disabledColor = Color.gray;
             btn.colors = lockedClr;
             btn.colors = originalColor;
-            _mouse.SendMessage("TowerPicker", -1);
+            if (_mouse.GetComponent<mousePosition3D>().gettowerType()==_keyNumber)
+            {
+                _mouse.SendMessage("TowerPicker", -1);
+            }
         }
     }
-    
+
     private void pickTower()
     {
         
         if (_bank.getCurrentGold()>=_tower.getTowerPrice(_keyNumber))
         {
-            
+
             _mouse.SendMessage("TowerPicker", _keyNumber);
             
-            int ChildNum = btn.transform.parent.childCount;
-            for (int i = 0; i < ChildNum; i++)
+            for (int i = 0; i < brnA.Length; i++)
             {
                 if (i==_keyNumber-1)
                 {
@@ -66,10 +78,7 @@ public class TowerBtnCode : MonoBehaviour
                 }
                 else
                 {
-                    int towerNum = i + 1;
-                    String childName = "Tower button (" + towerNum + ")";
-                    btn.transform.parent.Find(childName).GetComponent<TowerBtnCode>().btn.colors =
-                        originalColor;
+                    brnA[i].colors = originalColor;
                 }
             }
         }

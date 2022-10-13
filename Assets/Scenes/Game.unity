@@ -15086,6 +15086,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
+  TowerA:
+  - {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  - {fileID: 7159522732880805328, guid: 46da4de2011fe914598c1bbe7c1e492c, type: 3}
   TowerType: 0
 --- !u!4 &1019471274
 Transform:
@@ -34008,6 +34011,10 @@ PrefabInstance:
       propertyPath: _mouse
       value: 
       objectReference: {fileID: 1019471273}
+    - target: {fileID: 1234854905, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: _tower
+      value: 
+      objectReference: {fileID: 7159522732880805328, guid: 46da4de2011fe914598c1bbe7c1e492c, type: 3}
     - target: {fileID: 1267619960, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

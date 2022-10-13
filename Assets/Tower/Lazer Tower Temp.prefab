@@ -5127,7 +5127,7 @@ GameObject:
   - component: {fileID: 4943203860604020752}
   - component: {fileID: 5568301055384472549}
   - component: {fileID: 8140824392716414731}
-  - component: {fileID: 608658239774256739}
+  - component: {fileID: 7159522732880805328}
   m_Layer: 0
   m_Name: Lazer Tower Temp
   m_TagString: Untagged
@@ -5209,7 +5209,7 @@ MonoBehaviour:
   weapon: {fileID: 8805163155886856867}
   bullet: {fileID: 4057135876136576670}
   shootingRange: 100
---- !u!114 &608658239774256739
+--- !u!114 &7159522732880805328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

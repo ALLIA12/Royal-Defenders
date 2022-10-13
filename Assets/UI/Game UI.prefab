@@ -4432,6 +4432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a5ebebf3be8af4fb1b1d7ee6f03b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  transationTime: 1
   pauseMenuUI: {fileID: 567572478}
 --- !u!1 &7583493047789602783
 GameObject:

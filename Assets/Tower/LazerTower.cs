@@ -6,6 +6,7 @@ public class LazerTower : MonoBehaviour
 {
     [SerializeField] int cost = 100;
     [SerializeField] float DelayTimer = 3f;
+    //@Khalid the fuck is this value for ?
     private int TowerPrice;
 
     private void Start()

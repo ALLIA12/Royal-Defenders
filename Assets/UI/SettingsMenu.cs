@@ -59,7 +59,6 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void SetGraphics(int quailtyIndex) {
-        // This might need work later on.
         QualitySettings.SetQualityLevel(quailtyIndex);
     }
 

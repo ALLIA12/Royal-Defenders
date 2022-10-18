@@ -11,7 +11,7 @@ public class TowerBtnCode : MonoBehaviour
 {
     [SerializeField] Bank _bank;
     [SerializeField] Tower _tower;
-    [SerializeField] mousePosition3D _mouse;
+    [SerializeField] PlayerController _mouse;
     [SerializeField] GameObject _text;
     private int _keyNumber;
     public Color ChosenBtnClr;
@@ -49,7 +49,7 @@ public class TowerBtnCode : MonoBehaviour
             lockedClr.disabledColor = Color.gray;
             btn.colors = lockedClr;
             btn.colors = originalColor;
-            if (_mouse.GetComponent<mousePosition3D>().gettowerType()==_keyNumber)
+            if (_mouse.GetComponent<PlayerController>().gettowerType()==_keyNumber)
             {
                 _mouse.SendMessage("TowerPicker", -1);
             }

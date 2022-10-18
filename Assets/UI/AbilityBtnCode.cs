@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AbilityBtnCode : MonoBehaviour
 {
     [SerializeField] private Bank _bank;
-    [SerializeField] mousePosition3D _mouse;
+    [SerializeField] PlayerController _mouse;
     private int _keyNumber;
     private KeyCode _keycode;
     private ColorBlock _colorBlock;

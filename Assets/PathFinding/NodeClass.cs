@@ -28,7 +28,8 @@ public class NodeClass : IComparable<NodeClass>
         else return 0;
     }
     override
-    public string ToString() {
+    public string ToString()
+    {
         return this.coordinates.ToString();
     }
 }

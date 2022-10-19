@@ -19,7 +19,7 @@ public class PathFinding : MonoBehaviour
     Dictionary<Vector2Int, NodeClass> reached = new Dictionary<Vector2Int, NodeClass>();
 
     Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
-    Vector2Int[] directionsAll = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1,1), new Vector2Int(1,-1),new Vector2Int(-1,1), new Vector2Int(-1,-1)  };
+    Vector2Int[] directionsAll = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1) };
     GridManager gridManager;
     Dictionary<Vector2Int, NodeClass> grid = new Dictionary<Vector2Int, NodeClass>();
 
@@ -46,13 +46,18 @@ public class PathFinding : MonoBehaviour
 
     void Start()
     {
-        // Implement dificulty choice here here 
-        // getNewPath();
-        // implement uniform here
-        //getUniformPath();
-        // implement a* here
-        getAStarPath();
-
+        if (SettingsMenu.difficulty == 0)
+        {
+            getNewPath();
+        }
+        else if (SettingsMenu.difficulty == 1)
+        {
+            getUniformPath();
+        }
+        else
+        {
+            getAStarPath();
+        }
     }
     ///
     public List<NodeClass> getAStarPath()
@@ -198,9 +203,10 @@ public class PathFinding : MonoBehaviour
         {
             if (!reached.ContainsKey(neighbor.coordinates) && neighbor.isWalkable)
             {
-                if (currentSearchNode.costTillHere + 1/neighbor.speed < neighbor.costTillHere) { 
+                if (currentSearchNode.costTillHere + 1 / neighbor.speed < neighbor.costTillHere)
+                {
                     neighbor.connection = currentSearchNode;
-                    neighbor.costTillHere = currentSearchNode.costTillHere + 1/ neighbor.speed;
+                    neighbor.costTillHere = currentSearchNode.costTillHere + 1 / neighbor.speed;
                     reached.Add(neighbor.coordinates, neighbor);
                     frontierUniformCost.Enqueue(neighbor);
                 }
@@ -274,17 +280,34 @@ public class PathFinding : MonoBehaviour
         {
             bool previousState = grid[coordinates].isWalkable;
             grid[coordinates].isWalkable = false;
-            // Add check for difficulty here
-            //List<NodeClass> newPath = getNewPath();
-            //List<NodeClass> newPath = getUniformPath();
-            List<NodeClass> newPath = getAStarPath();
+            List<NodeClass> newPath;
+            if (SettingsMenu.difficulty == 0)
+            {
+                newPath = getNewPath();
+            }
+            else if (SettingsMenu.difficulty == 1)
+            {
+                newPath = getUniformPath();
+            }
+            else
+            {
+                newPath = getAStarPath();
+            }
             grid[coordinates].isWalkable = previousState;
             if (newPath.Count <= 1)
             {
-                // Add check for difficulty here
-                //getNewPath();
-                // getUniformPath();
-                getAStarPath();
+                if (SettingsMenu.difficulty == 0)
+                {
+                    getNewPath();
+                }
+                else if (SettingsMenu.difficulty == 1)
+                {
+                    getUniformPath();
+                }
+                else if (SettingsMenu.difficulty == 2)
+                {
+                    getAStarPath();
+                }
                 return true;
             }
         }

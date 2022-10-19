@@ -55,7 +55,7 @@ public class Tile : MonoBehaviour
             _renderer.material.DisableKeyword("_EMISSION");
         }
     }
-    
+
 
     public bool GetIsTaken()
     {

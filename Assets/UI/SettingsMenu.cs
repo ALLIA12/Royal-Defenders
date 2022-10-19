@@ -12,7 +12,7 @@ public class SettingsMenu : MonoBehaviour
     public TMP_Dropdown graphicsDropDown;
     public Resolution[] resolutions;
     public TMP_Dropdown resolutionDropDown;
-    public static string difficulty;
+    public static int difficulty = 0;
 
     private void Start()
     {
@@ -76,8 +76,9 @@ public class SettingsMenu : MonoBehaviour
         Screen.SetResolution(temp.width, temp.height, Screen.fullScreen);
     }
 
-    public static void SetDifficulty(string difficultySettings)
+    public static void SetDifficulty(int difficultySettings)
     {
         difficulty = difficultySettings;
     }
+
 }

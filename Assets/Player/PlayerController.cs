@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
                 {
                     Hit.collider.SendMessage("LightUp");
 
-
                     // This shit is temp
                     if (TowerType != 1 && TowerType != 2)
                     {
@@ -43,28 +42,40 @@ public class PlayerController : MonoBehaviour
                     }
                     Tile tile = Hit.transform.GetComponent<Tile>();
                     //Code to build Tower
-                    if (tile.gridManager.getGridNode(tile.coordinates).isWalkable && !tile.pathFinding.willBlockPath(tile.coordinates))
+                    // For hard difficulty don't show the new path, just needed to change the order of the if statment
+                    if (SettingsMenu.difficulty == 2)
                     {
-                        if (Input.GetMouseButtonDown(0) && !Hit.transform.GetComponent<Tile>().isTaken)
+                        if (tile.gridManager.getGridNode(tile.coordinates).isWalkable && !Hit.transform.GetComponent<Tile>().isTaken && Input.GetMouseButtonDown(0) && !tile.pathFinding.willBlockPath(tile.coordinates))
                         {
-                            bool isPlaced = TowerA[TowerType - 1].CreateTower(TowerA[TowerType - 1], Hit.transform.position);
-                            tile.isTaken = isPlaced;
-                            sound.PlayOneShot(buildSound);
-                            if (tile.isTaken)
-                            {
-                                tile.gridManager.blockNode(tile.coordinates);
-                                tile.gridManager.changeCostOoNeighbors(tile.coordinates);
-                                tile.pathFinding.notifiyReciviers();
-                            }
+                            BuildTower(tile, Hit);
                         }
                     }
-
+                    else
+                    {
+                        if (tile.gridManager.getGridNode(tile.coordinates).isWalkable && !Hit.transform.GetComponent<Tile>().isTaken && !tile.pathFinding.willBlockPath(tile.coordinates) && Input.GetMouseButtonDown(0))
+                        {
+                            BuildTower(tile, Hit);
+                        }
+                    }
                 }
 
             }
 
         }
 
+    }
+
+    private void BuildTower(Tile tile, RaycastHit hit)
+    {
+        bool isPlaced = TowerA[TowerType - 1].CreateTower(TowerA[TowerType - 1], hit.transform.position);
+        tile.isTaken = isPlaced;
+        sound.PlayOneShot(buildSound);
+        if (tile.isTaken)
+        {
+            tile.gridManager.blockNode(tile.coordinates);
+            tile.gridManager.changeCostOoNeighbors(tile.coordinates);
+            tile.pathFinding.notifiyReciviers();
+        }
     }
 
 

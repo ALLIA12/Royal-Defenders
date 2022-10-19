@@ -8,7 +8,7 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] ParticleSystem bullet;
     [SerializeField] float shootingRange = 15f;
     Transform target;
-
+    int targetsInRange;
 
     void Update()
     {
@@ -17,10 +17,11 @@ public class TargetLocator : MonoBehaviour
     }
     void FindClosesetEnemy()
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
         Transform closestEnemy = null;
         float maxDistance = Mathf.Infinity;
-        foreach (Enemy enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
             float targetDistance = Vector3.Distance(this.transform.position, enemy.transform.position);
             if (maxDistance > targetDistance)
@@ -35,7 +36,7 @@ public class TargetLocator : MonoBehaviour
     {
         if (target == null) return;
         float targetDistance = Vector3.Distance(transform.position, target.position);
-        weapon.LookAt(target);  
+        weapon.LookAt(target);
         if (targetDistance <= shootingRange)
         {
             AttackToogle(true);
@@ -49,5 +50,10 @@ public class TargetLocator : MonoBehaviour
     {
         var temp = bullet.emission;
         temp.enabled = isActive;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, shootingRange);
     }
 }

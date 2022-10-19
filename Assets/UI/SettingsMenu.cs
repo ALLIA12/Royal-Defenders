@@ -12,6 +12,7 @@ public class SettingsMenu : MonoBehaviour
     public TMP_Dropdown graphicsDropDown;
     public Resolution[] resolutions;
     public TMP_Dropdown resolutionDropDown;
+    public static string difficulty;
 
     private void Start()
     {
@@ -41,7 +42,7 @@ public class SettingsMenu : MonoBehaviour
             if (item.width == Screen.currentResolution.width &&
                 item.height == Screen.currentResolution.height)
             {
-                temp = i; 
+                temp = i;
             }
         }
         resolutionDropDown.AddOptions(options);
@@ -49,7 +50,8 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropDown.RefreshShownValue();
     }
 
-    public void SetVolume(float decimalVolume) {
+    public void SetVolume(float decimalVolume)
+    {
         var dbVolume = Mathf.Log10(decimalVolume) * 20;
         if (decimalVolume == 0.0f)
         {
@@ -58,16 +60,24 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("Volume", dbVolume);
     }
 
-    public void SetGraphics(int quailtyIndex) {
+    public void SetGraphics(int quailtyIndex)
+    {
         QualitySettings.SetQualityLevel(quailtyIndex);
     }
 
-    public void SetFullScreen(bool isFullScreen) {
-        Screen.fullScreen = isFullScreen; 
+    public void SetFullScreen(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
     }
 
-    public void SetResolution(int resolutionIndex) {
-        Resolution temp= resolutions[resolutionIndex];
-        Screen.SetResolution(temp.width,temp.height, Screen.fullScreen);
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution temp = resolutions[resolutionIndex];
+        Screen.SetResolution(temp.width, temp.height, Screen.fullScreen);
+    }
+
+    public static void SetDifficulty(string difficultySettings)
+    {
+        difficulty = difficultySettings;
     }
 }

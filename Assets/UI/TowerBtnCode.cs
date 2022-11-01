@@ -3,23 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
-public class TowerBtnCode : MonoBehaviour
+public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Bank _bank;
     [SerializeField] Tower _tower;
     [SerializeField] PlayerController _mouse;
     [SerializeField] GameObject _text;
+    [SerializeField] GameObject goldUI;
     private int _keyNumber;
     public Color ChosenBtnClr;
     private ColorBlock _colorBlock;
     private ColorBlock originalColor;
     private Button btn;
     public Button[] brnA;
-    
+
 
     private void Start()
     {
@@ -39,7 +41,7 @@ public class TowerBtnCode : MonoBehaviour
 
     private void Update()
     {
-        if (_bank.getCurrentGold()<_tower.getTowerPrice(_keyNumber) | Input.GetMouseButtonDown(1))
+        if (_bank.getCurrentGold() < _tower.getTowerPrice() | Input.GetMouseButtonDown(1))
         {
             ColorBlock lockedClr = btn.colors;
             lockedClr.normalColor = Color.black;
@@ -49,7 +51,7 @@ public class TowerBtnCode : MonoBehaviour
             lockedClr.disabledColor = Color.gray;
             btn.colors = lockedClr;
             btn.colors = originalColor;
-            if (_mouse.GetComponent<PlayerController>().gettowerType()==_keyNumber)
+            if (_mouse.GetComponent<PlayerController>().gettowerType() == _keyNumber)
             {
                 _mouse.SendMessage("TowerPicker", -1);
             }
@@ -58,15 +60,15 @@ public class TowerBtnCode : MonoBehaviour
 
     private void pickTower()
     {
-        
-        if (_bank.getCurrentGold()>=_tower.getTowerPrice(_keyNumber))
+
+        if (_bank.getCurrentGold() >= _tower.getTowerPrice())
         {
 
             _mouse.SendMessage("TowerPicker", _keyNumber);
-            
+
             for (int i = 0; i < brnA.Length; i++)
             {
-                if (i==_keyNumber-1)
+                if (i == _keyNumber - 1)
                 {
                     _colorBlock.normalColor = ChosenBtnClr;
                     _colorBlock.highlightedColor = ChosenBtnClr;
@@ -93,7 +95,24 @@ public class TowerBtnCode : MonoBehaviour
             yield return new WaitForSeconds(3f);
             _text.SetActive(false);
         }
-        
+
     }
-    
+
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (goldUI == null) { Debug.Log("COPE HARDER"); return; }
+        goldUI.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (goldUI == null)
+        {
+            Debug.Log("COPE HARDER");
+            return;
+        }
+
+        goldUI.SetActive(false);
+    }
 }

@@ -37,7 +37,7 @@ public class Tower : MonoBehaviour
         temp2.SetActive(true);
     }
 
-    public int getTowerPrice(int towerNO)
+    public int getTowerPrice()
     {
         return cost;
     }

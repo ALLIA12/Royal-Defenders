@@ -32,8 +32,8 @@ public class PathFinding : MonoBehaviour
             startNode = grid[startCoordinates];
             endNode = grid[endCoordnaites];
         }
-
     }
+
     public Vector2Int getStartCoordinates()
     {
         return startCoordinates;

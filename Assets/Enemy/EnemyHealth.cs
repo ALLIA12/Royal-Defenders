@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             enemy.giveGoldOnDeath();
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 

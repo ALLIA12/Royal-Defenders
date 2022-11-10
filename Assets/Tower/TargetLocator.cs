@@ -18,6 +18,12 @@ public class TargetLocator : MonoBehaviour
     void FindClosesetEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+        if (enemies.Length == 0)
+        {
+            target = null;
+            AttackToogle(false);
+            return;
+        }
         Transform closestEnemy = null;
         float maxDistance = Mathf.Infinity;
         foreach (GameObject enemy in enemies)

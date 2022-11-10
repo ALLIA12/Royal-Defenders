@@ -13,7 +13,6 @@ public class SettingsMenu : MonoBehaviour
     public Resolution[] resolutions;
     public TMP_Dropdown resolutionDropDown;
     public static int difficulty = 0;
-
     private void Start()
     {
         ChangeGraphisUI();
@@ -80,5 +79,6 @@ public class SettingsMenu : MonoBehaviour
     {
         difficulty = difficultySettings;
     }
+
 
 }

@@ -9,17 +9,19 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public Animator animator;
     public float transationTime = 1f;
-    [SerializeField] public GameObject pauseMenuUI =null;
+    [SerializeField] public GameObject pauseMenuUI = null;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
             if (gameIsPaused)
             {
                 // Resume
                 ResumeGame();
             }
-            else {
+            else
+            {
                 //Pause
                 PauseGame();
             }
@@ -29,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     private void PauseGame()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale =0f;
+        Time.timeScale = 0f;
         gameIsPaused = true;
 
     }
@@ -37,22 +39,25 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = SpeedChanger.currentSpeed;
         gameIsPaused = false;
     }
 
-    public void LoadMenu() {
+    public void LoadMenu()
+    {
         ResumeGame();
         StartCoroutine(LoadCorutine());
     }
 
-    IEnumerator LoadCorutine() {
+    IEnumerator LoadCorutine()
+    {
         animator.SetTrigger("Start");
         yield return new WaitForSeconds(transationTime);
         SceneManager.LoadScene(0);
     }
 
-    public void QuitGame() {
+    public void QuitGame()
+    {
         Debug.Log("Game closed COPE");
         Application.Quit();
     }

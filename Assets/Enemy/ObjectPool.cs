@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
-    [SerializeField] [Range(0, 50)] int poolSize = 10;
-    [SerializeField] [Range(0.1f, 10f)] float spawnTimer = 1f;
+    [SerializeField][Range(0, 50)] int poolSize = 10;
+    [SerializeField][Range(0.1f, 10f)] float spawnTimer = 1f;
     GameObject[] pool;
     // Start is called before the first frame update
     private void Awake()
@@ -15,10 +15,7 @@ public class ObjectPool : MonoBehaviour
         FillPool();
     }
 
-    void Start()
-    {
-        StartCoroutine(PopEnemies());
-    }
+
     void FillPool()
     {
         pool = new GameObject[poolSize];
@@ -29,45 +26,23 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    void enableObjectInPool()
+    private void Update()
     {
-        for (int i = 0; i < pool.Length; i++)
+        if (transform.childCount == 0)
         {
-            if (!pool[i].activeInHierarchy) 
-            {
-                pool[i].SetActive(true);
-                return;
-            }
+            gameObject.SetActive(false);
         }
     }
 
-    IEnumerator PopEnemies()
+    public IEnumerator SpawnWave()
     {
-        while (true)
+        int i = 0;
+        while (pool.Length != i)
         {
-            enableObjectInPool();
+            pool[i].SetActive(true);
             yield return new WaitForSeconds(spawnTimer);
+            i++;
         }
-    }
-    public void CallSpawnWaves()
-    {
-        StartCoroutine(SpawnWave());
-    }
-
-    IEnumerator SpawnWave()
-    {
-        GameObject UI = GameObject.FindGameObjectWithTag("UI");
-        if (UI == null) yield return null ;
-        Button button = UI.GetComponentInChildren<Button>();
-        button.interactable = false;
-
-        for (int i = 0; i < 5; i++)
-        {
-            Instantiate(enemy, transform);
-            Debug.Log($"item  {i} has been built");
-            yield return new WaitForSeconds(1f);
-        }
-        button.interactable = true;
 
     }
 

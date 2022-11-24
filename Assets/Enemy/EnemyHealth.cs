@@ -7,12 +7,12 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int MaxHealth;
     float currentHealth = 0;
-    [Tooltip("This adds to max hp every time the enemy dies")]
-    [SerializeField] int difficulityRamp = 60;
+    //[Tooltip("This adds to max hp every time the enemy dies")]
+    //[SerializeField] int difficulityRamp = 60;
     Enemy enemy;
     private void OnEnable()
     {
-        MaxHealth += difficulityRamp;
+        //MaxHealth += difficulityRamp;
         currentHealth = MaxHealth;
     }
     private void Start()
@@ -22,11 +22,21 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        currentHealth -= other.GetComponent<Damage>().getDamage();
-        if (currentHealth <= 0)
+        ParticleHandler particleHandler = other.GetComponent<ParticleHandler>();
+        if (!particleHandler.getSlowsDown()) // doesn't slow down
         {
-            enemy.giveGoldOnDeath();
-            Destroy(this.gameObject);
+            currentHealth -= particleHandler.getDamage();
+            if (currentHealth <= 0)
+            {
+                enemy.giveGoldOnDeath();
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            // change slow down modifor
+            // TDL make it variable
+            enemy.gameObject.GetComponent<EnemyMover>().slowDownModifor = .5f; 
         }
     }
 

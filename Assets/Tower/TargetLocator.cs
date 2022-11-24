@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,19 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] ParticleSystem bullet;
     [SerializeField] float shootingRange = 15f;
     Transform target;
-    int targetsInRange;
+    [SerializeField] bool shootAoe = false;
 
     void Update()
     {
-        FindClosesetEnemy();
-        AimWeapon();
+        if (!shootAoe)
+        {
+            FindClosesetEnemy();
+            AimWeapon();
+        }
+        else
+        {
+            // shoot bursts
+        }
     }
     void FindClosesetEnemy()
     {

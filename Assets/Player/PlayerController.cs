@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
                     Hit.collider.SendMessage("LightUp");
 
                     // This shit is temp
-                    if (TowerType != 1 && TowerType != 2)
+                    if (TowerType != 1 && TowerType != 2 && TowerType != 3)
                     {
                         Debug.Log($"{TowerType} is COPE");
                         return;

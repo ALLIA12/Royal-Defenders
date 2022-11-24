@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField][Range(0f, 4f)] public float speedModifor = 1f;
+    public float slowDownModifor = 1f;
     Enemy enemy;
     List<NodeClass> path = new List<NodeClass>();
     PathFinding pathFinding;
@@ -17,12 +18,15 @@ public class EnemyMover : MonoBehaviour
         enemy = GetComponent<Enemy>();
 
     }
+    private void Update()
+    {
+        // change slowDownModifor back to normal if it isn't
+        slowDownModifor = Mathf.Lerp(slowDownModifor, 1, Time.deltaTime/8);
+    }
     private void OnEnable()
     {
         retunrToStart();
         RecalculatePath(true);
-        speedModifor += 0.1f;
-        speedModifor = Mathf.Clamp(speedModifor, 0f, 4f);
     }
 
     void RecalculatePath(bool ressetPath)
@@ -68,7 +72,7 @@ public class EnemyMover : MonoBehaviour
             transform.LookAt(endPos);
             while (travelPercent < 1)
             {
-                travelPercent += Time.deltaTime * speedModifor;
+                travelPercent += Time.deltaTime * speedModifor * slowDownModifor;
                 transform.position = Vector3.Lerp(startPos, endPos, travelPercent);
                 yield return new WaitForEndOfFrame();
             }

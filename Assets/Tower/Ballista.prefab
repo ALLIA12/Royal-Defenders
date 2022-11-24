@@ -144,6 +144,7 @@ MonoBehaviour:
   weapon: {fileID: 3144582324300694500}
   bullet: {fileID: 5217107241462738310}
   shootingRange: 30
+  shootAoe: 0
 --- !u!114 &-8129081288077187653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5152,3 +5153,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  slowsDown: 0

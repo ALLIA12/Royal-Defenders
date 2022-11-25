@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyHealth : MonoBehaviour
 {
+    public ParticleSystem explosion;
     [SerializeField] int MaxHealth;
     float currentHealth = 0;
     //[Tooltip("This adds to max hp every time the enemy dies")]
@@ -29,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
             if (currentHealth <= 0)
             {
                 enemy.giveGoldOnDeath();
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

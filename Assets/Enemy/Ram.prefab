@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedModifor: 0.17
+  slowDownModifor: 1
 --- !u!65 &4359052593134902621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -253,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7bc12f54c56a59429ed42ef46f691de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 4313568896475987328, guid: 8644a1d4a9647c84f89241dac5568b92, type: 3}
   MaxHealth: 200
-  difficulityRamp: 50
 --- !u!114 &5313814869134647872
 MonoBehaviour:
   m_ObjectHideFlags: 0

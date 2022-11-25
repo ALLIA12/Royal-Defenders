@@ -49,15 +49,25 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropDown.RefreshShownValue();
     }
 
-    public void SetVolume(float decimalVolume)
+    /*public void SetMusic(float decimalVolume)
     {
         var dbVolume = Mathf.Log10(decimalVolume) * 20;
         if (decimalVolume == 0.0f)
         {
             dbVolume = -80.0f;
         }
-        audioMixer.SetFloat("Volume", dbVolume);
+        musicMixerGroup.audioMixer.SetFloat("Music Volume", dbVolume);
     }
+
+    public void SetSE(float decimalVolume)
+    {
+        var dbVolume = Mathf.Log10(decimalVolume) * 20;
+        if (decimalVolume == 0.0f)
+        {
+            dbVolume = -80.0f;
+        }
+        soundEffectsMixerGroup.audioMixer.SetFloat("Music Volume", dbVolume);
+    }*/
 
     public void SetGraphics(int quailtyIndex)
     {

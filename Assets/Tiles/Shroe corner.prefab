@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: isTaken
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1827048050646850300, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
+      propertyPath: canPlaceTower
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4732442262417367330, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
       propertyPath: m_Mesh
       value: 

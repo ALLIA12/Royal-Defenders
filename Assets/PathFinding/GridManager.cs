@@ -45,11 +45,17 @@ public class GridManager : MonoBehaviour
             grid[coordinates].isWalkable = false;
         }
     }
+    public void unblockNode(Vector2Int coordinates)
+    {
+        if (grid.ContainsKey(coordinates))
+        {
+            grid[coordinates].isWalkable = true;
+        }
+    }
 
-    public void changeCostOoNeighbors(Vector2Int coordinates)
+    public void changeCostOoNeighbors(Vector2Int coordinates, float  changeValue)
     {
         Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down, new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1) };
-        float changeValue = 3f;
         foreach (Vector2Int direction in directions)
         {
             if (grid.ContainsKey(coordinates + direction) && grid[coordinates + direction].isWalkable)

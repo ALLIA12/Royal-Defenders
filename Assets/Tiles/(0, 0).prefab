@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTaken: 0
+  towerBuilt: 0
   tileSpeed: 0.5
   gridManager: {fileID: 0}
   pathFinding: {fileID: 0}

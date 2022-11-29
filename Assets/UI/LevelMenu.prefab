@@ -2663,6 +2663,9 @@ MonoBehaviour:
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
+  level4: {fileID: 0}
+  animator: {fileID: 0}
+  transationTime: 1
 --- !u!1 &4541608637866444044
 GameObject:
   m_ObjectHideFlags: 0

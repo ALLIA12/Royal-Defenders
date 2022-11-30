@@ -53,9 +53,9 @@ public class Tower : MonoBehaviour
         return cost;
     }
 
-    public void ShowCanvas()
+    public void ShowCanvas(bool active)
     {
-        canvas.SetActive(true);
+        canvas.SetActive(active);
     }
     public void DestroyTower()
     {

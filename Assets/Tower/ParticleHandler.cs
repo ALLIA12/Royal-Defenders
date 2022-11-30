@@ -14,4 +14,8 @@ public class ParticleHandler : MonoBehaviour
     {
         return this.slowsDown;
     }
+    public void IncreaseDmage(float increase)
+    {
+        damage += Mathf.Abs(increase);
+    }
 }

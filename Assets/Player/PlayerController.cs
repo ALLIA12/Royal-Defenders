@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,13 +13,16 @@ public class PlayerController : MonoBehaviour
     public int TowerType;
     public AudioSource sound;
     public AudioClip buildSound;
-
+    private Tile oldTile;
     // Update is called once per frame
     void Update()
     {
         if (PauseMenu.gameIsPaused) { return; }
-        ConsctructingTowers();
-        ShowTowerMenu();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            ConsctructingTowers();
+            ShowTowerMenu();
+        }
     }
     private void ShowTowerMenu()
     {
@@ -41,7 +45,13 @@ public class PlayerController : MonoBehaviour
                 if (tile.hasTower && Input.GetMouseButtonDown(2))
                 {
                     Debug.Log("COPE");
-                    tile.currentTower.GetComponent<Tower>().ShowCanvas();
+                    if (oldTile!= null)
+                    {
+                        oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                    }
+                    tile.currentTower.GetComponent<Tower>().ShowCanvas(true);
+                    oldTile = tile;
+
                     //BuildTower(tile, Hit);
                 }
 

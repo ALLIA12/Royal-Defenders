@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TargetLocator : MonoBehaviour
 {
@@ -68,5 +69,33 @@ public class TargetLocator : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, shootingRange);
+    }
+
+    public void IncreaseDamage(float increase)
+    {
+        Bank bank = FindObjectOfType<Bank>();
+        if (bank == null)
+        {
+            return;
+        }
+        if (bank.getCurrentGold() >= 20)
+        {
+            bullet.GetComponent<ParticleHandler>().IncreaseDmage(increase);
+            bank.withdrawGold(20);
+        }
+    }
+
+    public void IncreaseRange(float increase)
+    {
+        Bank bank = FindObjectOfType<Bank>();
+        if (bank == null)
+        {
+            return;
+        }
+        if (bank.getCurrentGold() >= 20)
+        {
+            shootingRange += increase;
+            bank.withdrawGold(20);
+        }
     }
 }

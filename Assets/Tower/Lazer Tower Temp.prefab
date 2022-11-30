@@ -5225,3 +5225,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 100
   DelayTimer: 3
+  canvas: {fileID: 0}

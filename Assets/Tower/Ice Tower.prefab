@@ -170,7 +170,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5267,7 +5267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 8805163155886856867}
   bullet: {fileID: 4057135876136576670}
-  shootingRange: 50
+  shootingRange: 100
   shootAoe: 1
 --- !u!114 &7159522732880805328
 MonoBehaviour:
@@ -5283,3 +5283,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 100
   DelayTimer: 3
+  canvas: {fileID: 0}

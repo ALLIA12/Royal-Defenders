@@ -15158,7 +15158,7 @@ MonoBehaviour:
     m_Bits: 8
   TowerA:
   - {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
-  - {fileID: 1919127078413863344, guid: 46da4de2011fe914598c1bbe7c1e492c, type: 3}
+  - {fileID: 7159522732880805328, guid: 8d3ebab3c63fff147ac50b9c3635f3b7, type: 3}
   - {fileID: 7159522732880805328, guid: a3ced7eb94f06614583b4ff481c71787, type: 3}
   TowerType: 0
   sound: {fileID: 2001382558}

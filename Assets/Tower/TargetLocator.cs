@@ -46,6 +46,7 @@ public class TargetLocator : MonoBehaviour
         }
         target = closestEnemy;
     }
+
     void AimWeapon()
     {
         if (target == null) return;

@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7bc12f54c56a59429ed42ef46f691de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 4313568896475987328, guid: 8644a1d4a9647c84f89241dac5568b92, type: 3}
-  MaxHealth: 2147483647
+  explosion: {fileID: 198717222519016466, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+  MaxHealth: 100
 --- !u!114 &5313814869134647872
 MonoBehaviour:
   m_ObjectHideFlags: 0

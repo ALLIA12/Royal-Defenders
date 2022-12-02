@@ -900,6 +900,7 @@ MonoBehaviour:
   bullet: {fileID: 6577426187273021333}
   shootingRange: 30
   shootAoe: 0
+  sound: {fileID: 4313568896475987328, guid: 8644a1d4a9647c84f89241dac5568b92, type: 3}
 --- !u!114 &-8129081288077187653
 MonoBehaviour:
   m_ObjectHideFlags: 0

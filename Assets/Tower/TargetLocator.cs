@@ -11,6 +11,9 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] float shootingRange = 15f;
     Transform target;
     [SerializeField] bool shootAoe = false;
+    [SerializeField] public ParticleSystem sound;
+    float timer = 0;
+    bool bulletSoundChecker = false;
 
     void Update()
     {
@@ -18,12 +21,22 @@ public class TargetLocator : MonoBehaviour
         {
             FindClosesetEnemy();
             AimWeapon();
+            if(timer > 30 && bulletSoundChecker){
+                timer = 0;
+                Instantiate(sound, transform.position, Quaternion.identity);
+            }
         }
         else
         {
             // shoot bursts
         }
     }
+
+void FixedUpdate(){
+    if(bulletSoundChecker){
+        ++timer;
+    }
+}
     void FindClosesetEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
@@ -65,6 +78,7 @@ public class TargetLocator : MonoBehaviour
     {
         var temp = bullet.emission;
         temp.enabled = isActive;
+        bulletSoundChecker = isActive;
     }
     private void OnDrawGizmos()
     {

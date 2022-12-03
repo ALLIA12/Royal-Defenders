@@ -5081,6 +5081,37 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7424969195285833503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3565973508702699367}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3565973508702699367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424969195285833503}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8805163155886856867}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8289687044889092730
 GameObject:
   m_ObjectHideFlags: 0
@@ -5175,6 +5206,7 @@ MonoBehaviour:
   bullet: {fileID: 4057135876136576670}
   shootingRange: 100
   shootAoe: 1
+  sound: {fileID: 0}
 --- !u!114 &7159522732880805328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5190,65 +5222,3 @@ MonoBehaviour:
   cost: 100
   DelayTimer: 3
   canvas: {fileID: 0}
---- !u!1001 &3742364908893816992
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8805163155886856867}
-    m_Modifications:
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.772
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99144495
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.13052596
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6573666377065701992, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-      propertyPath: m_Name
-      value: Spot Light
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
---- !u!4 &3565973508702699367 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 185614114736682951, guid: 185eb03f88e96274da255f18da5b8c99, type: 3}
-  m_PrefabInstance: {fileID: 3742364908893816992}
-  m_PrefabAsset: {fileID: 0}

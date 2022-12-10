@@ -8,6 +8,8 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField][Range(0, 50)] int poolSize = 10;
     [SerializeField][Range(0.1f, 10f)] float spawnTimer = 1f;
+    [SerializeField][Range(1, 50)] float burstTimer = 5;
+    [SerializeField][Range(1, 50)] int burstSize = 5;
     GameObject[] pool;
     // Start is called before the first frame update
     private void Awake()
@@ -42,6 +44,10 @@ public class ObjectPool : MonoBehaviour
             pool[i].SetActive(true);
             yield return new WaitForSeconds(spawnTimer);
             i++;
+            if (i%burstSize==0)
+            {
+                yield return new WaitForSeconds(burstTimer);
+            }
         }
 
     }

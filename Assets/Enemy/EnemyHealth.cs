@@ -23,7 +23,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("HIT");
         ParticleHandler particleHandler = other.GetComponent<ParticleHandler>();
         if (!particleHandler.getSlowsDown()) // doesn't slow down
         {
@@ -38,8 +37,7 @@ public class EnemyHealth : MonoBehaviour
         else
         {
             // change slow down modifor
-            // TDL make it variable
-            enemy.gameObject.GetComponent<EnemyMover>().slowDownModifor = .5f; 
+            enemy.gameObject.GetComponent<EnemyMover>().slowDownModifor = 1 - particleHandler.getSlowDownModifier();
         }
     }
 

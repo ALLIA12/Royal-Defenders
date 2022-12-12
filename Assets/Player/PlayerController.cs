@@ -22,8 +22,22 @@ public class PlayerController : MonoBehaviour
         {
             ConsctructingTowers();
             ShowTowerMenu();
+            RemoveCurrentMenu();
         }
     }
+
+    private void RemoveCurrentMenu()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (oldTile != null)
+            {
+                oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                oldTile = null;
+            }
+        }
+    }
+
     private void ShowTowerMenu()
     {
         //raycast
@@ -45,7 +59,7 @@ public class PlayerController : MonoBehaviour
                 if (tile.hasTower && Input.GetMouseButtonDown(2))
                 {
                     Debug.Log("COPE");
-                    if (oldTile!= null)
+                    if (oldTile != null)
                     {
                         oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
                     }

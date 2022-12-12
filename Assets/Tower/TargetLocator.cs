@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class TargetLocator : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class TargetLocator : MonoBehaviour
     Transform target;
     [SerializeField] bool shootAoe = false;
     [SerializeField] public ParticleSystem sound;
+    [SerializeField] public int upgradePenelty = 5;
+    [SerializeField] public int maxUpgradePrice = 100;
+    [SerializeField] public GameObject durationButton;
+    [SerializeField] public GameObject slowDownButton;
+    private int upgradePrice = 20;
     float timer = 0;
     bool bulletSoundChecker = false;
 
@@ -21,7 +27,8 @@ public class TargetLocator : MonoBehaviour
         {
             FindClosesetEnemy();
             AimWeapon();
-            if(timer > 30 && bulletSoundChecker){
+            if (timer > 30 && bulletSoundChecker)
+            {
                 timer = 0;
                 Instantiate(sound, transform.position, Quaternion.identity);
             }
@@ -32,11 +39,13 @@ public class TargetLocator : MonoBehaviour
         }
     }
 
-void FixedUpdate(){
-    if(bulletSoundChecker){
-        ++timer;
+    void FixedUpdate()
+    {
+        if (bulletSoundChecker)
+        {
+            ++timer;
+        }
     }
-}
     void FindClosesetEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
@@ -93,10 +102,29 @@ void FixedUpdate(){
         {
             return;
         }
-        if (bank.getCurrentGold() >= 20)
+        if (bank.getCurrentGold() >= upgradePrice)
         {
             bullet.GetComponent<ParticleHandler>().IncreaseDmage(increase);
-            bank.withdrawGold(20);
+            bank.withdrawGold(upgradePrice);
+            int newPrice = upgradePrice + upgradePenelty;
+            upgradePrice = Math.Min(maxUpgradePrice, newPrice);
+        }
+    }
+    public void IncreaseRate(float increase)
+    {
+        Bank bank = FindObjectOfType<Bank>();
+        if (bank == null)
+        {
+            return;
+        }
+        if (bank.getCurrentGold() >= upgradePrice)
+        {
+            var emission = bullet.emission;
+            emission.rateOverTime = emission.rateOverTime.constant + increase;
+            Debug.Log(emission.rateOverTime.constant);
+            bank.withdrawGold(upgradePrice);
+            int newPrice = upgradePrice + upgradePenelty;
+            upgradePrice = Math.Min(maxUpgradePrice, newPrice);
         }
     }
 
@@ -107,10 +135,61 @@ void FixedUpdate(){
         {
             return;
         }
-        if (bank.getCurrentGold() >= 20)
+        if (bank.getCurrentGold() >= upgradePrice)
         {
             shootingRange += increase;
-            bank.withdrawGold(20);
+            bank.withdrawGold(upgradePrice);
+            int newPrice = upgradePrice + upgradePenelty;
+            upgradePrice = Math.Min(maxUpgradePrice, newPrice);
+        }
+    }
+    public void DecreaseDuration(float decrease)
+    {
+        Bank bank = FindObjectOfType<Bank>();
+        if (bank == null)
+        {
+            return;
+        }
+        if (bank.getCurrentGold() >= upgradePrice)
+        {
+            bullet.Stop();
+            bullet.Clear();
+            var main = bullet.main;
+            float newDuration = main.duration - decrease;
+            main.duration = newDuration;
+            bank.withdrawGold(upgradePrice);
+            int newPrice = upgradePrice + upgradePenelty;
+            upgradePrice = Math.Min(maxUpgradePrice, newPrice);
+            if (newDuration <= 1)
+            {
+                main.duration = 1;
+                Button button = durationButton.GetComponent<Button>();
+                button.interactable = false;
+            }
+            bullet.Play();
+        }
+    }
+    public void IncreaseSlowDown(float increase)
+    {
+        Bank bank = FindObjectOfType<Bank>();
+        if (bank == null)
+        {
+            return;
+        }
+        if (bank.getCurrentGold() >= upgradePrice)
+        {
+            bullet.GetComponent<ParticleHandler>().IncreaseSlowDownModifier(increase);
+            bank.withdrawGold(upgradePrice);
+            int newPrice = upgradePrice + upgradePenelty;
+            upgradePrice = Math.Min(maxUpgradePrice, newPrice);
+            float temp = bullet.GetComponent<ParticleHandler>().getSlowDownModifier();
+            // if we go past this point, its too powerful
+            if (temp >= .90f)
+            {                
+                bullet.GetComponent<ParticleHandler>().SetSlowDownModifier(.90f);
+                Button button = slowDownButton.GetComponent<Button>();
+                button.interactable = false;
+            }
         }
     }
 }

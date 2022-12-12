@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParticleHandler : MonoBehaviour
 {
     [SerializeField] float damage;
+    [SerializeField] float slowDownModifier;
     public bool slowsDown = false;
     public float getDamage()
     {
@@ -17,5 +18,17 @@ public class ParticleHandler : MonoBehaviour
     public void IncreaseDmage(float increase)
     {
         damage += Mathf.Abs(increase);
+    }
+    public float getSlowDownModifier()
+    {
+        return this.slowDownModifier;
+    }
+    public void SetSlowDownModifier(float newValue)
+    {
+        slowDownModifier = newValue;
+    }
+    public void IncreaseSlowDownModifier(float increase)
+    {
+        slowDownModifier += Mathf.Abs(increase);
     }
 }

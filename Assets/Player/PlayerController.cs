@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Tower[] TowerA;
     public int TowerType;
+    public int abilityType;
     public AudioSource sound;
     public AudioClip buildSound;
     private Tile oldTile;
@@ -20,11 +21,39 @@ public class PlayerController : MonoBehaviour
         if (PauseMenu.gameIsPaused) { return; }
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            ConsctructingTowers();
-            ShowTowerMenu();
-            RemoveCurrentMenu();
+            if (abilityType>0)
+            {
+                ability();
+                
+            }
+            else
+            {
+                ConsctructingTowers();
+                ShowTowerMenu();
+                RemoveCurrentMenu();
+            }
         }
     }
+
+    private void ability()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit Hit;
+
+        //only detects tile layer due to layerMask
+        if (Physics.Raycast(ray, out Hit, float.MaxValue, layerMask))
+        {
+            //change position
+            transform.position = Hit.point;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("ability" + abilityType);
+            }
+        }
+
+    }
+    
 
     private void RemoveCurrentMenu()
     {
@@ -145,6 +174,10 @@ public class PlayerController : MonoBehaviour
     public void TowerPicker(int towerNO)
     {
         TowerType = towerNO;
+    }
+    public void abilityPicker(int abilityNO)
+    {
+        abilityType = abilityNO;
     }
 
     public int gettowerType()

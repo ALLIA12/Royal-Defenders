@@ -13488,6 +13488,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4956102858805560033, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
   m_PrefabInstance: {fileID: 2001195900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &918317782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 387001351, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+  m_PrefabInstance: {fileID: 7583493047674525074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &925169322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4956102858805560033, guid: b3f0239114a273d40a319ad2c9e3d024, type: 3}
@@ -15244,6 +15249,7 @@ MonoBehaviour:
   - {fileID: 7159522732880805328, guid: 8d3ebab3c63fff147ac50b9c3635f3b7, type: 3}
   - {fileID: 7159522732880805328, guid: a3ced7eb94f06614583b4ff481c71787, type: 3}
   TowerType: 0
+  abilityType: 0
   sound: {fileID: 2001382558}
   buildSound: {fileID: 8300000, guid: e9d34dfb73dd25543a93ca01506f5a49, type: 3}
 --- !u!4 &1019471274
@@ -34081,9 +34087,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1466765201}
     - target: {fileID: 11361537, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 918317782}
+    - target: {fileID: 11361537, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: _mouse
       value: 
       objectReference: {fileID: 1019471273}
+    - target: {fileID: 11361537, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: abilityPrice
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11361537, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11361537, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11361537, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 54862324, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -34329,9 +34355,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1466765201}
     - target: {fileID: 1397632618, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 918317782}
+    - target: {fileID: 1397632618, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: _mouse
       value: 
       objectReference: {fileID: 1019471273}
+    - target: {fileID: 1397632618, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: abilityPrice
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397632618, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397632618, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397632618, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1401021787, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -34365,9 +34411,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1466765201}
     - target: {fileID: 1457914606, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 918317782}
+    - target: {fileID: 1457914606, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: _mouse
       value: 
       objectReference: {fileID: 1019471273}
+    - target: {fileID: 1457914606, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: abilityPrice
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457914606, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457914606, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457914606, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1594648818, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -34409,9 +34475,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1466765201}
     - target: {fileID: 1976546411, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 918317782}
+    - target: {fileID: 1976546411, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: _mouse
       value: 
       objectReference: {fileID: 1019471273}
+    - target: {fileID: 1976546411, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: abilityPrice
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976546411, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976546411, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976546411, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: ChosenBtnClr.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2026856007, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

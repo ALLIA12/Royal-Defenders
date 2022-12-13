@@ -53,9 +53,14 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             btn.colors = originalColor;
             if (_mouse.GetComponent<PlayerController>().gettowerType() == _keyNumber)
             {
-                _mouse.SendMessage("TowerPicker", -1);
+                unpickTower();
             }
         }
+    }
+
+    private void unpickTower()
+    {
+        _mouse.SendMessage("TowerPicker", -1);
     }
 
     private void pickTower()
@@ -101,7 +106,7 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (goldUI == null) { Debug.Log("COPE HARDER"); return; }
+        if (goldUI == null) { return; }
         goldUI.SetActive(true);
     }
 
@@ -109,7 +114,6 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (goldUI == null)
         {
-            Debug.Log("COPE HARDER");
             return;
         }
 

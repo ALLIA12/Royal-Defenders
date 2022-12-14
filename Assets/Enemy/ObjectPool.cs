@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
-    [SerializeField] [Range(0, 50)] int poolSize = 10;
-    [SerializeField] [Range(0.1f, 10f)] float spawnTimer = 1f;
+    [SerializeField][Range(0, 50)] int poolSize = 10;
+    [SerializeField][Range(0.1f, 10f)] float spawnTimer = 1f;
+    [SerializeField][Range(1, 50)] float burstTimer = 5;
+    [SerializeField][Range(1, 50)] int burstSize = 5;
     GameObject[] pool;
     // Start is called before the first frame update
     private void Awake()
@@ -14,10 +17,7 @@ public class ObjectPool : MonoBehaviour
         FillPool();
     }
 
-    void Start()
-    {
-        StartCoroutine(PopEnemies());
-    }
+
     void FillPool()
     {
         pool = new GameObject[poolSize];
@@ -28,25 +28,28 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    void enableObjectInPool()
+    private void Update()
     {
-        for (int i = 0; i < pool.Length; i++)
+        if (transform.childCount == 0)
         {
-            if (!pool[i].activeInHierarchy)
-            {
-                pool[i].SetActive(true);
-                return;
-            }
+            gameObject.SetActive(false);
         }
     }
 
-    IEnumerator PopEnemies()
+    public IEnumerator SpawnWave()
     {
-        while (true)
+        int i = 0;
+        while (pool.Length != i)
         {
-            enableObjectInPool();
+            pool[i].SetActive(true);
             yield return new WaitForSeconds(spawnTimer);
+            i++;
+            if (i%burstSize==0)
+            {
+                yield return new WaitForSeconds(burstTimer);
+            }
         }
+
     }
 
 }

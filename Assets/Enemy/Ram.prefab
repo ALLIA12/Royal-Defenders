@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5672325927823913723}
   m_RootOrder: 1
@@ -121,6 +122,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 6.25, y: 6.25, z: 6.25}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5672325927823913723}
   m_RootOrder: 0
@@ -144,6 +146,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -190,7 +193,7 @@ GameObject:
   - component: {fileID: 6555344900543521339}
   m_Layer: 0
   m_Name: Ram
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +208,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5100346723484795811}
   - {fileID: 3000640496242515605}
@@ -223,7 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1584ec732e6aa4ba9c88c2d4a15002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedModifor: 0.17
+  speedModifor: 1
+  slowDownModifor: 1
 --- !u!65 &4359052593134902621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -249,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7bc12f54c56a59429ed42ef46f691de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 200
-  difficulityRamp: 50
+  explosion: {fileID: 198717222519016466, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
+  MaxHealth: 100
 --- !u!114 &5313814869134647872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worth: 30
-  yoink: 300
+  yoink: 0
 --- !u!114 &6555344900543521339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,3 +282,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24172acb4e553a6469d50028f75ffd77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  temp: {fileID: 0}

@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Path
+  - UI
+  - selectable
+  - graphicsText
+  - resolutionText
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -12,7 +16,7 @@ TagManager:
   - Tile
   - Water
   - UI
-  - PostProcessing
+  - grid manager
   - 
   - 
   - 
@@ -32,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - post processing
   - 
   - 
   - 

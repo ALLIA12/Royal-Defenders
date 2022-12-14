@@ -6,24 +6,37 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] int cost = 50;
     [SerializeField] float DelayTimer = 1f;
+    [SerializeField] GameObject canvas;
+    private Tile tile;
 
     private void Start()
     {
         StartCoroutine(BuildTower());
     }
-    
-    public bool CreateTower(Tower tower, Vector3 position)
+
+    public void CreateTower(out bool gotBuilt, out GameObject towerObject, Tower tower, Vector3 position, Tile tile)
     {
         Bank bank = FindObjectOfType<Bank>();
-        if (bank == null) { return false; }
+        if (bank == null)
+        {
+            gotBuilt = false;
+            towerObject = null;
+            return;
+        }
         if (bank.getCurrentGold() >= cost)
         {
-            Instantiate(tower.gameObject, position, new Quaternion());
+            towerObject = Instantiate(tower.gameObject, position, new Quaternion());
+            towerObject.GetComponent<Tower>().tile = tile;
             bank.withdrawGold(cost);
-            return true;
+            gotBuilt = true;
         }
-        else { return false; }
+        else
+        {
+            gotBuilt = false;
+            towerObject = null;
+        }
     }
+
     IEnumerator BuildTower()
     {
         GameObject temp = this.transform.GetChild(0).gameObject;
@@ -34,4 +47,25 @@ public class Tower : MonoBehaviour
         yield return new WaitForSeconds(DelayTimer);
         temp2.SetActive(true);
     }
+
+    public int getTowerPrice()
+    {
+        return cost;
+    }
+
+    public void ShowCanvas(bool active)
+    {
+        canvas.SetActive(active);
+    }
+    public void DestroyTower()
+    {
+        tile.isTaken = false;
+        tile.hasTower = false;
+        tile.currentTower = null;
+        tile.gridManager.unblockNode(tile.coordinates);
+        tile.gridManager.changeCostOoNeighbors(tile.coordinates, -3);
+        tile.pathFinding.notifiyReciviers();
+        Destroy(this.gameObject);
+    }
+
 }

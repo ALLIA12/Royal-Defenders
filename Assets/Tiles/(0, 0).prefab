@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7600436207940327528}
   - component: {fileID: 4732442262417367330}
   - component: {fileID: 8108934586342163894}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6.25, y: 6.25, z: 6.25}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4956102858805560033}
   m_RootOrder: 0
@@ -93,9 +94,9 @@ GameObject:
   - component: {fileID: 4956102858805560033}
   - component: {fileID: 1827048050646850300}
   - component: {fileID: 1638582236067544620}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: (0, 0)
-  m_TagString: Untagged
+  m_TagString: selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +111,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1, z: 1.2}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7600436207940327528}
   - {fileID: 1410943744779998486}
@@ -128,8 +130,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c21247f3f451eb47a9546377a04bd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: -8129081288077187653, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   isTaken: 0
+  hasTower: 0
+  currentTower: {fileID: 0}
+  tileSpeed: 0.5
+  gridManager: {fileID: 0}
+  pathFinding: {fileID: 0}
+  coordinates: {x: 0, y: 0}
 --- !u!65 &1638582236067544620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -155,7 +162,7 @@ GameObject:
   - component: {fileID: 8453151019794383129}
   - component: {fileID: 7052615552342394418}
   - component: {fileID: 3879055671994440786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,6 +179,7 @@ RectTransform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4956102858805560033}
   m_RootOrder: 1
@@ -329,3 +337,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   blockedColor: {r: 0, g: 0, b: 0, a: 1}
+  exploredColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  pathColor: {r: 1, g: 0.5, b: 0, a: 1}

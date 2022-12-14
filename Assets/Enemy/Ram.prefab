@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worth: 30
-  yoink: 0
+  yoink: 100
 --- !u!114 &6555344900543521339
 MonoBehaviour:
   m_ObjectHideFlags: 0

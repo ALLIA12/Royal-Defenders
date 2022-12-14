@@ -22,7 +22,6 @@ public class EnemyMover : MonoBehaviour
     {
         // change slowDownModifor back to normal if it isn't
         slowDownModifor = Mathf.Lerp(slowDownModifor, 1, Time.deltaTime/8);
-        Debug.Log(slowDownModifor);
     }
     private void OnEnable()
     {

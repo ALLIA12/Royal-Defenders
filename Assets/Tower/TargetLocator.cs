@@ -10,6 +10,8 @@ public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
     [SerializeField] ParticleSystem bullet;
+    [SerializeField] bool useLaser = false;
+    public LineRenderer lineRenderer;
     [SerializeField] float shootingRange = 15f;
     Transform target;
     [SerializeField] bool shootAoe = false;
@@ -22,6 +24,7 @@ public class TargetLocator : MonoBehaviour
     private int upgradePrice = 20;
     float timer = 0;
     bool bulletSoundChecker = false;
+    float targetDistance;
     private void Start()
     {
         GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
@@ -29,8 +32,16 @@ public class TargetLocator : MonoBehaviour
     }
     void Update()
     {
+        if(useLaser){
+            if (target == null) lineRenderer.enabled = false;
+            else{ 
+                targetDistance = Vector3.Distance(transform.position, target.position);
+                if(targetDistance <= shootingRange) lineRenderer.enabled = true;
+                else lineRenderer.enabled = false;
+        }
+        }
         if (!shootAoe)
-        {
+        {  
             FindClosesetEnemy();
             AimWeapon();
             if (timer > 30 && bulletSoundChecker)
@@ -78,8 +89,8 @@ public class TargetLocator : MonoBehaviour
     void AimWeapon()
     {
         if (target == null) return;
-        float targetDistance = Vector3.Distance(transform.position, target.position);
         weapon.LookAt(target);
+        targetDistance = Vector3.Distance(transform.position, target.position);
         if (targetDistance <= shootingRange)
         {
             AttackToogle(true);

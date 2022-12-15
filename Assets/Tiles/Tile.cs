@@ -13,7 +13,7 @@ public class Tile : MonoBehaviour
     public GridManager gridManager;
     public PathFinding pathFinding;
     public Vector2Int coordinates = new Vector2Int();
-    private Renderer _renderer;
+    public Renderer _renderer;
     private void Awake()
     {
         gridManager = FindObjectOfType<GridManager>();
@@ -33,7 +33,7 @@ public class Tile : MonoBehaviour
     }
     
     
-
+/*
     private void Update()
     {
         turnOff();
@@ -59,7 +59,7 @@ public class Tile : MonoBehaviour
             _renderer.material.DisableKeyword("_EMISSION");
         }
     }
-
+*/
 
     public bool GetIsTaken()
     {

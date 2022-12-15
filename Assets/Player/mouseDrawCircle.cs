@@ -27,7 +27,7 @@ public class mouseDrawCircle : MonoBehaviour
     {
         if (value>0)
         {
-            line.SetVertexCount (segments + 1);
+            line.positionCount = (segments + 1);
             line.useWorldSpace = false;
             CreatePoints ();
         }
@@ -38,7 +38,7 @@ public class mouseDrawCircle : MonoBehaviour
     void CreatePoints ()
     {
         float x;
-        float y;
+        float y = 2;
         float z;
 
         float angle = 20f;
@@ -48,7 +48,7 @@ public class mouseDrawCircle : MonoBehaviour
             x = Mathf.Sin (Mathf.Deg2Rad * angle) * xradius;
             z = Mathf.Cos (Mathf.Deg2Rad * angle) * zradius;
 
-            line.SetPosition (i,new Vector3(x,2,z) );
+            line.SetPosition (i,new Vector3(x,y,z) );
 
             angle += (360f / segments);
         }

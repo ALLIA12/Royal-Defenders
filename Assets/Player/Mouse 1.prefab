@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dbc087fa0a8c34881412d8733850ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 7912909676628157623, guid: a652b29b9250fbd42a2621865a4e9cca, type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 8

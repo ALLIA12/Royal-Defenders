@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class TargetLocator : MonoBehaviour
 {
@@ -17,10 +18,15 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] public int maxUpgradePrice = 100;
     [SerializeField] public GameObject durationButton;
     [SerializeField] public GameObject slowDownButton;
+    VictoryMenu victoryMenu;
     private int upgradePrice = 20;
     float timer = 0;
     bool bulletSoundChecker = false;
-
+    private void Start()
+    {
+        GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
+        victoryMenu = temp.GetComponent<VictoryMenu>();
+    }
     void Update()
     {
         if (!shootAoe)
@@ -104,6 +110,7 @@ public class TargetLocator : MonoBehaviour
         }
         if (bank.getCurrentGold() >= upgradePrice)
         {
+            victoryMenu.numberOfTowerUpgrades++;
             bullet.GetComponent<ParticleHandler>().IncreaseDmage(increase);
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
@@ -119,9 +126,9 @@ public class TargetLocator : MonoBehaviour
         }
         if (bank.getCurrentGold() >= upgradePrice)
         {
+            victoryMenu.numberOfTowerUpgrades++;
             var emission = bullet.emission;
             emission.rateOverTime = emission.rateOverTime.constant + increase;
-            Debug.Log(emission.rateOverTime.constant);
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
             upgradePrice = Math.Min(maxUpgradePrice, newPrice);
@@ -137,6 +144,7 @@ public class TargetLocator : MonoBehaviour
         }
         if (bank.getCurrentGold() >= upgradePrice)
         {
+            victoryMenu.numberOfTowerUpgrades++;
             shootingRange += increase;
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
@@ -152,6 +160,7 @@ public class TargetLocator : MonoBehaviour
         }
         if (bank.getCurrentGold() >= upgradePrice)
         {
+            victoryMenu.numberOfTowerUpgrades++;
             bullet.Stop();
             bullet.Clear();
             var main = bullet.main;
@@ -178,6 +187,7 @@ public class TargetLocator : MonoBehaviour
         }
         if (bank.getCurrentGold() >= upgradePrice)
         {
+            victoryMenu.numberOfTowerUpgrades++;
             bullet.GetComponent<ParticleHandler>().IncreaseSlowDownModifier(increase);
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
@@ -185,7 +195,7 @@ public class TargetLocator : MonoBehaviour
             float temp = bullet.GetComponent<ParticleHandler>().getSlowDownModifier();
             // if we go past this point, its too powerful
             if (temp >= .90f)
-            {                
+            {
                 bullet.GetComponent<ParticleHandler>().SetSlowDownModifier(.90f);
                 Button button = slowDownButton.GetComponent<Button>();
                 button.interactable = false;

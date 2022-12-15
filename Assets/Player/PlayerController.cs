@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Tower[] TowerA;
+    [SerializeField] private VictoryMenu victoryMenu;
     public int TowerType;
     public int abilityType;
     public AudioSource sound;
@@ -21,10 +22,9 @@ public class PlayerController : MonoBehaviour
         if (PauseMenu.gameIsPaused) { return; }
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (abilityType>0)
+            if (abilityType > 0)
             {
                 ability();
-                
             }
             else
             {
@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
-
         //only detects tile layer due to layerMask
         if (Physics.Raycast(ray, out Hit, float.MaxValue, layerMask))
         {
@@ -53,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    
+
 
     private void RemoveCurrentMenu()
     {
@@ -166,6 +165,7 @@ public class PlayerController : MonoBehaviour
             tile.gridManager.blockNode(tile.coordinates);
             tile.gridManager.changeCostOoNeighbors(tile.coordinates, 3);
             tile.pathFinding.notifiyReciviers();
+            victoryMenu.numberOfTowersBuilt++;
         }
     }
 

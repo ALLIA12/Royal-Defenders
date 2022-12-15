@@ -9,6 +9,7 @@ TagManager:
   - graphicsText
   - resolutionText
   - enemy
+  - scoreTracking
   layers:
   - Default
   - TransparentFX

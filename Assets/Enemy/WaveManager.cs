@@ -8,11 +8,17 @@ public class WaveManager : MonoBehaviour
 {
 
     int currWave = 0;
+    bool finishedLevel = false;
+    [SerializeField] VictoryMenu victorMenu;
+
     private void Update()
     {
+        if (finishedLevel) { return; }
         if (ChildCountActive(transform) == 0)
         {
             Debug.Log("YOU WON");
+            finishedLevel = true;
+            victorMenu.ShowMenu();
         }
     }
     public int ChildCountActive(Transform t)

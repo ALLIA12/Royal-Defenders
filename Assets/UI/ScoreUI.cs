@@ -22,7 +22,7 @@ public class ScoreUI : MonoBehaviour
         {
             for (int j = 0; j < scores.GetLength(1); j++)
             {
-                scores[i, j] = i + j;
+                scores[i, j] = PlayerPrefs.GetInt("score" + i + "" + j, 0);
             }
         }
         UpdateTexts(0);
@@ -31,10 +31,10 @@ public class ScoreUI : MonoBehaviour
     public void UpdateTexts(int difficulty)
     {
         // Maximum score is 999999999999
-        level1.text = $"Level 1\nBEST SCORE: \n{scores[0, difficulty]}";
-        level2.text = $"Level 2\nBEST SCORE: \n{scores[1, difficulty]}";
-        level3.text = $"Level 3\nBEST SCORE: \n{scores[2, difficulty]}";
-        level4.text = $"Level 4\nBEST SCORE: \n{scores[3, difficulty]}";
+        level1.text = $"Level 1\nBest Score: \n{scores[0, difficulty]}";
+        level2.text = $"Level 2\nBest Score: \n{scores[1, difficulty]}";
+        level3.text = $"Level 3\nBest Score: \n{scores[2, difficulty]}";
+        level4.text = $"Level 4\nBest Score: \n{scores[3, difficulty]}";
     }
     public void StartLevel(int index)
     {

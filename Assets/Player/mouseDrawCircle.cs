@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class mouseDrawCircle : MonoBehaviour
 {
-    public int value = 0;
+    public int value = 1;
     [Range(0,50)]
     public int segments = 50;
     [Range(0,20)]

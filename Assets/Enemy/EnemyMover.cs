@@ -11,17 +11,19 @@ public class EnemyMover : MonoBehaviour
     List<NodeClass> path = new List<NodeClass>();
     PathFinding pathFinding;
     GridManager gridManager;
+    VictoryMenu victoryMenu;
     private void Awake()
     {
         pathFinding = FindObjectOfType<PathFinding>();
         gridManager = FindObjectOfType<GridManager>();
+        GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
+        victoryMenu = temp.GetComponent<VictoryMenu>();
         enemy = GetComponent<Enemy>();
-
     }
     private void Update()
     {
         // change slowDownModifor back to normal if it isn't
-        slowDownModifor = Mathf.Lerp(slowDownModifor, 1, Time.deltaTime/8);
+        slowDownModifor = Mathf.Lerp(slowDownModifor, 1, Time.deltaTime / 8);
     }
     private void OnEnable()
     {
@@ -82,8 +84,8 @@ public class EnemyMover : MonoBehaviour
 
     private void FinishPath()
     {
+        victoryMenu.numberOfEnemiesNotKilled++;
         enemy.yoinkGoldOnExit();
-        // Destroy in case it is spawned with via wave, add check later
         Destroy(this.gameObject);
     }
 }

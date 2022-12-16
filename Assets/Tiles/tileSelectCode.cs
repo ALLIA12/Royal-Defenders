@@ -33,8 +33,16 @@ public class tileSelectCode : MonoBehaviour
             _renderer.material = glow;
         }
     }
-    void OnMouseExit()
+    void Update()
     {
-        _renderer.material = startcolor;
+        turnOff();
+    }
+    
+    private void turnOff()
+    {
+        if (tag == "selectable")
+        {
+            _renderer.material = startcolor;
+        }
     }
 }

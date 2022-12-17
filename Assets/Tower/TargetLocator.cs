@@ -44,7 +44,7 @@ public class TargetLocator : MonoBehaviour
         {  
             FindClosesetEnemy();
             AimWeapon();
-            if (timer > 30 && bulletSoundChecker)
+            if (timer > 40 && bulletSoundChecker)
             {
                 timer = 0;
                 Instantiate(sound, transform.position, Quaternion.identity);
@@ -61,6 +61,7 @@ public class TargetLocator : MonoBehaviour
         if (bulletSoundChecker)
         {
             ++timer;
+            
         }
     }
     void FindClosesetEnemy()
@@ -102,8 +103,10 @@ public class TargetLocator : MonoBehaviour
     }
     void AttackToogle(bool isActive)
     {
+        if(!useLaser){
         var temp = bullet.emission;
         temp.enabled = isActive;
+        }
         bulletSoundChecker = isActive;
     }
     private void OnDrawGizmos()

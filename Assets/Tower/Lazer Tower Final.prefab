@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6922408365570647608
 Transform:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase Rate
+  m_text: Increase Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f5d57b956f1b3cd46b9c7782eba3f611, type: 2}
   m_sharedMaterial: {fileID: -4264897147905498715, guid: f5d57b956f1b3cd46b9c7782eba3f611, type: 2}
@@ -606,7 +606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7753789921051381433
 Transform:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4320676144279486217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -812,7 +812,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -874,7 +874,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.5
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6040,7 +6040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 6638351143567997078}
-  bullet: {fileID: 0}
+  bullet: {fileID: 1817521885344937631}
   useLaser: 1
   lineRenderer: {fileID: 9063501759590056838}
   shootingRange: 70

@@ -523,7 +523,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 0, g: 0.51966, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6342,13 +6342,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 8805163155886856867}
   bullet: {fileID: 4057135876136576670}
+  useLaser: 0
+  lineRenderer: {fileID: 0}
   shootingRange: 50
   shootAoe: 1
   sound: {fileID: 0}
   upgradePenelty: 5
   maxUpgradePrice: 100
-  slowDownButton: {fileID: 1440699004302823893}
   durationButton: {fileID: 7190626973031178148}
+  slowDownButton: {fileID: 1440699004302823893}
 --- !u!114 &7159522732880805328
 MonoBehaviour:
   m_ObjectHideFlags: 0

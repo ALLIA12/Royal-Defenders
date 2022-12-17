@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        Debug.Log("HIT");
         ParticleHandler particleHandler = other.GetComponent<ParticleHandler>();
         if (!particleHandler.getSlowsDown()) // doesn't slow down
         {

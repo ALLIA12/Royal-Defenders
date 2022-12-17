@@ -32,16 +32,18 @@ public class TargetLocator : MonoBehaviour
     }
     void Update()
     {
-        if(useLaser){
+        if (useLaser)
+        {
             if (target == null) lineRenderer.enabled = false;
-            else{ 
+            else
+            {
                 targetDistance = Vector3.Distance(transform.position, target.position);
-                if(targetDistance <= shootingRange) lineRenderer.enabled = true;
+                if (targetDistance <= shootingRange) lineRenderer.enabled = true;
                 else lineRenderer.enabled = false;
-        }
+            }
         }
         if (!shootAoe)
-        {  
+        {
             FindClosesetEnemy();
             AimWeapon();
             if (timer > 40 && bulletSoundChecker)
@@ -61,7 +63,7 @@ public class TargetLocator : MonoBehaviour
         if (bulletSoundChecker)
         {
             ++timer;
-            
+
         }
     }
     void FindClosesetEnemy()
@@ -103,9 +105,10 @@ public class TargetLocator : MonoBehaviour
     }
     void AttackToogle(bool isActive)
     {
-        if(!useLaser){
-        var temp = bullet.emission;
-        temp.enabled = isActive;
+        if (!useLaser)
+        {
+            var temp = bullet.emission;
+            temp.enabled = isActive;
         }
         bulletSoundChecker = isActive;
     }

@@ -23,6 +23,7 @@ public class PathFinding : MonoBehaviour
     GridManager gridManager;
     Dictionary<Vector2Int, NodeClass> grid = new Dictionary<Vector2Int, NodeClass>();
 
+    public event Action<bool> OnMapChangeTrigger;
     void Awake()
     {
         gridManager = FindObjectOfType<GridManager>();
@@ -315,7 +316,8 @@ public class PathFinding : MonoBehaviour
     }
     public void notifiyReciviers()
     {
-        BroadcastMessage("RecalculatePath", false, SendMessageOptions.DontRequireReceiver);
+        OnMapChangeTrigger(false);
+        //BroadcastMessage("RecalculatePath", false, SendMessageOptions.DontRequireReceiver);
     }
 }
 

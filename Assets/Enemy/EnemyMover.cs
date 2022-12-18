@@ -19,12 +19,14 @@ public class EnemyMover : MonoBehaviour
         GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
         victoryMenu = temp.GetComponent<VictoryMenu>();
         enemy = GetComponent<Enemy>();
+        pathFinding.OnMapChangeTrigger += RecalculatePath;
     }
     private void Update()
     {
         // change slowDownModifor back to normal if it isn't
         slowDownModifor = Mathf.Lerp(slowDownModifor, 1, Time.deltaTime / 8);
     }
+
     private void OnEnable()
     {
         ReturnToStart();
@@ -33,6 +35,7 @@ public class EnemyMover : MonoBehaviour
 
     void RecalculatePath(bool ressetPath)
     {
+        if (!gameObject.activeInHierarchy) { return; }
         Vector2Int temp = new Vector2Int();
         if (ressetPath)
         {
@@ -98,5 +101,9 @@ public class EnemyMover : MonoBehaviour
         victoryMenu.numberOfEnemiesNotKilled++;
         enemy.yoinkGoldOnExit();
         Destroy(this.gameObject);
+    }
+    private void OnDestroy()
+    {
+        pathFinding.OnMapChangeTrigger -= RecalculatePath;
     }
 }

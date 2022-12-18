@@ -1,0 +1,7 @@
+Update 1.1 
+
+Add: 
+- 2 types of bushes 
+- 2 types of grass 
+- coloring for each season of the year 
+- swing animation for trees

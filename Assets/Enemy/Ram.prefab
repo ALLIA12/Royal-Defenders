@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3000640496242515605}
   - component: {fileID: 8547829926115618324}
+  - component: {fileID: 3224024637560762395}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -94,6 +95,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &3224024637560762395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566750757987507950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &4070758372805021848
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +211,6 @@ GameObject:
   - component: {fileID: 4359052593134902621}
   - component: {fileID: 1051646720339779547}
   - component: {fileID: 5313814869134647872}
-  - component: {fileID: 6555344900543521339}
   m_Layer: 0
   m_Name: Ram
   m_TagString: enemy
@@ -270,16 +290,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worth: 30
   yoink: 100
---- !u!114 &6555344900543521339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5040643765344069697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24172acb4e553a6469d50028f75ffd77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  temp: {fileID: 0}

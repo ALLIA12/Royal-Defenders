@@ -27,7 +27,7 @@ public class EnemyMover : MonoBehaviour
     }
     private void OnEnable()
     {
-        retunrToStart();
+        ReturnToStart();
         RecalculatePath(true);
     }
 
@@ -56,10 +56,19 @@ public class EnemyMover : MonoBehaviour
         {
             path = pathFinding.getAStarPath(temp);
         }
-        StartCoroutine(FollowPath());
+        // In the case that no path was found
+        if (path.Count == 1 && temp.x != pathFinding.getEndCoordinates().x && temp.y != pathFinding.getEndCoordinates().y)
+        {
+            ReturnToStart();
+            RecalculatePath(true);
+        }
+        else // if a path was found
+        {
+            StartCoroutine(FollowPath());
+        }
     }
 
-    void retunrToStart()
+    void ReturnToStart()
     {
         transform.position = gridManager.getPosFromCoordinates(pathFinding.getStartCoordinates());
     }
@@ -70,6 +79,8 @@ public class EnemyMover : MonoBehaviour
         {
             Vector3 startPos = transform.position;
             Vector3 endPos = gridManager.getPosFromCoordinates(path[i].coordinates);
+            Tile tile = GameObject.Find(path[i].coordinates.ToString()).GetComponent<Tile>();
+            speedModifor = tile.tileSpeed;
             float travelPercent = 0f;
             transform.LookAt(endPos);
             while (travelPercent < 1)

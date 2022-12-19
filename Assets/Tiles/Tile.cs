@@ -26,11 +26,12 @@ public class Tile : MonoBehaviour
             if (isTaken)
             {
                 gridManager.blockNode(coordinates);
+                gameObject.tag = "Untagged";
             }
         }
     }
-    
-    
+
+
 
 
     public bool GetIsTaken()

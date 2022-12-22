@@ -9,18 +9,19 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
+    [SerializeField] Transform shooter;
     [SerializeField] ParticleSystem bullet;
-    [SerializeField] bool useLaser = false;
-    public LineRenderer lineRenderer;
     [SerializeField] float shootingRange = 15f;
     Transform target;
     [SerializeField] bool shootAoe = false;
     [SerializeField] public ParticleSystem sound;
     [SerializeField] public int upgradePenelty = 5;
     [SerializeField] public int maxUpgradePrice = 100;
-    [SerializeField] public GameObject durationButton;
-    [SerializeField] public GameObject slowDownButton;
+    [SerializeField] public GameObject upgradeOne;
+    [SerializeField] public GameObject upgradeTwo;
     VictoryMenu victoryMenu;
+    Tower tower;
+    Bank bank;
     private int upgradePrice = 20;
     float timer = 0;
     bool bulletSoundChecker = false;
@@ -29,19 +30,12 @@ public class TargetLocator : MonoBehaviour
     {
         GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
         victoryMenu = temp.GetComponent<VictoryMenu>();
+        tower = GetComponent<Tower>();
+        bank = FindObjectOfType<Bank>();
     }
     void Update()
     {
-        if (useLaser)
-        {
-            if (target == null) lineRenderer.enabled = false;
-            else
-            {
-                targetDistance = Vector3.Distance(transform.position, target.position);
-                if (targetDistance <= shootingRange) lineRenderer.enabled = true;
-                else lineRenderer.enabled = false;
-            }
-        }
+
         if (!shootAoe)
         {
             FindClosesetEnemy();
@@ -63,7 +57,6 @@ public class TargetLocator : MonoBehaviour
         if (bulletSoundChecker)
         {
             ++timer;
-
         }
     }
     void FindClosesetEnemy()
@@ -93,6 +86,7 @@ public class TargetLocator : MonoBehaviour
     {
         if (target == null) return;
         weapon.LookAt(target);
+        //shooter.LookAt(target);
         targetDistance = Vector3.Distance(transform.position, target.position);
         if (targetDistance <= shootingRange)
         {
@@ -105,11 +99,8 @@ public class TargetLocator : MonoBehaviour
     }
     void AttackToogle(bool isActive)
     {
-        if (!useLaser)
-        {
-            var temp = bullet.emission;
-            temp.enabled = isActive;
-        }
+        var temp = bullet.emission;
+        temp.enabled = isActive;
         bulletSoundChecker = isActive;
     }
     private void OnDrawGizmos()
@@ -120,11 +111,6 @@ public class TargetLocator : MonoBehaviour
 
     public void IncreaseDamage(float increase)
     {
-        Bank bank = FindObjectOfType<Bank>();
-        if (bank == null)
-        {
-            return;
-        }
         if (bank.getCurrentGold() >= upgradePrice)
         {
             victoryMenu.numberOfTowerUpgrades++;
@@ -136,11 +122,6 @@ public class TargetLocator : MonoBehaviour
     }
     public void IncreaseRate(float increase)
     {
-        Bank bank = FindObjectOfType<Bank>();
-        if (bank == null)
-        {
-            return;
-        }
         if (bank.getCurrentGold() >= upgradePrice)
         {
             victoryMenu.numberOfTowerUpgrades++;
@@ -154,11 +135,6 @@ public class TargetLocator : MonoBehaviour
 
     public void IncreaseRange(float increase)
     {
-        Bank bank = FindObjectOfType<Bank>();
-        if (bank == null)
-        {
-            return;
-        }
         if (bank.getCurrentGold() >= upgradePrice)
         {
             victoryMenu.numberOfTowerUpgrades++;
@@ -170,8 +146,8 @@ public class TargetLocator : MonoBehaviour
     }
     public void DecreaseDuration(float decrease)
     {
-        Bank bank = FindObjectOfType<Bank>();
-        if (bank == null)
+        Button button = upgradeOne.GetComponent<Button>();
+        if (!button.interactable)
         {
             return;
         }
@@ -189,16 +165,16 @@ public class TargetLocator : MonoBehaviour
             if (newDuration <= 1)
             {
                 main.duration = 1;
-                Button button = durationButton.GetComponent<Button>();
                 button.interactable = false;
+                CheckFullyUpgraded();
             }
             bullet.Play();
         }
     }
     public void IncreaseSlowDown(float increase)
     {
-        Bank bank = FindObjectOfType<Bank>();
-        if (bank == null)
+        Button button = upgradeTwo.GetComponent<Button>();
+        if (!button.interactable)
         {
             return;
         }
@@ -214,9 +190,24 @@ public class TargetLocator : MonoBehaviour
             if (temp >= .90f)
             {
                 bullet.GetComponent<ParticleHandler>().SetSlowDownModifier(.90f);
-                Button button = slowDownButton.GetComponent<Button>();
                 button.interactable = false;
+                CheckFullyUpgraded();
             }
         }
+    }
+
+    public void CheckFullyUpgraded()
+    {
+        Button buttonTwo = upgradeTwo.GetComponent<Button>();
+        Button buttonOne = upgradeOne.GetComponent<Button>();
+        if (!buttonOne.interactable && !buttonTwo.interactable)
+        {
+            tower.FullyUpgraded();
+        }
+        print(buttonOne.interactable);
+    }
+    private void OnDestroy()
+    {
+        bank.depostGold(upgradePenelty);
     }
 }

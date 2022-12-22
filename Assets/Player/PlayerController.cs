@@ -75,28 +75,19 @@ public class PlayerController : MonoBehaviour
         //only detects tile layer due to layerMask
         if (Physics.Raycast(ray, out Hit, float.MaxValue, layerMask))
         {
-            //change position
             transform.position = Hit.point;
-
-            if (Hit.collider.tag == "selectable")
+            Tile tile = Hit.transform.GetComponent<Tile>();
+            // For hard difficulty don't show the new path, just needed to change the order of the if statment
+            if (tile.hasTower && Input.GetMouseButtonDown(2))
             {
-
-                Tile tile = Hit.transform.GetComponent<Tile>();
-                // Code to build Tower
-                // For hard difficulty don't show the new path, just needed to change the order of the if statment
-                if (tile.hasTower && Input.GetMouseButtonDown(2))
+                Debug.Log(oldTile);
+                if (oldTile != null && oldTile.tag == "Untagged")
                 {
-                    Debug.Log("COPE");
-                    if (oldTile != null)
-                    {
-                        oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
-                    }
-                    tile.currentTower.GetComponent<Tower>().ShowCanvas(true);
-                    oldTile = tile;
-
-                    //BuildTower(tile, Hit);
+                    Tower tower = oldTile.currentTower.GetComponent<Tower>();
+                    if (tower != null) { tower.ShowCanvas(false); }
                 }
-
+                tile.currentTower.GetComponent<Tower>().ShowCanvas(true);
+                oldTile = tile;
             }
 
         }
@@ -165,6 +156,7 @@ public class PlayerController : MonoBehaviour
             tile.gridManager.blockNode(tile.coordinates);
             tile.gridManager.changeCostOoNeighbors(tile.coordinates, 3);
             tile.pathFinding.notifiyReciviers();
+            tile.tag = "Untagged";
             victoryMenu.numberOfTowersBuilt++;
         }
     }

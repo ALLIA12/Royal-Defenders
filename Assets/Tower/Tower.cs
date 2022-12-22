@@ -7,6 +7,12 @@ public class Tower : MonoBehaviour
     [SerializeField] int cost = 50;
     [SerializeField] float DelayTimer = 1f;
     [SerializeField] GameObject canvas;
+    [SerializeField] GameObject body;
+    [SerializeField] GameObject weapon;
+    [SerializeField] GameObject shooter;
+    [SerializeField] GameObject upgradeBody;
+    public Bank bank;
+
     private Tile tile;
 
     private void Start()
@@ -16,7 +22,7 @@ public class Tower : MonoBehaviour
 
     public void CreateTower(out bool gotBuilt, out GameObject towerObject, Tower tower, Vector3 position, Tile tile)
     {
-        Bank bank = FindObjectOfType<Bank>();
+        bank = FindObjectOfType<Bank>();
         if (bank == null)
         {
             gotBuilt = false;
@@ -39,13 +45,13 @@ public class Tower : MonoBehaviour
 
     IEnumerator BuildTower()
     {
-        GameObject temp = this.transform.GetChild(0).gameObject;
-        GameObject temp2 = this.transform.GetChild(1).gameObject;
-        temp.SetActive(false);
-        temp2.SetActive(false);
-        temp.SetActive(true);
+        body.SetActive(false);
+        weapon.SetActive(false);
+        //shooter.SetActive(false);
+        body.SetActive(true);
         yield return new WaitForSeconds(DelayTimer);
-        temp2.SetActive(true);
+        weapon.SetActive(true);
+        //shooter.SetActive(true);
     }
 
     public int getTowerPrice()
@@ -62,10 +68,17 @@ public class Tower : MonoBehaviour
         tile.isTaken = false;
         tile.hasTower = false;
         tile.currentTower = null;
+        tile.tag = "selectable";
         tile.gridManager.unblockNode(tile.coordinates);
         tile.gridManager.changeCostOoNeighbors(tile.coordinates, -3);
         tile.pathFinding.notifiyReciviers();
-        Destroy(this.gameObject);
+        bank.depostGold(cost);
+        Destroy(gameObject);
     }
 
+    public void FullyUpgraded()
+    {
+        body.SetActive(false);
+        upgradeBody.SetActive(true);
+    }
 }

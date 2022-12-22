@@ -12,14 +12,14 @@ public class tileSelectCode : MonoBehaviour
 
     private void Start()
     {
-        foreach(Transform child in transform)
+        foreach (Transform child in transform)
         {
             if (child.tag != "UI")
             {
                 if (child.GetComponent<Renderer>() != null)
                 {
                     _renderer = child.GetComponent<Renderer>();
-                    startcolor =  _renderer.material;
+                    startcolor = _renderer.material;
                     break;
                 }
             }
@@ -37,12 +37,9 @@ public class tileSelectCode : MonoBehaviour
     {
         turnOff();
     }
-    
+
     private void turnOff()
     {
-        if (tag == "selectable")
-        {
-            _renderer.material = startcolor;
-        }
+        _renderer.material = startcolor;
     }
 }

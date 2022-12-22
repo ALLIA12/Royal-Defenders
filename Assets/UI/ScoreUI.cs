@@ -39,7 +39,7 @@ public class ScoreUI : MonoBehaviour
     public void StartLevel(int index)
     {
         // temp cope shit 
-        if (index > 2)
+        if (index > 3)
         {
             Debug.Log("COPE");
             return;

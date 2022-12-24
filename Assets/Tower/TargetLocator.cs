@@ -19,11 +19,17 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] public int maxUpgradePrice = 100;
     [SerializeField] public GameObject upgradeOne;
     [SerializeField] public GameObject upgradeTwo;
+    [SerializeField] ParticleSystem bullet2;
+    [SerializeField] ParticleSystem bullet3;
+    [SerializeField] ParticleSystem bullet4;
+    [SerializeField] ParticleSystem bullet5;
     VictoryMenu victoryMenu;
     Tower tower;
     Bank bank;
     private int upgradePrice = 20;
     float timer = 0;
+    float timerSnow = 0;
+    double snowSound = 250;
     bool bulletSoundChecker = false;
     float targetDistance;
     private void Start()
@@ -32,6 +38,9 @@ public class TargetLocator : MonoBehaviour
         victoryMenu = temp.GetComponent<VictoryMenu>();
         tower = GetComponent<Tower>();
         bank = FindObjectOfType<Bank>();
+        if(shootAoe){
+            Instantiate(sound, transform.position, Quaternion.identity);
+        }
     }
     void Update()
     {
@@ -49,6 +58,11 @@ public class TargetLocator : MonoBehaviour
         else
         {
             // shoot bursts
+            if (timerSnow > snowSound)
+            {
+                timerSnow = 0;
+                Instantiate(sound, transform.position, Quaternion.identity);
+            }
         }
     }
 
@@ -58,6 +72,7 @@ public class TargetLocator : MonoBehaviour
         {
             ++timer;
         }
+        ++timerSnow;
     }
     void FindClosesetEnemy()
     {
@@ -159,6 +174,14 @@ public class TargetLocator : MonoBehaviour
             var main = bullet.main;
             float newDuration = main.duration - decrease;
             main.duration = newDuration;
+            main = bullet2.main;
+            main.duration = newDuration;
+            main = bullet3.main;
+            main.duration = newDuration;
+            main = bullet4.main;
+            main.duration = newDuration;
+            main = bullet5.main;
+            main.duration = newDuration;
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
             upgradePrice = Math.Min(maxUpgradePrice, newPrice);
@@ -168,7 +191,10 @@ public class TargetLocator : MonoBehaviour
                 button.interactable = false;
                 CheckFullyUpgraded();
             }
+            timerSnow = 0;
+            snowSound -= 12.5;
             bullet.Play();
+            Instantiate(sound, transform.position, Quaternion.identity);
         }
     }
     public void IncreaseSlowDown(float increase)

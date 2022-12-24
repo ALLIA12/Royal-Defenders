@@ -47,11 +47,11 @@ public class Tower : MonoBehaviour
     {
         body.SetActive(false);
         weapon.SetActive(false);
-        //shooter.SetActive(false);
+        shooter.SetActive(false);
         body.SetActive(true);
         yield return new WaitForSeconds(DelayTimer);
         weapon.SetActive(true);
-        //shooter.SetActive(true);
+        shooter.SetActive(true);
     }
 
     public int getTowerPrice()

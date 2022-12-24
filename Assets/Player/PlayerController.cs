@@ -80,7 +80,6 @@ public class PlayerController : MonoBehaviour
             // For hard difficulty don't show the new path, just needed to change the order of the if statment
             if (tile.hasTower && Input.GetMouseButtonDown(2))
             {
-                Debug.Log(oldTile);
                 if (oldTile != null && oldTile.tag == "Untagged")
                 {
                     Tower tower = oldTile.currentTower.GetComponent<Tower>();

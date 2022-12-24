@@ -86,7 +86,7 @@ public class TargetLocator : MonoBehaviour
     {
         if (target == null) return;
         weapon.LookAt(target);
-        //shooter.LookAt(target);
+        shooter.LookAt(target);
         targetDistance = Vector3.Distance(transform.position, target.position);
         if (targetDistance <= shootingRange)
         {

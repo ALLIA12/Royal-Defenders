@@ -5908,7 +5908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 6638351143567997078}
-  shooter: {fileID: 0}
+  shooter: {fileID: 6638351143567997078}
   bullet: {fileID: 1817521885344937631}
   shootingRange: 70
   shootAoe: 0

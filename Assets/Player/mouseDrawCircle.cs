@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class mouseDrawCircle : MonoBehaviour
 {
-    public int value = 1;
+    private int value = 0;
     [Range(0,50)]
     public int segments = 50;
     [Range(0,20)]
@@ -53,4 +53,20 @@ public class mouseDrawCircle : MonoBehaviour
             angle += (360f / segments);
         }
     }
+
+    public void removeLine()
+    {
+        value = 0;
+        for (int i = 0; i < (segments + 1); i++)
+        {
+            line.SetPosition(i, Vector3.zero);
+        }
+        
+    }
+
+    public void drawLine()
+    {
+        value = 1;
+    }
+    
 }

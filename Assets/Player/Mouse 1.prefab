@@ -172,5 +172,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   segments: 50
-  xradius: 5
-  zradius: 5
+  xradius: 16
+  zradius: 16

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,6 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Tower[] TowerA;
     [SerializeField] private VictoryMenu victoryMenu;
+    [SerializeField] private GameObject hotBarTower;
+    [SerializeField] private GameObject hotBarAbility;
+    public GameObject asteroid;
     public int TowerType;
     public int abilityType;
     public AudioSource sound;
@@ -24,13 +28,19 @@ public class PlayerController : MonoBehaviour
         {
             if (abilityType > 0)
             {
+                hotBarTower.SendMessage("turnOff");
                 ability();
             }
-            else
+            else if (TowerType> 0)
             {
+                hotBarAbility.SendMessage("turnOff");
                 ConsctructingTowers();
                 ShowTowerMenu();
                 RemoveCurrentMenu();
+            }
+            else
+            {
+                hotBarAbility.SendMessage("turnOn");
             }
         }
     }
@@ -44,10 +54,16 @@ public class PlayerController : MonoBehaviour
         {
             //change position
             transform.position = Hit.point;
-
+            
+            this.SendMessage("drawLine");
             if (Input.GetMouseButtonDown(0))
             {
+                Vector3 temp = new Vector3(transform.position.x,150,transform.position.z);
+                Instantiate(asteroid, temp, quaternion.identity);
                 Debug.Log("ability" + abilityType);
+                abilityType = 0;
+                this.SendMessage("removeLine");
+                hotBarTower.SendMessage("turnOn");
             }
         }
 

@@ -15,6 +15,7 @@ public class AbilityBtnCode : MonoBehaviour
     private ColorBlock originalColor;
     private Button btn;
     public Button[] brnA;
+    private int towerSelect = 0;
 
 
 
@@ -36,7 +37,7 @@ public class AbilityBtnCode : MonoBehaviour
     
     private void Update()
     {
-        if (_bank.getCurrentGold() < abilityPrice | Input.GetMouseButtonDown(1))
+        if (_bank.getCurrentGold() < abilityPrice | Input.GetMouseButtonDown(1) | Input.GetMouseButtonDown(0) | towerSelect>0)
         {
             ColorBlock lockedClr = btn.colors;
             lockedClr.normalColor = Color.black;
@@ -97,5 +98,15 @@ public class AbilityBtnCode : MonoBehaviour
             _text.SetActive(false);
         }
 
+    }
+    
+    public void TurnOff()
+    {
+        towerSelect = 1;
+    }
+    
+    public void TurnOn()
+    {
+        towerSelect = 0;
     }
 }

@@ -37,7 +37,7 @@ public class AbilityBtnCode : MonoBehaviour
     
     private void Update()
     {
-        if (_bank.getCurrentGold() < abilityPrice | Input.GetMouseButtonDown(1) | Input.GetMouseButtonDown(0) | towerSelect>0)
+        if (_bank.getCurrentGold() < abilityPrice | Input.GetMouseButtonDown(1) | towerSelect>0)
         {
             ColorBlock lockedClr = btn.colors;
             lockedClr.normalColor = Color.black;
@@ -47,7 +47,7 @@ public class AbilityBtnCode : MonoBehaviour
             lockedClr.disabledColor = Color.gray;
             btn.colors = lockedClr;
             btn.colors = originalColor;
-            if (_mouse.GetComponent<PlayerController>().gettowerType() == _keyNumber)
+            if (_mouse.GetComponent<PlayerController>().getAbilityType() == _keyNumber)
             {
                 unpickAbility();
             }

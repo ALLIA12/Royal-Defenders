@@ -3,7 +3,17 @@ guid: 81bed25563db5cd4d902407d8d5e20f4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystals
+    second: {fileID: 2100000, guid: 37e8dfbc3ae8cf643aadbc45d2453d4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tower
+    second: {fileID: 2100000, guid: 9360872cfc7cefc41b268228a897cb9a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

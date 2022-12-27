@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
                 abilityType = 0;
                 this.SendMessage("removeLine");
                 hotBarTower.SendMessage("turnOn");
+                hotBarAbility.SendMessage("turnOff");
             }
         }
 
@@ -185,10 +186,19 @@ public class PlayerController : MonoBehaviour
     public void abilityPicker(int abilityNO)
     {
         abilityType = abilityNO;
+        if (abilityType == -1)
+        {
+            this.SendMessage("removeLine");
+            hotBarTower.SendMessage("turnOn");
+        }
     }
 
     public int gettowerType()
     {
         return TowerType;
+    }
+    public int getAbilityType()
+    {
+        return abilityType;
     }
 }

@@ -11160,6 +11160,8 @@ MonoBehaviour:
   bullet3: {fileID: 1043024459772406309}
   bullet4: {fileID: 1010614953110234655}
   bullet5: {fileID: 5892331118917198924}
+  maximumDmage: 0
+  maximumRange: 0
 --- !u!114 &7159522732880805328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11179,7 +11181,9 @@ MonoBehaviour:
   weapon: {fileID: 2766641471320243375}
   shooter: {fileID: 1588399467052879240}
   upgradeBody: {fileID: 7305709174854964955}
+  upgradeWeapon: {fileID: 0}
   bank: {fileID: 0}
+  type: 0
 --- !u!1001 &916955666454886825
 PrefabInstance:
   m_ObjectHideFlags: 0

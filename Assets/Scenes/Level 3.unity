@@ -35361,9 +35361,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194227}
     - target: {fileID: 7181473444981829960, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
+      propertyPath: hotBarTower
+      value: 
+      objectReference: {fileID: 7583493047674525077}
+    - target: {fileID: 7181473444981829960, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
       propertyPath: victoryMenu
       value: 
       objectReference: {fileID: 7583493047674525076}
+    - target: {fileID: 7181473444981829960, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
+      propertyPath: hotBarAbility
+      value: 
+      objectReference: {fileID: 7583493047674525075}
     - target: {fileID: 7181473444981829961, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
       propertyPath: m_Name
       value: Mouse
@@ -35904,6 +35912,11 @@ PrefabInstance:
       objectReference: {fileID: 324043651}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+--- !u!1 &7583493047674525075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1907896766, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+  m_PrefabInstance: {fileID: 7583493047674525074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7583493047674525076 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7583493047674525076, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
@@ -35915,6 +35928,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7c6c5e8cf72e54692110e51ce05191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7583493047674525077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1956159174, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+  m_PrefabInstance: {fileID: 7583493047674525074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7912909676210358724
 PrefabInstance:
   m_ObjectHideFlags: 0

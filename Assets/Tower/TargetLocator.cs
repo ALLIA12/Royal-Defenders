@@ -9,6 +9,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
+    [SerializeField] Transform upgradedWeapon;
     [SerializeField] Transform shooter;
     [SerializeField] ParticleSystem bullet;
     [SerializeField] float shootingRange = 15f;
@@ -23,6 +24,8 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] ParticleSystem bullet3;
     [SerializeField] ParticleSystem bullet4;
     [SerializeField] ParticleSystem bullet5;
+    [SerializeField] int maximumDmage = 0;
+    [SerializeField] int maximumRange = 0;
     VictoryMenu victoryMenu;
     Tower tower;
     Bank bank;
@@ -32,13 +35,15 @@ public class TargetLocator : MonoBehaviour
     double snowSound = 250;
     bool bulletSoundChecker = false;
     float targetDistance;
+    private bool fullyUpgraded = false;
     private void Start()
     {
         GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
         victoryMenu = temp.GetComponent<VictoryMenu>();
         tower = GetComponent<Tower>();
         bank = FindObjectOfType<Bank>();
-        if(shootAoe){
+        if (shootAoe)
+        {
             Instantiate(sound, transform.position, Quaternion.identity);
         }
     }
@@ -100,7 +105,14 @@ public class TargetLocator : MonoBehaviour
     void AimWeapon()
     {
         if (target == null) return;
-        weapon.LookAt(target);
+        if (fullyUpgraded && tower.type == 0)
+        {
+            upgradedWeapon.LookAt(target);
+        }
+        else
+        {
+            weapon.LookAt(target);
+        }
         shooter.LookAt(target);
         targetDistance = Vector3.Distance(transform.position, target.position);
         if (targetDistance <= shootingRange)
@@ -114,8 +126,13 @@ public class TargetLocator : MonoBehaviour
     }
     void AttackToogle(bool isActive)
     {
-        var temp = bullet.emission;
-        temp.enabled = isActive;
+        var emmision = bullet.emission;
+        emmision.enabled = isActive;
+        if (fullyUpgraded && tower.type == 0)
+        {
+            var emmision2 = bullet2.emission; emmision2.enabled = isActive;
+            var emmision3 = bullet3.emission; emmision3.enabled = isActive;
+        }
         bulletSoundChecker = isActive;
     }
     private void OnDrawGizmos()
@@ -126,10 +143,21 @@ public class TargetLocator : MonoBehaviour
 
     public void IncreaseDamage(float increase)
     {
+        Button button = upgradeTwo.GetComponent<Button>();
+        if (!button.interactable)
+        {
+            return;
+        }
         if (bank.getCurrentGold() >= upgradePrice)
         {
             victoryMenu.numberOfTowerUpgrades++;
-            bullet.GetComponent<ParticleHandler>().IncreaseDmage(increase);
+            ParticleHandler particle = bullet.GetComponent<ParticleHandler>();
+            particle.IncreaseDmage(increase);
+            if (particle.getDamage() >= maximumDmage)
+            {
+                button.interactable = false;
+                CheckFullyUpgraded();
+            }
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
             upgradePrice = Math.Min(maxUpgradePrice, newPrice);
@@ -137,6 +165,7 @@ public class TargetLocator : MonoBehaviour
     }
     public void IncreaseRate(float increase)
     {
+
         if (bank.getCurrentGold() >= upgradePrice)
         {
             victoryMenu.numberOfTowerUpgrades++;
@@ -150,13 +179,24 @@ public class TargetLocator : MonoBehaviour
 
     public void IncreaseRange(float increase)
     {
+        Button button = upgradeOne.GetComponent<Button>();
+        if (!button.interactable)
+        {
+            return;
+        }
         if (bank.getCurrentGold() >= upgradePrice)
         {
             victoryMenu.numberOfTowerUpgrades++;
             shootingRange += increase;
+
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
             upgradePrice = Math.Min(maxUpgradePrice, newPrice);
+            if (shootingRange >= maximumRange)
+            {
+                button.interactable = false;
+                CheckFullyUpgraded();
+            }
         }
     }
     public void DecreaseDuration(float decrease)
@@ -229,6 +269,7 @@ public class TargetLocator : MonoBehaviour
         if (!buttonOne.interactable && !buttonTwo.interactable)
         {
             tower.FullyUpgraded();
+            fullyUpgraded = true;
         }
         print(buttonOne.interactable);
     }

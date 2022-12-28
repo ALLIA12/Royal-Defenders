@@ -1968,6 +1968,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1867729498967610059, guid: 56c897901058ec04e80d7a94c9e4ea95, type: 3}
   m_PrefabInstance: {fileID: 96087526}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &96807404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1956159174, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+  m_PrefabInstance: {fileID: 7583493047674525074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &99017720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867729498967610059, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
@@ -4539,6 +4544,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
 --- !u!4 &222570916 stripped
@@ -5286,6 +5295,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392121404907017752, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9434,6 +9447,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392121404907017752, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23333,6 +23350,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
 --- !u!1001 &1292122282
@@ -24456,6 +24477,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867729498967610059, guid: 56c897901058ec04e80d7a94c9e4ea95, type: 3}
   m_PrefabInstance: {fileID: 1369292812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1370887061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1907896766, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+  m_PrefabInstance: {fileID: 7583493047674525074}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1381223942
 PrefabInstance:
@@ -25937,6 +25963,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
 --- !u!1001 &1453559212
@@ -26725,6 +26755,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392121404907017752, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -30138,6 +30172,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
 --- !u!1001 &1740222008
@@ -31028,6 +31066,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392121404907017752, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -35499,6 +35541,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
 --- !u!1001 &2085752402
@@ -36446,6 +36492,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4933383167730830038, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
+      propertyPath: isTaken
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49841f8fe4937d43b35d54063c85020, type: 3}
 --- !u!1 &2122864502
@@ -37075,9 +37125,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194227}
     - target: {fileID: 7181473444981829960, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
+      propertyPath: hotBarTower
+      value: 
+      objectReference: {fileID: 96807404}
+    - target: {fileID: 7181473444981829960, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
       propertyPath: victoryMenu
       value: 
       objectReference: {fileID: 7583493047674525076}
+    - target: {fileID: 7181473444981829960, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
+      propertyPath: hotBarAbility
+      value: 
+      objectReference: {fileID: 1370887061}
     - target: {fileID: 7181473444981829961, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
       propertyPath: m_Name
       value: Mouse

@@ -55,6 +55,9 @@ MonoBehaviour:
   - {fileID: 7159522732880805328, guid: 8d3ebab3c63fff147ac50b9c3635f3b7, type: 3}
   - {fileID: 7159522732880805328, guid: a3ced7eb94f06614583b4ff481c71787, type: 3}
   victoryMenu: {fileID: 0}
+  hotBarTower: {fileID: 0}
+  hotBarAbility: {fileID: 0}
+  asteroid: {fileID: 863594124554141282, guid: d7b96a8abdd612d40ac947b13dffba13, type: 3}
   TowerType: 0
   abilityType: 0
   sound: {fileID: 0}
@@ -170,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279ec1f68f95d47419fe3fbcf42d11ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
   segments: 50
   xradius: 16
   zradius: 16

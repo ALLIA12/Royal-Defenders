@@ -11,8 +11,10 @@ public class Tower : MonoBehaviour
     [SerializeField] GameObject weapon;
     [SerializeField] GameObject shooter;
     [SerializeField] GameObject upgradeBody;
+    [SerializeField] GameObject upgradeWeapon;
+    [SerializeField] GameObject[] upgradeBullets;
     public Bank bank;
-
+    public int type = 0;
     private Tile tile;
 
     private void Start()
@@ -78,7 +80,16 @@ public class Tower : MonoBehaviour
 
     public void FullyUpgraded()
     {
-        body.SetActive(false);
-        upgradeBody.SetActive(true);
+        if (type == 2 || type == 1)
+        {
+            body.SetActive(false);
+            upgradeBody.SetActive(true);
+        }
+        else if (type == 0) { 
+            weapon.SetActive(false);
+            upgradeWeapon.SetActive(true);
+            upgradeBullets[0].SetActive(true);
+            upgradeBullets[1].SetActive(true);
+        }
     }
 }

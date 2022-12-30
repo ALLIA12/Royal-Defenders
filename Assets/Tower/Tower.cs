@@ -80,16 +80,22 @@ public class Tower : MonoBehaviour
 
     public void FullyUpgraded()
     {
-        if (type == 2 || type == 1)
+        if (type == 2)
         {
             body.SetActive(false);
             upgradeBody.SetActive(true);
         }
-        else if (type == 0) { 
+        else if (type == 0)
+        {
             weapon.SetActive(false);
             upgradeWeapon.SetActive(true);
             upgradeBullets[0].SetActive(true);
             upgradeBullets[1].SetActive(true);
+        }
+        else if (type == 1)
+        {
+            upgradeWeapon.SetActive(true);
+            upgradeBullets[0].SetActive(true);
         }
     }
 }

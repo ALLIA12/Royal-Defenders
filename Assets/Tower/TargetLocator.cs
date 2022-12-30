@@ -5,6 +5,7 @@ using UnityEditor.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.ParticleSystem;
 
 public class TargetLocator : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] ParticleSystem bullet;
     [SerializeField] float shootingRange = 15f;
     Transform target;
+    Transform farTarget;
     [SerializeField] bool shootAoe = false;
     [SerializeField] public ParticleSystem sound;
     [SerializeField] public int upgradePenelty = 5;
@@ -26,6 +28,7 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] ParticleSystem bullet5;
     [SerializeField] int maximumDmage = 0;
     [SerializeField] int maximumRange = 0;
+    [SerializeField] int maximumRate = 0;
     VictoryMenu victoryMenu;
     Tower tower;
     Bank bank;
@@ -52,7 +55,7 @@ public class TargetLocator : MonoBehaviour
 
         if (!shootAoe)
         {
-            FindClosesetEnemy();
+            FindEnemies();
             AimWeapon();
             if (timer > 40 && bulletSoundChecker)
             {
@@ -79,27 +82,39 @@ public class TargetLocator : MonoBehaviour
         }
         ++timerSnow;
     }
-    void FindClosesetEnemy()
+    void FindEnemies()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
         if (enemies.Length == 0)
         {
             target = null;
+            farTarget = null;
             AttackToogle(false);
             return;
         }
         Transform closestEnemy = null;
+        Transform secondToClosestEnemy = null;
         float maxDistance = Mathf.Infinity;
+        float secondToMaxDistance = Mathf.Infinity;
         foreach (GameObject enemy in enemies)
         {
             float targetDistance = Vector3.Distance(this.transform.position, enemy.transform.position);
             if (maxDistance > targetDistance)
             {
+                secondToClosestEnemy = closestEnemy;
+                secondToMaxDistance = maxDistance;
                 closestEnemy = enemy.transform;
                 maxDistance = targetDistance;
             }
+            else if (targetDistance < secondToMaxDistance && targetDistance != maxDistance)
+            {
+                secondToClosestEnemy = enemy.transform;
+                secondToMaxDistance = targetDistance;
+            }
         }
         target = closestEnemy;
+        farTarget = secondToClosestEnemy;
+
     }
 
     void AimWeapon()
@@ -109,11 +124,20 @@ public class TargetLocator : MonoBehaviour
         {
             upgradedWeapon.LookAt(target);
         }
-        else
+        else if (tower.type == 0)
         {
             weapon.LookAt(target);
         }
         shooter.LookAt(target);
+        if (fullyUpgraded && tower.type == 1 && farTarget != null)
+        {
+            upgradedWeapon.LookAt(farTarget);
+        }
+        if (farTarget == null)
+        {
+            upgradedWeapon.LookAt(target);
+
+        }
         targetDistance = Vector3.Distance(transform.position, target.position);
         if (targetDistance <= shootingRange)
         {
@@ -128,7 +152,7 @@ public class TargetLocator : MonoBehaviour
     {
         var emmision = bullet.emission;
         emmision.enabled = isActive;
-        if (fullyUpgraded && tower.type == 0)
+        if (fullyUpgraded)
         {
             var emmision2 = bullet2.emission; emmision2.enabled = isActive;
             var emmision3 = bullet3.emission; emmision3.enabled = isActive;
@@ -165,7 +189,11 @@ public class TargetLocator : MonoBehaviour
     }
     public void IncreaseRate(float increase)
     {
-
+        Button button = upgradeOne.GetComponent<Button>();
+        if (!button.interactable)
+        {
+            return;
+        }
         if (bank.getCurrentGold() >= upgradePrice)
         {
             victoryMenu.numberOfTowerUpgrades++;
@@ -174,6 +202,11 @@ public class TargetLocator : MonoBehaviour
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
             upgradePrice = Math.Min(maxUpgradePrice, newPrice);
+            if (emission.rateOverTime.constant >= maximumRate)
+            {
+                button.interactable = false;
+                CheckFullyUpgraded();
+            }
         }
     }
 

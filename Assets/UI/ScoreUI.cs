@@ -6,17 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class ScoreUI : MonoBehaviour
 {
-    public TextMeshProUGUI level1;
-    public TextMeshProUGUI level2;
-    public TextMeshProUGUI level3;
-    public TextMeshProUGUI level4;
+    public TextMeshProUGUI[] levels;
 
     public Animator animator;
     public float transationTime = 1f;
 
-    int[,] scores = new int[4, 3];
+    int[,] scores;
     private void Awake()
     {
+        scores = new int[levels.Length, 3];
         // Get scores from the save system later, coooooope
         for (int i = 0; i < scores.GetLength(0); i++)
         {
@@ -31,15 +29,15 @@ public class ScoreUI : MonoBehaviour
     public void UpdateTexts(int difficulty)
     {
         // Maximum score is 999999999999
-        level1.text = $"Level 1\nBest Score: \n{scores[0, difficulty]}";
-        level2.text = $"Level 2\nBest Score: \n{scores[1, difficulty]}";
-        level3.text = $"Level 3\nBest Score: \n{scores[2, difficulty]}";
-        level4.text = $"Level 4\nBest Score: \n{scores[3, difficulty]}";
+        for (int i = 0; i < levels.Length; i++)
+        {
+            levels[i].text = $"Level {i+1}\nBest Score: \n{scores[i, difficulty]}";
+        }
     }
     public void StartLevel(int index)
     {
         // temp cope shit 
-        if (index > 4)
+        if (index > levels.Length)
         {
             Debug.Log("COPE");
             return;

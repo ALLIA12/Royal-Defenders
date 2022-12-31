@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worth: 30
-  yoink: 100
+  yoink: 10
 --- !u!54 &4789551062661990049
 Rigidbody:
   m_ObjectHideFlags: 0

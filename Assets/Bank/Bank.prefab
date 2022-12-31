@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingGold: 200000
+  startingHealth: 100
   currentGold: 0
+  currentHealth: 0
   displayGold: {fileID: 0}
+  displayHealth: {fileID: 0}
   retryMenu: {fileID: 0}

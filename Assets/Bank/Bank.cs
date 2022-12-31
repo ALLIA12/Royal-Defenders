@@ -7,18 +7,26 @@ using TMPro;
 public class Bank : MonoBehaviour
 {
     [SerializeField] int startingGold = 100;
+    [SerializeField] int startingHealth = 100;
     [SerializeField] int currentGold;
+    [SerializeField] int currentHealth;
     [SerializeField] TextMeshProUGUI displayGold;
+    [SerializeField] TextMeshProUGUI displayHealth;
     [SerializeField] RetryMenu retryMenu;
     private void Awake()
     {
         currentGold = startingGold;
+        currentHealth = startingHealth;
         updateGoldDisplay();
     }
 
     public int getCurrentGold()
     {
         return currentGold;
+    }
+    public int getCurrentHealth()
+    {
+        return currentHealth;
     }
     public void depostGold(int gold)
     {
@@ -29,20 +37,25 @@ public class Bank : MonoBehaviour
     {
         currentGold -= Mathf.Abs(gold);
         updateGoldDisplay();
-        if (currentGold < 0)
+    }
+    public void withdrawHealth(int health)
+    {
+        currentHealth -= Mathf.Abs(health);
+        updateHealthDisplay();
+        if (currentHealth <= 0)
         {
             retryMenu.ShowMenu();
         }
     }
-    //void reLoadScene()
-    //{
-    //    Scene scene = SceneManager.GetActiveScene();
-    //    SceneManager.LoadScene(scene.buildIndex);
-    //}
 
     void updateGoldDisplay()
     {
         displayGold.text = $"Gold: {currentGold}";
+    }
+
+    void updateHealthDisplay()
+    {
+        displayHealth.text = $"Health: {currentHealth}";
     }
 
 

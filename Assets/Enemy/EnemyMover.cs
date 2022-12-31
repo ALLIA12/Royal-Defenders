@@ -99,7 +99,7 @@ public class EnemyMover : MonoBehaviour
     private void FinishPath()
     {
         victoryMenu.numberOfEnemiesNotKilled++;
-        enemy.yoinkGoldOnExit();
+        enemy.yoinkHealthOnExit();
         Destroy(this.gameObject);
     }
     private void OnDestroy()

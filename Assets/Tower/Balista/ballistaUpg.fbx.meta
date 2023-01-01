@@ -3,7 +3,27 @@ guid: ad01579f2eb44e2458cf51d083608b16
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArrowHolder
+    second: {fileID: 2100000, guid: adf7001842d716d4489195b6ecf98241, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arrowExit
+    second: {fileID: 2100000, guid: f2212de9429687b429aff690f97bbc51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bow.001
+    second: {fileID: 2100000, guid: 9dc2bdf03748ef74496f2bc49e32ecec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: line
+    second: {fileID: 2100000, guid: 06737c5fc6c0d184f99608bca67cd11b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

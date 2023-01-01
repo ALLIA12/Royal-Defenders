@@ -11147,6 +11147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  upgradedWeapon: {fileID: 0}
   shooter: {fileID: 0}
   bullet: {fileID: 1043696511969560109}
   shootingRange: 50
@@ -11162,6 +11163,7 @@ MonoBehaviour:
   bullet5: {fileID: 5892331118917198924}
   maximumDmage: 0
   maximumRange: 0
+  maximumRate: 0
 --- !u!114 &7159522732880805328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11182,6 +11184,7 @@ MonoBehaviour:
   shooter: {fileID: 1588399467052879240}
   upgradeBody: {fileID: 7305709174854964955}
   upgradeWeapon: {fileID: 0}
+  upgradeBullets: []
   bank: {fileID: 0}
   type: 0
 --- !u!1001 &916955666454886825

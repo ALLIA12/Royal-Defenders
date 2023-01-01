@@ -5630,6 +5630,7 @@ MonoBehaviour:
   bullet5: {fileID: 0}
   maximumDmage: 50
   maximumRange: 50
+  maximumRate: 0
 --- !u!114 &-8129081288077187653
 MonoBehaviour:
   m_ObjectHideFlags: 0

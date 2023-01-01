@@ -138,7 +138,6 @@ MonoBehaviour:
   gridManager: {fileID: 0}
   pathFinding: {fileID: 0}
   coordinates: {x: 0, y: 0}
-  _renderer: {fileID: 0}
 --- !u!65 &1638582236067544620
 BoxCollider:
   m_ObjectHideFlags: 0

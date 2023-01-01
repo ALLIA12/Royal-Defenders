@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7181473444981829960}
   - component: {fileID: 7181473444981829965}
   - component: {fileID: 7181473444981829962}
+  - component: {fileID: 7181473445329835235}
   m_Layer: 0
   m_Name: Mouse 1
   m_TagString: Untagged
@@ -176,3 +177,34 @@ MonoBehaviour:
   segments: 50
   xradius: 16
   zradius: 16
+--- !u!114 &7181473445329835235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181473444981829961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05be679755ba0704e8e7f737f5461627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTyping: 0
+  currentString: 
+  cheatCodeInstances:
+  - code: dawi
+    cheatEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Bank, Assembly-CSharp
+          m_MethodName: depostGold
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 666
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

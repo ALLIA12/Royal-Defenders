@@ -74,7 +74,8 @@ public class Tower : MonoBehaviour
         tile.gridManager.unblockNode(tile.coordinates);
         tile.gridManager.changeCostOoNeighbors(tile.coordinates, -3);
         tile.pathFinding.notifiyReciviers();
-        bank.depostGold(cost);
+
+        bank.depostGold((cost / 2));
         Destroy(gameObject);
     }
 

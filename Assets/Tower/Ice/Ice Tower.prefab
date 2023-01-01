@@ -257,19 +257,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7685775952023970805}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8140824392716414731}
-        m_TargetAssemblyTypeName: TargetLocator, Assembly-CSharp
-        m_MethodName: IncreaseSlowDown
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.05
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3747803768953580949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10255,19 +10243,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6497161766057005191}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7159522732880805328}
-        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
-        m_MethodName: DestroyTower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5362222945190614905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10285,7 +10261,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 7159522732880805328}
           m_TargetAssemblyTypeName: Tower, Assembly-CSharp
           m_MethodName: DestroyTower
           m_Mode: 1
@@ -10498,7 +10474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Decrease CD
+  m_text: Increase Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f5d57b956f1b3cd46b9c7782eba3f611, type: 2}
   m_sharedMaterial: {fileID: -4264897147905498715, guid: f5d57b956f1b3cd46b9c7782eba3f611, type: 2}
@@ -10716,7 +10692,7 @@ GameObject:
   - component: {fileID: 2085537967493470071}
   - component: {fileID: 8738935777152592501}
   m_Layer: 5
-  m_Name: Decrease CD
+  m_Name: Increase Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10824,19 +10800,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2788073611441998936}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8140824392716414731}
-        m_TargetAssemblyTypeName: TargetLocator, Assembly-CSharp
-        m_MethodName: DecreaseDuration
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8738935777152592501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10856,13 +10820,13 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 8140824392716414731}
           m_TargetAssemblyTypeName: TargetLocator, Assembly-CSharp
-          m_MethodName: DecreaseDuration
+          m_MethodName: IncreaseDamage
           m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0.25
+            m_FloatArgument: 0.05
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -10975,7 +10939,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7890026208415423889}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -11155,13 +11119,13 @@ MonoBehaviour:
   sound: {fileID: 4313568896475987328, guid: 2596deff5fc724d4bb97c8d3fdc9cf7c, type: 3}
   upgradePenelty: 5
   maxUpgradePrice: 100
-  upgradeOne: {fileID: 7190626973031178148}
-  upgradeTwo: {fileID: 1440699004302823893}
+  upgradeOne: {fileID: 1440699004302823893}
+  upgradeTwo: {fileID: 7190626973031178148}
   bullet2: {fileID: 1042920532250937955}
   bullet3: {fileID: 1043024459772406309}
   bullet4: {fileID: 1010614953110234655}
   bullet5: {fileID: 5892331118917198924}
-  maximumDmage: 0
+  maximumDmage: 1
   maximumRange: 0
   maximumRate: 0
 --- !u!114 &7159522732880805328
@@ -11186,7 +11150,7 @@ MonoBehaviour:
   upgradeWeapon: {fileID: 0}
   upgradeBullets: []
   bank: {fileID: 0}
-  type: 0
+  type: 2
 --- !u!1001 &916955666454886825
 PrefabInstance:
   m_ObjectHideFlags: 0

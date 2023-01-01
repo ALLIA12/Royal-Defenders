@@ -258,9 +258,9 @@ public class TargetLocator : MonoBehaviour
             bank.withdrawGold(upgradePrice);
             int newPrice = upgradePrice + upgradePenelty;
             upgradePrice = Math.Min(maxUpgradePrice, newPrice);
-            if (newDuration <= 1)
+            if (newDuration <= .7f)
             {
-                main.duration = 1;
+                main.duration = .7f;
                 button.interactable = false;
                 CheckFullyUpgraded();
             }
@@ -272,7 +272,7 @@ public class TargetLocator : MonoBehaviour
     }
     public void IncreaseSlowDown(float increase)
     {
-        Button button = upgradeTwo.GetComponent<Button>();
+        Button button = upgradeOne.GetComponent<Button>();
         if (!button.interactable)
         {
             return;
@@ -286,9 +286,9 @@ public class TargetLocator : MonoBehaviour
             upgradePrice = Math.Min(maxUpgradePrice, newPrice);
             float temp = bullet.GetComponent<ParticleHandler>().getSlowDownModifier();
             // if we go past this point, its too powerful
-            if (temp >= .90f)
+            if (temp >= .75f)
             {
-                bullet.GetComponent<ParticleHandler>().SetSlowDownModifier(.90f);
+                bullet.GetComponent<ParticleHandler>().SetSlowDownModifier(.75f);
                 button.interactable = false;
                 CheckFullyUpgraded();
             }

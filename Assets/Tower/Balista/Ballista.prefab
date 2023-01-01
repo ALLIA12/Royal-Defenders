@@ -257,19 +257,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7167081544166555305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -8129081288077187653}
-        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
-        m_MethodName: DestroyTower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &459981123198710647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,19 +409,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1764953637968828601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -1222455118706260909}
-        m_TargetAssemblyTypeName: TargetLocator, Assembly-CSharp
-        m_MethodName: IncreaseDamage
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7863114813708044233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20766,19 +20742,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 371550667985768041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -1222455118706260909}
-        m_TargetAssemblyTypeName: TargetLocator, Assembly-CSharp
-        m_MethodName: IncreaseRange
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4773945030119899409
 MonoBehaviour:
   m_ObjectHideFlags: 0

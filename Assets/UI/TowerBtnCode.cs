@@ -23,7 +23,6 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Button[] brnA;
     private int abilitySelect = 0;
 
-
     private void Start()
     {
         _keyNumber = transform.GetSiblingIndex() + 1;
@@ -49,9 +48,10 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             lockedClr.highlightedColor = Color.gray;
             lockedClr.pressedColor = Color.gray;
             lockedClr.selectedColor = Color.gray;
-            lockedClr.disabledColor = Color.gray;
+            lockedClr.disabledColor = Color.gray;           
             btn.colors = lockedClr;
             btn.colors = originalColor;
+            
             if (_mouse.GetComponent<PlayerController>().gettowerType() == _keyNumber)
             {
                 unpickTower();

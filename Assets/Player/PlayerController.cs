@@ -34,14 +34,14 @@ public class PlayerController : MonoBehaviour
             else if (TowerType> 0)
             {
                 hotBarAbility.SendMessage("turnOff");
-                ConsctructingTowers();
-                ShowTowerMenu();
-                RemoveCurrentMenu();
+                ConsctructingTowers();                              
             }
             else
             {
                 hotBarAbility.SendMessage("turnOn");
             }
+            ShowTowerMenu();
+            RemoveCurrentMenu();
         }
     }
 
@@ -77,7 +77,10 @@ public class PlayerController : MonoBehaviour
         {
             if (oldTile != null)
             {
-                oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                if (oldTile.hasTower)
+                {
+                    oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                }
                 oldTile = null;
             }
         }

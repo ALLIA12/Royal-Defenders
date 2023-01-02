@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 5313814869134647872}
   - component: {fileID: 4789551062661990049}
   m_Layer: 0
-  m_Name: Ram
+  m_Name: Ram Harder daddy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1584ec732e6aa4ba9c88c2d4a15002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedModifor: 1
+  speedModifor: 1.25
   slowDownModifor: 1
 --- !u!65 &4359052593134902621
 BoxCollider:
@@ -262,8 +262,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.4749665, y: 5.89298, z: 6.413643}
-  m_Center: {x: -0.0027434826, y: 2.69649, z: -0.95682144}
+  m_Size: {x: 3.4749665, y: 5.89298, z: 7.8039823}
+  m_Center: {x: -0.0027434826, y: 2.69649, z: -1.6519911}
 --- !u!114 &1051646720339779547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 198717222519016466, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
-  MaxHealth: 200
+  MaxHealth: 400
 --- !u!114 &5313814869134647872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,15 +321,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af9915ebbe92f3e4aa7da5ca0655508f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af9915ebbe92f3e4aa7da5ca0655508f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af9915ebbe92f3e4aa7da5ca0655508f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af9915ebbe92f3e4aa7da5ca0655508f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -371,6 +371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7339022470834183203, guid: af9915ebbe92f3e4aa7da5ca0655508f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 20d5911089a44894aafb8a5a7ef1ad5e, type: 2}
     - target: {fileID: 919132149155446097, guid: af9915ebbe92f3e4aa7da5ca0655508f, type: 3}
       propertyPath: m_Name
       value: cart 1

@@ -15557,7 +15557,7 @@ MonoBehaviour:
   upgradedWeapon: {fileID: 4754402620626186372}
   shooter: {fileID: 4971247994245484300}
   bullet: {fileID: 1817521885344937631}
-  shootingRange: 70
+  shootingRange: 44
   shootAoe: 0
   sound: {fileID: 4313568896475987328, guid: 613edb78ece43064aa185b8c9048d60c, type: 3}
   upgradePenelty: 5
@@ -15744,7 +15744,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0.09
+            m_FloatArgument: 0.1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2

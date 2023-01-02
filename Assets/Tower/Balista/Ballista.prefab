@@ -5593,10 +5593,10 @@ MonoBehaviour:
   upgradedWeapon: {fileID: 395126772425145580}
   shooter: {fileID: 3144582324300694500}
   bullet: {fileID: 6977536862777314367}
-  shootingRange: 30
+  shootingRange: 44
   shootAoe: 0
   sound: {fileID: 4313568896475987328, guid: 8644a1d4a9647c84f89241dac5568b92, type: 3}
-  upgradePenelty: 10
+  upgradePenelty: 20
   maxUpgradePrice: 100
   upgradeOne: {fileID: 8722536218852121296}
   upgradeTwo: {fileID: 1555501240320413715}
@@ -5605,7 +5605,7 @@ MonoBehaviour:
   bullet4: {fileID: 0}
   bullet5: {fileID: 0}
   maximumDmage: 50
-  maximumRange: 50
+  maximumRange: 70
   maximumRate: 0
 --- !u!114 &-8129081288077187653
 MonoBehaviour:
@@ -6822,7 +6822,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10779,7 +10779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e74024a01eba542a62fedbfe7fd129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   slowDownModifier: 0
   slowsDown: 0
 --- !u!1 &4665952640328619494
@@ -11749,7 +11749,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -16660,7 +16660,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -20617,7 +20617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e74024a01eba542a62fedbfe7fd129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   slowDownModifier: 0
   slowsDown: 0
 --- !u!1 &8722536218852121296

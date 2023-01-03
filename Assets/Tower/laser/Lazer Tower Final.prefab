@@ -15560,8 +15560,8 @@ MonoBehaviour:
   shootingRange: 44
   shootAoe: 0
   sound: {fileID: 4313568896475987328, guid: 613edb78ece43064aa185b8c9048d60c, type: 3}
-  upgradePenelty: 5
-  maxUpgradePrice: 100
+  upgradePenelty: 60
+  maxUpgradePrice: 300
   upgradeOne: {fileID: 8563412140585527844}
   upgradeTwo: {fileID: 8297914072256763665}
   bullet2: {fileID: 2784289765367040938}

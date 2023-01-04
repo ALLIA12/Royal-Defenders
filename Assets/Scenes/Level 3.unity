@@ -35277,10 +35277,6 @@ PrefabInstance:
       propertyPath: victorMenu
       value: 
       objectReference: {fileID: 7583493047674525076}
-    - target: {fileID: 4546371388400097847, guid: caab669245be5e04bbdcba5f3397e96e, type: 3}
-      propertyPath: endCoordnaites.y
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caab669245be5e04bbdcba5f3397e96e, type: 3}
 --- !u!1001 &2823728334446059314
@@ -35694,6 +35690,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2142862310}
+    - target: {fileID: 1380147367, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1390845971, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -35786,6 +35786,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2142862310}
+    - target: {fileID: 1697731934, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1724249115, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -35794,6 +35798,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 324043651}
+    - target: {fileID: 1929357835, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1976546407, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -1,5 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &104750245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104750246}
+  - component: {fileID: 104750247}
+  m_Layer: 0
+  m_Name: Wave 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104750246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104750245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2547355098507800144}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104750247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104750245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
+  poolSize: 50
+  spawnTimer: 0.5
+  burstTimer: 1
+  burstSize: 10
+--- !u!1 &151102840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 151102841}
+  - component: {fileID: 151102842}
+  m_Layer: 0
+  m_Name: Wave 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &151102841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151102840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2547355098507800144}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &151102842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151102840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 5040643765344069697, guid: e257fbf140aaaad44975d5e14b26f2b3, type: 3}
+  poolSize: 30
+  spawnTimer: 0.5
+  burstTimer: 1
+  burstSize: 10
 --- !u!1 &1975125838162915177
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,10 +143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 10
+  poolSize: 30
   spawnTimer: 1
-  burstTimer: 5
-  burstSize: 5
+  burstTimer: 2
+  burstSize: 15
 --- !u!1 &2547355098507800146
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +180,8 @@ Transform:
   - {fileID: 4342642068522191882}
   - {fileID: 4546371389797877339}
   - {fileID: 4546371388417771199}
+  - {fileID: 104750246}
+  - {fileID: 151102841}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCoordinates: {x: 3, y: 3}
-  endCoordnaites: {x: 24, y: 9}
+  endCoordnaites: {x: 24, y: 10}
 --- !u!114 &2707192378808938621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,8 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 30
-  spawnTimer: 0.5
+  poolSize: 25
+  spawnTimer: 0.4
   burstTimer: 1
   burstSize: 5
 --- !u!1 &4546371389797877338
@@ -205,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
+  enemy: {fileID: 5040643765344069697, guid: e257fbf140aaaad44975d5e14b26f2b3, type: 3}
   poolSize: 20
   spawnTimer: 1
   burstTimer: 5

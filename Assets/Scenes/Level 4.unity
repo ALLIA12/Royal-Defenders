@@ -36253,6 +36253,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1535548580}
+    - target: {fileID: 1380147367, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1390845971, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -36341,6 +36345,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1535548580}
+    - target: {fileID: 1697731934, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1724249115, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -36349,6 +36357,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 259624869}
+    - target: {fileID: 1929357835, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1976546407, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -36557,18 +36569,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3253235853411422924, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
-      propertyPath: poolSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253235853411422924, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
-      propertyPath: burstTimer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7864213009898424789, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
-      propertyPath: burstTimer
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8173678555749736921, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
       propertyPath: m_RootOrder
       value: 2

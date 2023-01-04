@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 8
+  enemy: {fileID: 5040643765344069697, guid: e257fbf140aaaad44975d5e14b26f2b3, type: 3}
+  poolSize: 20
   spawnTimer: 1
-  burstTimer: 1
-  burstSize: 5
+  burstTimer: 2
+  burstSize: 10
 --- !u!1 &1414447818
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 6
-  spawnTimer: 1
+  poolSize: 30
+  spawnTimer: 0.5
   burstTimer: 5
   burstSize: 5
 --- !u!1 &2039551496181148354
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 1
+  poolSize: 10
   spawnTimer: 1
   burstTimer: 5
   burstSize: 5

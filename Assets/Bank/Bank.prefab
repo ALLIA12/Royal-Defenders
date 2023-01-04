@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a232a3a11760e04ab4c03de0a215da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingGold: 500
+  startingGold: 200
   startingHealth: 100
   currentGold: 0
   currentHealth: 0

@@ -12,6 +12,7 @@ public class rockAbilityCode : MonoBehaviour
         {
             print("entered");
         }
+        
     }
     
     private void OnTriggerStay(Collider other)

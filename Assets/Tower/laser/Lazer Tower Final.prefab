@@ -5365,7 +5365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e74024a01eba542a62fedbfe7fd129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.2
+  damage: 0.8
   slowDownModifier: 0
   slowsDown: 0
 --- !u!1 &4821851769093031548
@@ -15994,7 +15994,7 @@ MonoBehaviour:
   bullet3: {fileID: 3715045513665932349}
   bullet4: {fileID: 0}
   bullet5: {fileID: 0}
-  maximumDmage: 1
+  maximumDmage: 4
   maximumRange: 0
   maximumRate: 300
   upgradePrice: 20

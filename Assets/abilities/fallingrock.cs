@@ -13,7 +13,7 @@ public class fallingrock : MonoBehaviour
      
         if (transform.position.y > start)
             dir = Mathf.Abs(dir) * -1;
-        else if (transform.position.y < -20)
+        else if (transform.position.y < -1.8)
             Destroy(gameObject);
     }
 

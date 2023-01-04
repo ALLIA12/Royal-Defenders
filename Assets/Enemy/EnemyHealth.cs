@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public ParticleSystem explosion;
     [SerializeField] int MaxHealth;
-    float currentHealth = 0;
+    public float currentHealth = 0;
     //[Tooltip("This adds to max hp every time the enemy dies")]
     //[SerializeField] int difficulityRamp = 60;
     Enemy enemy;

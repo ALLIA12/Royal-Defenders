@@ -12,8 +12,8 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] Transform weapon;
     [SerializeField] Transform upgradedWeapon;
     [SerializeField] Transform shooter;
-    [SerializeField] ParticleSystem bullet;
-    [SerializeField] float shootingRange = 15f;
+    public ParticleSystem bullet;
+    public float shootingRange = 15f;
     Transform target;
     Transform farTarget;
     [SerializeField] bool shootAoe = false;
@@ -32,7 +32,7 @@ public class TargetLocator : MonoBehaviour
     VictoryMenu victoryMenu;
     Tower tower;
     Bank bank;
-    private int upgradePrice = 20;
+    public int upgradePrice = 20;
     float timer = 0;
     float timerSnow = 0;
     double snowSound = 250;
@@ -304,10 +304,9 @@ public class TargetLocator : MonoBehaviour
             tower.FullyUpgraded();
             fullyUpgraded = true;
         }
-        print(buttonOne.interactable);
     }
     private void OnDestroy()
     {
-        bank.depostGold(upgradePenelty);
+        bank.depostGold(upgradePrice);
     }
 }

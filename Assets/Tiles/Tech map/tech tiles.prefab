@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6159566790865469639}
   - component: {fileID: 6529302491176526871}
   - component: {fileID: 5382112672022462759}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: tech tiles
   m_TagString: selectable
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3321195517786996263}
   - component: {fileID: 3217387293727938044}
   - component: {fileID: 6619544876724805644}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4138376816029539106}
   - component: {fileID: 3314151948859989001}
   - component: {fileID: 8787925085140092521}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 2692021932629983827}
   - component: {fileID: 976389359758129945}
   - component: {fileID: 4371146761569935245}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

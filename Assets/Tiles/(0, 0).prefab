@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7600436207940327528}
   - component: {fileID: 4732442262417367330}
   - component: {fileID: 8108934586342163894}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1827048050646850300}
   - component: {fileID: 1638582236067544620}
   - component: {fileID: 8375741205921957337}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: (0, 0)
   m_TagString: selectable
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 8453151019794383129}
   - component: {fileID: 7052615552342394418}
   - component: {fileID: 3879055671994440786}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: UI
   m_Icon: {fileID: 0}

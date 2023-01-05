@@ -5,29 +5,21 @@ using UnityEngine;
 
 public class rockAbilityCode : MonoBehaviour
 {
+    public ParticleSystem explosion;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "enemy")
         {
-            print("entered");
+            Enemy enemy = other.GetComponent<Enemy>();
+            GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
+            VictoryMenu victoryMenu = temp.GetComponent<VictoryMenu>();
+            victoryMenu.numberOfEnemiesDestroyed++;
+            enemy.giveGoldOnDeath();
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(enemy.gameObject);
         }
         
     }
     
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "enemy")
-        {
-            Debug.Log("stay");
-        }
-    }
-    
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "enemy")
-        {
-            Debug.Log("exit");
-        }
-    }
 }

@@ -27,6 +27,7 @@ public class tileSelectCode : MonoBehaviour
         }
     }
 
+    
     private void LightUp()
     {
         if (tag == "selectable")
@@ -34,7 +35,8 @@ public class tileSelectCode : MonoBehaviour
             _renderer.material = glow;
         }
     }
-    void Update()
+
+    private void FixedUpdate()
     {
         turnOff();
     }

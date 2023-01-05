@@ -67,4 +67,11 @@ public class CheatCodeManager : MonoBehaviour
         print("I AM RACIST AND HORNY FOR SHOUTAS");
     }
 
+    public void GiveGoldCode()
+    {
+        GameObject bankGO = GameObject.FindGameObjectWithTag("bank");
+        Bank bank = bankGO.GetComponent<Bank>();
+        bank.depostGold(99999);
+    }
+
 }

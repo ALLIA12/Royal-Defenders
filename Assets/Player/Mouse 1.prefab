@@ -192,14 +192,14 @@ MonoBehaviour:
   playerTyping: 0
   currentString: 
   cheatCodeInstances:
-  - code: dawi
+  - code: givegold
     cheatEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Bank, Assembly-CSharp
-          m_MethodName: depostGold
-          m_Mode: 3
+        - m_Target: {fileID: 7181473445329835235}
+          m_TargetAssemblyTypeName: CheatCodeManager, Assembly-CSharp
+          m_MethodName: GiveGoldCode
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -59304,10 +59304,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mouse
       objectReference: {fileID: 0}
-    - target: {fileID: 7181473444981829961, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7181473444981829963, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -59365,10 +59361,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bank
       objectReference: {fileID: 0}
-    - target: {fileID: 7520866233457733864, guid: 744d2e6e5072fb64390b8a9a01f2c5d5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7520866233457733866, guid: 744d2e6e5072fb64390b8a9a01f2c5d5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -59421,11 +59413,6 @@ PrefabInstance:
       propertyPath: displayGold
       value: 
       objectReference: {fileID: 426512976}
-    - target: {fileID: 7520866233457733867, guid: 744d2e6e5072fb64390b8a9a01f2c5d5, type: 3}
-
-      propertyPath: startingGold
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 7520866233457733867, guid: 744d2e6e5072fb64390b8a9a01f2c5d5, type: 3}
       propertyPath: displayHealth
       value: 

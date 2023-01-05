@@ -36569,6 +36569,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7095991513816831586, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 5040643765344069697, guid: c06f9f3997637e449b229191a1ffddef, type: 3}
+    - target: {fileID: 7095991513816831586, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
+      propertyPath: poolSize
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8173678555749736921, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
       propertyPath: m_RootOrder
       value: 2

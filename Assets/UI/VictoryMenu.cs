@@ -75,7 +75,7 @@ public class VictoryMenu : MonoBehaviour
     {
         animator.SetTrigger("Start");
         yield return new WaitForSeconds(transationTime);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     IEnumerator ReloadCorutine()

@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,16 +13,18 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioMixerGroup soundEffectsMixerGroup;
     void Awake()
     {
-        
-        if(instance == null) instance = this;
-        else {
+
+        if (instance == null) instance = this;
+        else
+        {
             //Destroy(gameObject);
             return;
         }
-        
+
         DontDestroyOnLoad(gameObject);
 
-        foreach(Sound s in sounds){
+        foreach (Sound s in sounds)
+        {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
@@ -30,7 +33,8 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
 
 
-            switch (s.audioType){
+            switch (s.audioType)
+            {
                 case Sound.AudioTypes.soundEffects:
                     s.source.outputAudioMixerGroup = soundEffectsMixerGroup;
                     break;
@@ -40,30 +44,39 @@ public class AudioManager : MonoBehaviour
                     break;
             }
         }
+
     }
 
-    public void Play (string name){
+
+    public void Play(string name)
+    {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null) {
+        if (s == null)
+        {
             //Debug.LogWarning("Sound" + name + " not found");
             return;
-            }
+        }
         s.source.Play();
     }
 
-    void Start(){
+    void Start()
+    {
+        soundEffectsMixerGroup.audioMixer.SetFloat("Sound Effects Volume", PlayerPrefs.GetFloat("seVolume", 1));
+        musicMixerGroup.audioMixer.SetFloat("Music Volume", PlayerPrefs.GetFloat("musicVolume", 1));
     }
 
     public void setMusic()
     {
-        
-        musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(AudioOptionsManager.musicVolume)*20);
+
+        musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(AudioOptionsManager.musicVolume) * 20);
+        PlayerPrefs.SetFloat("musicVolume", Mathf.Log10(AudioOptionsManager.musicVolume) * 20);
     }
 
     public void setSE()
     {
-        
-        soundEffectsMixerGroup.audioMixer.SetFloat("Sound Effects Volume", Mathf.Log10(AudioOptionsManager.soundEffectsVolume)*20);
+
+        soundEffectsMixerGroup.audioMixer.SetFloat("Sound Effects Volume", Mathf.Log10(AudioOptionsManager.soundEffectsVolume) * 20);
+        PlayerPrefs.SetFloat("seVolume", Mathf.Log10(AudioOptionsManager.soundEffectsVolume) * 20);
     }
 
 

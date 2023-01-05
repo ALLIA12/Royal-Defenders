@@ -13,10 +13,14 @@ public class SettingsMenu : MonoBehaviour
     public Resolution[] resolutions;
     public TMP_Dropdown resolutionDropDown;
     public static int difficulty = 0;
+    public Slider mSlider;
+    public Slider seSlider;
     private void Start()
     {
         ChangeGraphisUI();
         AddOptions();
+        mSlider.value = PlayerPrefs.GetFloat("musicVolumeSlider", 1);
+        seSlider.value = PlayerPrefs.GetFloat("seVolumeSlider", 1);
     }
 
     private void ChangeGraphisUI()
@@ -49,14 +53,16 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropDown.RefreshShownValue();
     }
 
-    /*public void SetMusic(float decimalVolume)
+    public void SetMusic(float decimalVolume)
     {
         var dbVolume = Mathf.Log10(decimalVolume) * 20;
         if (decimalVolume == 0.0f)
         {
             dbVolume = -80.0f;
         }
-        musicMixerGroup.audioMixer.SetFloat("Music Volume", dbVolume);
+        AudioManager.instance.musicMixerGroup.audioMixer.SetFloat("Music Volume", dbVolume);
+        PlayerPrefs.SetFloat("musicVolume", dbVolume);
+        PlayerPrefs.SetFloat("musicVolumeSlider", decimalVolume);
     }
 
     public void SetSE(float decimalVolume)
@@ -66,8 +72,10 @@ public class SettingsMenu : MonoBehaviour
         {
             dbVolume = -80.0f;
         }
-        soundEffectsMixerGroup.audioMixer.SetFloat("Music Volume", dbVolume);
-    }*/
+        AudioManager.instance.soundEffectsMixerGroup.audioMixer.SetFloat("Sound Effects Volume", dbVolume);
+        PlayerPrefs.SetFloat("seVolume", dbVolume);
+        PlayerPrefs.SetFloat("seVolumeSlider", decimalVolume);
+    }
 
     public void SetGraphics(int quailtyIndex)
     {

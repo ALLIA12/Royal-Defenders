@@ -37,7 +37,7 @@ public class ScoreUI : MonoBehaviour
     public void StartLevel(int index)
     {
         // temp cope shit 
-        if (index > levels.Length)
+        if (index > levels.Length+1)
         {
             Debug.Log("COPE");
             return;
@@ -47,7 +47,7 @@ public class ScoreUI : MonoBehaviour
 
     public void PlayGame()
     {
-        StartCoroutine(StartGameRoutine(1));
+        StartCoroutine(StartGameRoutine(2));
     }
     IEnumerator StartGameRoutine(int index)
     {

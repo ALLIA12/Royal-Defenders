@@ -209,30 +209,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 68294391, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 68294391, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 172373207, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 172373207, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400883885, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1152281819, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 163193096860213168, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -280,10 +256,6 @@ PrefabInstance:
     - target: {fileID: 163193096860213174, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307793274349196975, guid: 6b1697b0def57114da65092088aa01ae, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b1697b0def57114da65092088aa01ae, type: 3}

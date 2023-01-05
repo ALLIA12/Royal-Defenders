@@ -47147,6 +47147,18 @@ PrefabInstance:
       propertyPath: spawnTimer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2697189478555917324, guid: 9e34037742cbcde4f874190026e0dc1c, type: 3}
+      propertyPath: spawnTimer
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632472953160557224, guid: 9e34037742cbcde4f874190026e0dc1c, type: 3}
+      propertyPath: spawnTimer
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116254647918308138, guid: 9e34037742cbcde4f874190026e0dc1c, type: 3}
+      propertyPath: spawnTimer
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7753509151464992709, guid: 9e34037742cbcde4f874190026e0dc1c, type: 3}
       propertyPath: endCoordnaites.x
       value: 29

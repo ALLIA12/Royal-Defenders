@@ -47708,7 +47708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524178461912478561, guid: c87970daf936a074d95c7f96f2966779, type: 3}
       propertyPath: spawnTimer
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9137663466077792388, guid: c87970daf936a074d95c7f96f2966779, type: 3}
       propertyPath: enemy

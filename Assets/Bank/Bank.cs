@@ -13,6 +13,7 @@ public class Bank : MonoBehaviour
     [SerializeField] TextMeshProUGUI displayGold;
     [SerializeField] TextMeshProUGUI displayHealth;
     [SerializeField] RetryMenu retryMenu;
+    private bool lost = false;
     private void Awake()
     {
         currentGold = startingGold;
@@ -42,8 +43,9 @@ public class Bank : MonoBehaviour
     {
         currentHealth -= Mathf.Abs(health);
         updateHealthDisplay();
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !lost)
         {
+            lost = true;
             retryMenu.ShowMenu();
         }
     }

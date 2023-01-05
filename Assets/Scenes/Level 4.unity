@@ -36569,6 +36569,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2093767433154596734, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
+      propertyPath: spawnTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988670381250139266, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
+      propertyPath: poolSize
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7095991513816831586, guid: 5713eec973f8dab4581149e94524c5f9, type: 3}
       propertyPath: enemy
       value: 

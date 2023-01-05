@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +18,11 @@ public class Tower : MonoBehaviour
     public int type = 0;
     private Tile tile;
 
+
     private void Start()
     {
         StartCoroutine(BuildTower());
-    }
+    } 
 
     public void CreateTower(out bool gotBuilt, out GameObject towerObject, Tower tower, Vector3 position, Tile tile)
     {
@@ -31,11 +33,12 @@ public class Tower : MonoBehaviour
             towerObject = null;
             return;
         }
-        if (bank.getCurrentGold() >= cost)
+        if (bank.getCurrentGold() >= cost+PlayerController.penaltyHandler)
         {
             towerObject = Instantiate(tower.gameObject, position, new Quaternion());
             towerObject.GetComponent<Tower>().tile = tile;
-            bank.withdrawGold(cost);
+            bank.withdrawGold(cost+PlayerController.penaltyHandler);
+            PlayerController.penaltyHandler += 5;
             gotBuilt = true;
         }
         else
@@ -58,7 +61,7 @@ public class Tower : MonoBehaviour
 
     public int getTowerPrice()
     {
-        return cost;
+        return cost+PlayerController.penaltyHandler;
     }
 
     public void ShowCanvas(bool active)

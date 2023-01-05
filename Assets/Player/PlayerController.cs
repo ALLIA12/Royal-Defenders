@@ -20,7 +20,13 @@ public class PlayerController : MonoBehaviour
     public AudioSource sound;
     public AudioClip buildSound;
     private Tile oldTile;
+    public static int penaltyHandler;
     // Update is called once per frame
+    private void Start()
+    {
+        penaltyHandler = 0;
+    }
+
     void Update()
     {
         if (PauseMenu.gameIsPaused) { return; }

@@ -122,7 +122,8 @@ public class PlayerController : MonoBehaviour
         {
             //change position
             transform.position = Hit.point;
-
+            Vector3 forward = transform.TransformDirection(Vector3.up) * 20;
+            Debug.DrawRay(transform.position,forward,Color.magenta);
             if (Hit.collider.tag == "selectable")
             {
 

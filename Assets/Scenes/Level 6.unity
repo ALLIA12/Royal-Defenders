@@ -42423,6 +42423,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1852931296416852970, guid: d32ba878046560a429fdf7b759a75c5c, type: 3}
+      propertyPath: m_TagString
+      value: selectable
+      objectReference: {fileID: 0}
     - target: {fileID: 3443476244869750954, guid: d32ba878046560a429fdf7b759a75c5c, type: 3}
       propertyPath: m_RootOrder
       value: 402
@@ -59304,6 +59308,10 @@ PrefabInstance:
       propertyPath: hotBarAbility
       value: 
       objectReference: {fileID: 7583493047674525075}
+    - target: {fileID: 7181473444981829960, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 264
+      objectReference: {fileID: 0}
     - target: {fileID: 7181473444981829961, guid: ffaae3298dad95e45b94bcd702ff33a6, type: 3}
       propertyPath: m_Name
       value: Mouse
@@ -59782,6 +59790,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 324043651}
+    - target: {fileID: 3510116279529527308, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3602004165474399499, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4933383167730830038}
   - component: {fileID: 5445263731612118534}
   - component: {fileID: 6610389746511219510}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: sand not taken
   m_TagString: selectable
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4547097667896390710}
   - component: {fileID: 4443852391626498029}
   - component: {fileID: 5390967601337264669}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2910380130713964851}
   - component: {fileID: 4392121404907017752}
   - component: {fileID: 7564133996824464504}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 3771257991627540546}
   - component: {fileID: 2053954197257335048}
   - component: {fileID: 3288936511333012892}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

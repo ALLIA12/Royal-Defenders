@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class WaveManager : MonoBehaviour
     int currWave = 0;
     bool finishedLevel = false;
     [SerializeField] VictoryMenu victorMenu;
-
+    [SerializeField] TextMeshProUGUI waveLength;
     private void Update()
     {
         if (finishedLevel) { return; }
@@ -20,6 +21,7 @@ public class WaveManager : MonoBehaviour
             finishedLevel = true;
             victorMenu.ShowMenu();
         }
+        waveLength.text = $"Wave: {transform.childCount - ChildCountActive(transform)} / {transform.childCount}";
     }
     public int ChildCountActive(Transform t)
     {

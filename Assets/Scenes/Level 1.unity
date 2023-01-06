@@ -25691,6 +25691,10 @@ PrefabInstance:
       propertyPath: victorMenu
       value: 
       objectReference: {fileID: 7583493047674525076}
+    - target: {fileID: 1911238802771621101, guid: 1547bdc42dfd294439f6af6aa1470d10, type: 3}
+      propertyPath: waveLength
+      value: 
+      objectReference: {fileID: 7583493047674525077}
     - target: {fileID: 2039551496181148352, guid: 1547bdc42dfd294439f6af6aa1470d10, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -26290,6 +26294,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7c6c5e8cf72e54692110e51ce05191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7583493047674525077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1438607205, guid: 50d6adf847b23494099ee0b369c192ca, type: 3}
+  m_PrefabInstance: {fileID: 7583493047674525074}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7912909676210358724

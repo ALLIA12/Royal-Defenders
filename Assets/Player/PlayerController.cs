@@ -37,10 +37,10 @@ public class PlayerController : MonoBehaviour
                 hotBarTower.SendMessage("turnOff");
                 ability();
             }
-            else if (TowerType> 0)
+            else if (TowerType > 0)
             {
                 hotBarAbility.SendMessage("turnOff");
-                ConsctructingTowers();                              
+                ConsctructingTowers();
             }
             else
             {
@@ -60,11 +60,13 @@ public class PlayerController : MonoBehaviour
         {
             //change position
             transform.position = Hit.point;
-            
+
             this.SendMessage("drawLine");
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 temp = new Vector3(transform.position.x,150,transform.position.z);
+                Vector3 temp = new Vector3(transform.position.x, 150, transform.position.z);
+                Bank bank = FindObjectOfType<Bank>();
+                bank.withdrawGold(250);
                 Instantiate(asteroid, temp, quaternion.identity);
                 Debug.Log("ability" + abilityType);
                 abilityType = 0;
@@ -129,7 +131,7 @@ public class PlayerController : MonoBehaviour
             //change position
             transform.position = Hit.point;
             Vector3 forward = transform.TransformDirection(Vector3.up) * 20;
-            Debug.DrawRay(transform.position,forward,Color.magenta);
+            Debug.DrawRay(transform.position, forward, Color.magenta);
             if (Hit.collider.tag == "selectable")
             {
 

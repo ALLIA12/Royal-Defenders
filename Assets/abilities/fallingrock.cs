@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class fallingrock : MonoBehaviour
 {
+
     public float start = 10;
     public float dir = -9;
     void FixedUpdate ()

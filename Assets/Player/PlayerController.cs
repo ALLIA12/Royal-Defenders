@@ -68,7 +68,6 @@ public class PlayerController : MonoBehaviour
                 Bank bank = FindObjectOfType<Bank>();
                 bank.withdrawGold(250);
                 Instantiate(asteroid, temp, quaternion.identity);
-                Debug.Log("ability" + abilityType);
                 abilityType = 0;
                 this.SendMessage("removeLine");
                 hotBarTower.SendMessage("turnOn");

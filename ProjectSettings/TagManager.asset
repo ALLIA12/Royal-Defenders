@@ -13,6 +13,8 @@ TagManager:
   - asteroid
   - test
   - bank
+  - bingchilling
+  - BingChilling
   layers:
   - Default
   - TransparentFX

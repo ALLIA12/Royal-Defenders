@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.GraphicsBuffer;
 
@@ -16,6 +17,7 @@ public class CheatCodeManager : MonoBehaviour
     private List<CheatCodeInstance> cheatCodeInstances = new List<CheatCodeInstance>();
     VictoryMenu victoryMenu;
     public ParticleSystem explosion;
+    public GameObject bingChilling;
     // Update is called once per frame
     private void Start()
     {
@@ -105,4 +107,14 @@ public class CheatCodeManager : MonoBehaviour
         victoryMenu.score = -9999999;
     }
 
+    public void BingChillingCode()
+    {
+        StartCoroutine(BingChilling());
+    }
+    IEnumerator BingChilling()
+    {
+        bingChilling.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        bingChilling.SetActive(false);
+    }
 }

@@ -34,6 +34,11 @@ public class Bank : MonoBehaviour
         currentGold += Mathf.Abs(gold);
         updateGoldDisplay();
     }
+    public void depostHealth(int health)
+    {
+        currentHealth += Mathf.Abs(health);
+        updateHealthDisplay();
+    }
     public void withdrawGold(int gold)
     {
         currentGold -= Mathf.Abs(gold);

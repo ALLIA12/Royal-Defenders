@@ -17,11 +17,10 @@ public class VictoryMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI outputText;
     [SerializeField] public GameObject victoryMenuUI = null;
     [SerializeField] public Bank bank = null;
-
+    public int score = 0;
 
     public void ShowMenu()
     {
-        int score = 0;
         score += numberOfEnemiesDestroyed * 20;
         score -= numberOfTowersBuilt * 2;
         score -= numberOfTowerUpgrades * 1;

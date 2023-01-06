@@ -28,10 +28,10 @@ public class VictoryMenu : MonoBehaviour
         score += (int)(bank.getCurrentGold() * .1f);
         int diff = SettingsMenu.difficulty;
         int i = SceneManager.GetActiveScene().buildIndex;
-        int oldScore = PlayerPrefs.GetInt("score" + (i - 1) + "" + diff, 0);
+        int oldScore = PlayerPrefs.GetInt("score" + (i - 2) + "" + diff, 0);
         if (score > oldScore)
         {
-            PlayerPrefs.SetInt("score" + (i - 1) + "" + diff, score);
+            PlayerPrefs.SetInt("score" + (i - 2) + "" + diff, score);
             outputText.text = $"Score: {score}\nNew High Score!!!";
         }
         else

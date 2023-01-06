@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.GraphicsBuffer;
 
 public class CheatCodeManager : MonoBehaviour
 {
@@ -11,7 +14,14 @@ public class CheatCodeManager : MonoBehaviour
     private string currentString = "";
     [SerializeField]
     private List<CheatCodeInstance> cheatCodeInstances = new List<CheatCodeInstance>();
+    VictoryMenu victoryMenu;
+    public ParticleSystem explosion;
     // Update is called once per frame
+    private void Start()
+    {
+        GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
+        victoryMenu = temp.GetComponent<VictoryMenu>();
+    }
     void Update()
     {
         Cheater();
@@ -62,16 +72,37 @@ public class CheatCodeManager : MonoBehaviour
         }
     }
 
-    public void DawiCode()
-    {
-        print("I AM RACIST AND HORNY FOR SHOUTAS");
-    }
 
     public void GiveGoldCode()
     {
         GameObject bankGO = GameObject.FindGameObjectWithTag("bank");
         Bank bank = bankGO.GetComponent<Bank>();
         bank.depostGold(99999);
+        victoryMenu.score = -9999999;
+    }
+    public void GiveHealthCode()
+    {
+        GameObject bankGO = GameObject.FindGameObjectWithTag("bank");
+        Bank bank = bankGO.GetComponent<Bank>();
+        bank.depostHealth(99999);
+        victoryMenu.score = -9999999;
+    }
+    public void NukeCode()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+        if (enemies.Length == 0)
+        {
+            //
+        }
+        foreach (GameObject enemyGO in enemies)
+        {
+            Enemy enemy = enemyGO.GetComponent<Enemy>();
+            victoryMenu.numberOfEnemiesDestroyed++;
+            enemy.giveGoldOnDeath();
+            Instantiate(explosion, enemy.transform.position, Quaternion.identity);
+            Destroy(enemyGO);
+        }
+        victoryMenu.score = -9999999;
     }
 
 }

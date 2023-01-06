@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
     public Animator animator;
     public float transationTime = 1f;
     [SerializeField] public GameObject pauseMenuUI = null;
-    [SerializeField] public GameObject retryMenuUI = null; 
+    [SerializeField] public GameObject retryMenuUI = null;
     [SerializeField] public GameObject victoryMenuUI = null;
 
     private void Update()
@@ -49,7 +49,10 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        ResumeGame();
+        pauseMenuUI.SetActive(false);
+        SpeedChanger.currentSpeed = 1;
+        Time.timeScale = SpeedChanger.currentSpeed;
+        gameIsPaused = false;
         StartCoroutine(LoadCorutine());
     }
 

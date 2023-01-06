@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: metal
-  m_Shader: {fileID: -6465566751694194690, guid: 238bdfc1cab9f6645a42d87695ee76d7, type: 3}
+  m_Name: metal 10
+  m_Shader: {fileID: -6465566751694194690, guid: 3814bf215eaf49541829155995190e64, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -106,12 +106,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _metaallic: 1
-    - _mult: 358.3
-    - _noise: 993.17
-    - _power: 14.4
+    - _mult: 0.9
+    - _noise: 936.5
+    - _power: 0.3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.7469491, b: 0, a: 1}
+    - _Color: {r: 0.4245283, g: 0.3551029, b: 0.3023763, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

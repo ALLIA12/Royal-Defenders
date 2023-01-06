@@ -59177,10 +59177,6 @@ PrefabInstance:
       propertyPath: victorMenu
       value: 
       objectReference: {fileID: 7583493047674525076}
-    - target: {fileID: 5610552358431536020, guid: c097b7fc1226ebe439e39be5f221e703, type: 3}
-      propertyPath: spawnTimer
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 6835069854002621408, guid: c097b7fc1226ebe439e39be5f221e703, type: 3}
       propertyPath: enemy
       value: 

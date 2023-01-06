@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: c06f9f3997637e449b229191a1ffddef, type: 3}
+  enemy: {fileID: 5040643765344069697, guid: ef121ee36a2d318468e40403dccae69a, type: 3}
   poolSize: 25
-  spawnTimer: 1
+  spawnTimer: 2
   burstTimer: 1
-  burstSize: 20
+  burstSize: 5
 --- !u!1 &957611875697934343
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,60 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
+  enemy: {fileID: 5040643765344069697, guid: e257fbf140aaaad44975d5e14b26f2b3, type: 3}
   poolSize: 30
-  spawnTimer: 0.5
+  spawnTimer: 1
   burstTimer: 1
-  burstSize: 5
---- !u!1 &1840359256186787288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1313330112892867780}
-  - component: {fileID: 5236452678226702959}
-  m_Layer: 0
-  m_Name: Wave 6 (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1313330112892867780
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840359256186787288}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4798297976445207532}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5236452678226702959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840359256186787288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: c06f9f3997637e449b229191a1ffddef, type: 3}
-  poolSize: 30
-  spawnTimer: 0.5
-  burstTimer: 1
-  burstSize: 10
+  burstSize: 6
 --- !u!1 &4140146586002566498
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,11 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: e257fbf140aaaad44975d5e14b26f2b3, type: 3}
-  poolSize: 25
-  spawnTimer: 0.5
+  enemy: {fileID: 5040643765344069697, guid: 0d32686be661ec64f92634a8e1e9e5dd, type: 3}
+  poolSize: 30
+  spawnTimer: 2
   burstTimer: 3
-  burstSize: 10
+  burstSize: 5
 --- !u!1 &4798297976445207534
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +185,6 @@ Transform:
   - {fileID: 1188030558461050103}
   - {fileID: 2708342298488358420}
   - {fileID: 5977999833063328353}
-  - {fileID: 1313330112892867780}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -310,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 20
+  poolSize: 40
   spawnTimer: 1
   burstTimer: 1
   burstSize: 5
@@ -358,9 +308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 50
-  spawnTimer: 0.1
+  enemy: {fileID: 5040643765344069697, guid: c06f9f3997637e449b229191a1ffddef, type: 3}
+  poolSize: 40
+  spawnTimer: 1
   burstTimer: 1
   burstSize: 10
 --- !u!1 &6890261573901636309
@@ -408,8 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5040643765344069697, guid: e257fbf140aaaad44975d5e14b26f2b3, type: 3}
-  poolSize: 30
-  spawnTimer: 0.5
+  poolSize: 40
+  spawnTimer: 1
   burstTimer: 1
   burstSize: 10
 --- !u!1 &8793028770115507609
@@ -457,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 40
+  poolSize: 20
   spawnTimer: 1
   burstTimer: 1
   burstSize: 5
@@ -505,8 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9414542cc55634790d5a7782dab154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5040643765344069697, guid: b940df629b09f434dbb9fd487257db6c, type: 3}
-  poolSize: 50
-  spawnTimer: 0.1
+  enemy: {fileID: 5040643765344069697, guid: c06f9f3997637e449b229191a1ffddef, type: 3}
+  poolSize: 30
+  spawnTimer: 1
   burstTimer: 1
-  burstSize: 10
+  burstSize: 5

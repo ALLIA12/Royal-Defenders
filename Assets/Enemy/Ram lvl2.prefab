@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1584ec732e6aa4ba9c88c2d4a15002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedModifor: 1.2
+  speedModifor: 1
   slowDownModifor: 1
 --- !u!65 &4359052593134902621
 BoxCollider:
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 198717222519016466, guid: 9eb3b1a11c610cd418079f132e291197, type: 3}
-  MaxHealth: 350
+  MaxHealth: 400
   currentHealth: 0
 --- !u!114 &5313814869134647872
 MonoBehaviour:

@@ -15,6 +15,9 @@ public class DebugController : MonoBehaviour
     public static DebugCommand bing;
     public static DebugCommand help;
     public static DebugCommand aman;
+    public static DebugCommand black;
+    public static DebugCommand white;
+    public static DebugCommand iqama;
     public List<object> commandList;
     private void Awake()
     {
@@ -40,7 +43,19 @@ public class DebugController : MonoBehaviour
         });
         aman = new DebugCommand("aman", "By the grace of all mighty allah", "aman", () =>
         {
-            showHelp = true;
+            // do stuff here
+        });
+        black = new DebugCommand("black", "BLACK SIMULATOR", "black", () =>
+        {
+            BlackCode();
+        });
+        white = new DebugCommand("white", "unblack", "white", () =>
+        {
+            WhiteCode();
+        });
+        iqama = new DebugCommand("iqama", "Sultan is very Yemani", "iqama", () =>
+        {
+            IqamaCode();
         });
         commandList = new List<object>()
         {
@@ -48,13 +63,20 @@ public class DebugController : MonoBehaviour
             gold,
             health,
             bing,
-            help
+            help,
+            black,
+            white,
+            iqama
         };
     }
+
+
     VictoryMenu victoryMenu;
     public ParticleSystem explosion;
     public GameObject bingChilling;
+    public GameObject blackImage;
     public GameObject amanUllah;
+    public GameObject iqamaImage;
     // Update is called once per frame
     private void Start()
     {
@@ -179,5 +201,23 @@ public class DebugController : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         amanUllah.SetActive(false);
     }
+    private void BlackCode()
+    {
+        blackImage.SetActive(true);
+    }
+    private void WhiteCode()
+    {
+        blackImage.SetActive(false);
+    }
 
+    private void IqamaCode()
+    {
+        StartCoroutine(Iqama());
+    }
+    IEnumerator Iqama()
+    {
+        iqamaImage.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        iqamaImage.SetActive(false);
+    }
 }

@@ -25952,10 +25952,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 426512976}
     - target: {fileID: 7520866233457733867, guid: 744d2e6e5072fb64390b8a9a01f2c5d5, type: 3}
-      propertyPath: startingGold
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 7520866233457733867, guid: 744d2e6e5072fb64390b8a9a01f2c5d5, type: 3}
       propertyPath: displayHealth
       value: 
       objectReference: {fileID: 7583493047674525075}

@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 19849376, guid: d16221e794fe16e4e8994a7f8c770561, type: 3}
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &-6838976638597072635
 MonoBehaviour:
   m_ObjectHideFlags: 0

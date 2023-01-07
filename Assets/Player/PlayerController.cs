@@ -87,6 +87,8 @@ public class PlayerController : MonoBehaviour
                 if (oldTile.hasTower)
                 {
                     oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                    TargetLocator targetLocatorOld = oldTile.currentTower.GetComponent<TargetLocator>();
+                    targetLocatorOld.UnDrawCircle();
                 }
                 oldTile = null;
             }
@@ -110,9 +112,14 @@ public class PlayerController : MonoBehaviour
                 if (oldTile != null && oldTile.tag == "Untagged")
                 {
                     Tower tower = oldTile.currentTower.GetComponent<Tower>();
-                    if (tower != null) { tower.ShowCanvas(false); }
+                    if (tower != null) { tower.ShowCanvas(false);
+                        TargetLocator targetLocatorOld = oldTile.currentTower.GetComponent<TargetLocator>();
+                        targetLocatorOld.UnDrawCircle();
+                    }
                 }
                 tile.currentTower.GetComponent<Tower>().ShowCanvas(true);
+                TargetLocator targetLocator = tile.currentTower.GetComponent<TargetLocator>();
+                targetLocator.DrawCircle(150, targetLocator.shootingRange);
                 oldTile = tile;
             }
 

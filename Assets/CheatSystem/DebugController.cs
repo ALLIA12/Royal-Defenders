@@ -14,6 +14,7 @@ public class DebugController : MonoBehaviour
     public static DebugCommand health;
     public static DebugCommand bing;
     public static DebugCommand help;
+    public static DebugCommand aman;
     public List<object> commandList;
     private void Awake()
     {
@@ -37,6 +38,10 @@ public class DebugController : MonoBehaviour
         {
             showHelp = true;
         });
+        aman = new DebugCommand("aman", "By the grace of all mighty allah", "aman", () =>
+        {
+            showHelp = true;
+        });
         commandList = new List<object>()
         {
             nuke,
@@ -49,6 +54,7 @@ public class DebugController : MonoBehaviour
     VictoryMenu victoryMenu;
     public ParticleSystem explosion;
     public GameObject bingChilling;
+    public GameObject amanUllah;
     // Update is called once per frame
     private void Start()
     {
@@ -163,4 +169,15 @@ public class DebugController : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         bingChilling.SetActive(false);
     }
+
+    public void AmanCode() {
+        StartCoroutine(AmanUllah());
+    }
+    IEnumerator AmanUllah()
+    {
+        amanUllah.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        amanUllah.SetActive(false);
+    }
+
 }

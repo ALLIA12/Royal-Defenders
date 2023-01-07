@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25333bd6e6818cf4283b4f3d755d4337, type: 2}
+  - {fileID: 2100000, guid: fbc137442bff13743b7e733acbec6692, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -268,10 +268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b297cf041f9f7004dbc3f75659246602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  blockedColor: {r: 0, g: 0, b: 0, a: 1}
-  exploredColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  pathColor: {r: 1, g: 0.5, b: 0, a: 1}
+  defaultColorNew: {r: 1, g: 1, b: 1, a: 1}
+  blockedColorNew: {r: 0, g: 0, b: 0, a: 1}
+  exploredColorNew: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  pathColorNew: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &3443476244869750957
 GameObject:
   m_ObjectHideFlags: 0

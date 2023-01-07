@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,28 +11,43 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Tower[] TowerA;
+    [SerializeField] private VictoryMenu victoryMenu;
+    [SerializeField] private GameObject hotBarTower;
+    [SerializeField] private GameObject hotBarAbility;
+    public GameObject asteroid;
     public int TowerType;
     public int abilityType;
     public AudioSource sound;
     public AudioClip buildSound;
     private Tile oldTile;
+    public static int penaltyHandler;
     // Update is called once per frame
+    private void Start()
+    {
+        penaltyHandler = 0;
+    }
+
     void Update()
     {
         if (PauseMenu.gameIsPaused) { return; }
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (abilityType>0)
+            if (abilityType > 0)
             {
+                hotBarTower.SendMessage("turnOff");
                 ability();
-                
+            }
+            else if (TowerType > 0)
+            {
+                hotBarAbility.SendMessage("turnOff");
+                ConsctructingTowers();
             }
             else
             {
-                ConsctructingTowers();
-                ShowTowerMenu();
-                RemoveCurrentMenu();
+                hotBarAbility.SendMessage("turnOn");
             }
+            ShowTowerMenu();
+            RemoveCurrentMenu();
         }
     }
 
@@ -39,21 +55,28 @@ public class PlayerController : MonoBehaviour
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
-
         //only detects tile layer due to layerMask
         if (Physics.Raycast(ray, out Hit, float.MaxValue, layerMask))
         {
             //change position
             transform.position = Hit.point;
 
+            this.SendMessage("drawLine");
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("ability" + abilityType);
+                Vector3 temp = new Vector3(transform.position.x, 150, transform.position.z);
+                Bank bank = FindObjectOfType<Bank>();
+                bank.withdrawGold(250);
+                Instantiate(asteroid, temp, quaternion.identity);
+                abilityType = 0;
+                this.SendMessage("removeLine");
+                hotBarTower.SendMessage("turnOn");
+                hotBarAbility.SendMessage("turnOff");
             }
         }
 
     }
-    
+
 
     private void RemoveCurrentMenu()
     {
@@ -61,7 +84,12 @@ public class PlayerController : MonoBehaviour
         {
             if (oldTile != null)
             {
-                oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                if (oldTile.hasTower)
+                {
+                    oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                    TargetLocator targetLocatorOld = oldTile.currentTower.GetComponent<TargetLocator>();
+                    targetLocatorOld.UnDrawCircle();
+                }
                 oldTile = null;
             }
         }
@@ -76,28 +104,23 @@ public class PlayerController : MonoBehaviour
         //only detects tile layer due to layerMask
         if (Physics.Raycast(ray, out Hit, float.MaxValue, layerMask))
         {
-            //change position
             transform.position = Hit.point;
-
-            if (Hit.collider.tag == "selectable")
+            Tile tile = Hit.transform.GetComponent<Tile>();
+            // For hard difficulty don't show the new path, just needed to change the order of the if statment
+            if (tile.hasTower && Input.GetMouseButtonDown(2))
             {
-
-                Tile tile = Hit.transform.GetComponent<Tile>();
-                // Code to build Tower
-                // For hard difficulty don't show the new path, just needed to change the order of the if statment
-                if (tile.hasTower && Input.GetMouseButtonDown(2))
+                if (oldTile != null && oldTile.tag == "Untagged")
                 {
-                    Debug.Log("COPE");
-                    if (oldTile != null)
-                    {
-                        oldTile.currentTower.GetComponent<Tower>().ShowCanvas(false);
+                    Tower tower = oldTile.currentTower.GetComponent<Tower>();
+                    if (tower != null) { tower.ShowCanvas(false);
+                        TargetLocator targetLocatorOld = oldTile.currentTower.GetComponent<TargetLocator>();
+                        targetLocatorOld.UnDrawCircle();
                     }
-                    tile.currentTower.GetComponent<Tower>().ShowCanvas(true);
-                    oldTile = tile;
-
-                    //BuildTower(tile, Hit);
                 }
-
+                tile.currentTower.GetComponent<Tower>().ShowCanvas(true);
+                TargetLocator targetLocator = tile.currentTower.GetComponent<TargetLocator>();
+                targetLocator.DrawCircle(150, targetLocator.shootingRange);
+                oldTile = tile;
             }
 
         }
@@ -113,7 +136,8 @@ public class PlayerController : MonoBehaviour
         {
             //change position
             transform.position = Hit.point;
-
+            Vector3 forward = transform.TransformDirection(Vector3.up) * 20;
+            Debug.DrawRay(transform.position, forward, Color.magenta);
             if (Hit.collider.tag == "selectable")
             {
 
@@ -166,6 +190,8 @@ public class PlayerController : MonoBehaviour
             tile.gridManager.blockNode(tile.coordinates);
             tile.gridManager.changeCostOoNeighbors(tile.coordinates, 3);
             tile.pathFinding.notifiyReciviers();
+            tile.tag = "Untagged";
+            victoryMenu.numberOfTowersBuilt++;
         }
     }
 
@@ -178,10 +204,19 @@ public class PlayerController : MonoBehaviour
     public void abilityPicker(int abilityNO)
     {
         abilityType = abilityNO;
+        if (abilityType == -1)
+        {
+            this.SendMessage("removeLine");
+            hotBarTower.SendMessage("turnOn");
+        }
     }
 
     public int gettowerType()
     {
         return TowerType;
+    }
+    public int getAbilityType()
+    {
+        return abilityType;
     }
 }

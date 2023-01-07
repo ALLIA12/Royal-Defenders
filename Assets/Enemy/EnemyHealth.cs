@@ -7,10 +7,11 @@ public class EnemyHealth : MonoBehaviour
 {
     public ParticleSystem explosion;
     [SerializeField] int MaxHealth;
-    float currentHealth = 0;
+    public float currentHealth = 0;
     //[Tooltip("This adds to max hp every time the enemy dies")]
     //[SerializeField] int difficulityRamp = 60;
     Enemy enemy;
+    VictoryMenu victoryMenu;
     private void OnEnable()
     {
         //MaxHealth += difficulityRamp;
@@ -19,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
+        GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
+        victoryMenu = temp.GetComponent<VictoryMenu>();
     }
 
     private void OnParticleCollision(GameObject other)
@@ -29,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
             currentHealth -= particleHandler.getDamage();
             if (currentHealth <= 0)
             {
+                victoryMenu.numberOfEnemiesDestroyed++;
                 enemy.giveGoldOnDeath();
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);

@@ -11,27 +11,31 @@ public class EnemyMover : MonoBehaviour
     List<NodeClass> path = new List<NodeClass>();
     PathFinding pathFinding;
     GridManager gridManager;
+    VictoryMenu victoryMenu;
     private void Awake()
     {
         pathFinding = FindObjectOfType<PathFinding>();
         gridManager = FindObjectOfType<GridManager>();
+        GameObject temp = GameObject.FindGameObjectWithTag("scoreTracking");
+        victoryMenu = temp.GetComponent<VictoryMenu>();
         enemy = GetComponent<Enemy>();
-
+        pathFinding.OnMapChangeTrigger += RecalculatePath;
     }
     private void Update()
     {
         // change slowDownModifor back to normal if it isn't
-        slowDownModifor = Mathf.Lerp(slowDownModifor, 1, Time.deltaTime/8);
-        Debug.Log(slowDownModifor);
+        slowDownModifor = Mathf.Lerp(slowDownModifor, 1, Time.deltaTime / 8);
     }
+
     private void OnEnable()
     {
-        retunrToStart();
+        ReturnToStart();
         RecalculatePath(true);
     }
 
     void RecalculatePath(bool ressetPath)
     {
+        if (!gameObject.activeInHierarchy) { return; }
         Vector2Int temp = new Vector2Int();
         if (ressetPath)
         {
@@ -55,10 +59,19 @@ public class EnemyMover : MonoBehaviour
         {
             path = pathFinding.getAStarPath(temp);
         }
-        StartCoroutine(FollowPath());
+        // In the case that no path was found
+        if (path.Count == 1 && temp.x != pathFinding.getEndCoordinates().x && temp.y != pathFinding.getEndCoordinates().y)
+        {
+            ReturnToStart();
+            RecalculatePath(true);
+        }
+        else // if a path was found
+        {
+            StartCoroutine(FollowPath());
+        }
     }
 
-    void retunrToStart()
+    void ReturnToStart()
     {
         transform.position = gridManager.getPosFromCoordinates(pathFinding.getStartCoordinates());
     }
@@ -69,6 +82,8 @@ public class EnemyMover : MonoBehaviour
         {
             Vector3 startPos = transform.position;
             Vector3 endPos = gridManager.getPosFromCoordinates(path[i].coordinates);
+            Tile tile = GameObject.Find(path[i].coordinates.ToString()).GetComponent<Tile>();
+            speedModifor = tile.tileSpeed;
             float travelPercent = 0f;
             transform.LookAt(endPos);
             while (travelPercent < 1)
@@ -83,8 +98,12 @@ public class EnemyMover : MonoBehaviour
 
     private void FinishPath()
     {
-        enemy.yoinkGoldOnExit();
-        // Destroy in case it is spawned with via wave, add check later
+        victoryMenu.numberOfEnemiesNotKilled++;
+        enemy.yoinkHealthOnExit();
         Destroy(this.gameObject);
+    }
+    private void OnDestroy()
+    {
+        pathFinding.OnMapChangeTrigger -= RecalculatePath;
     }
 }

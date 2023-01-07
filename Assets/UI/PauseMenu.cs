@@ -10,9 +10,13 @@ public class PauseMenu : MonoBehaviour
     public Animator animator;
     public float transationTime = 1f;
     [SerializeField] public GameObject pauseMenuUI = null;
+    [SerializeField] public GameObject retryMenuUI = null;
+    [SerializeField] public GameObject victoryMenuUI = null;
 
     private void Update()
     {
+        if (retryMenuUI.activeSelf) { return; }
+        if (victoryMenuUI.activeSelf) { return; }
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (gameIsPaused)
@@ -45,7 +49,10 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        ResumeGame();
+        pauseMenuUI.SetActive(false);
+        SpeedChanger.currentSpeed = 1;
+        Time.timeScale = SpeedChanger.currentSpeed;
+        gameIsPaused = false;
         StartCoroutine(LoadCorutine());
     }
 
@@ -53,7 +60,7 @@ public class PauseMenu : MonoBehaviour
     {
         animator.SetTrigger("Start");
         yield return new WaitForSeconds(transationTime);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()

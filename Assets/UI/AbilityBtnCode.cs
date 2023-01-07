@@ -1,22 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
-public class AbilityBtnCode : MonoBehaviour
+public class AbilityBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Bank _bank;
     [SerializeField] int abilityPrice;
     [SerializeField] PlayerController _mouse;
     [SerializeField] GameObject _text;
+    [SerializeField] GameObject goldUI;
     private int _keyNumber;
     public Color ChosenBtnClr;
     private ColorBlock _colorBlock;
     private ColorBlock originalColor;
     private Button btn;
     public Button[] brnA;
-
-
+    private int towerSelect = 0;
 
     private void Start()
     {
@@ -33,10 +38,10 @@ public class AbilityBtnCode : MonoBehaviour
         }
         btn.onClick.AddListener(pickAbility);
     }
-    
+
     private void Update()
     {
-        if (_bank.getCurrentGold() < abilityPrice | Input.GetMouseButtonDown(1))
+        if (_bank.getCurrentGold() < abilityPrice | Input.GetMouseButtonDown(1) | towerSelect > 0)
         {
             ColorBlock lockedClr = btn.colors;
             lockedClr.normalColor = Color.black;
@@ -46,7 +51,7 @@ public class AbilityBtnCode : MonoBehaviour
             lockedClr.disabledColor = Color.gray;
             btn.colors = lockedClr;
             btn.colors = originalColor;
-            if (_mouse.GetComponent<PlayerController>().gettowerType() == _keyNumber)
+            if (_mouse.GetComponent<PlayerController>().getAbilityType() == _keyNumber)
             {
                 unpickAbility();
             }
@@ -57,8 +62,8 @@ public class AbilityBtnCode : MonoBehaviour
     {
         _mouse.SendMessage("abilityPicker", -1);
     }
-    
-    
+
+
     private void pickAbility()
     {
 
@@ -97,5 +102,30 @@ public class AbilityBtnCode : MonoBehaviour
             _text.SetActive(false);
         }
 
+    }
+
+    public void TurnOff()
+    {
+        towerSelect = 1;
+    }
+
+    public void TurnOn()
+    {
+        towerSelect = 0;
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (goldUI == null) { return; }
+        goldUI.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (goldUI == null)
+        {
+            return;
+        }
+
+        goldUI.SetActive(false);
     }
 }

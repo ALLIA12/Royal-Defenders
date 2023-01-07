@@ -13,12 +13,10 @@ public class Tile : MonoBehaviour
     public GridManager gridManager;
     public PathFinding pathFinding;
     public Vector2Int coordinates = new Vector2Int();
-    private Renderer _renderer;
     private void Awake()
     {
         gridManager = FindObjectOfType<GridManager>();
         pathFinding = FindObjectOfType<PathFinding>();
-        _renderer = GetComponentInChildren<Renderer>();
     }
     private void Start()
     {
@@ -28,37 +26,12 @@ public class Tile : MonoBehaviour
             if (isTaken)
             {
                 gridManager.blockNode(coordinates);
+                gameObject.tag = "Untagged";
             }
         }
     }
-    
-    
 
-    private void Update()
-    {
-        turnOff();
-    }
 
-    private void LightUp()
-    {
-        if (tag == "selectable" && !isTaken)
-        {
-            _renderer.material.EnableKeyword("_EMISSION");
-            _renderer.material.SetColor("_EmissionColor", new Color(1.0f, 0.6f, 0.0f, 1.0f) * 1.0f);
-        }
-        else
-        {
-            _renderer.material.DisableKeyword("_EMISSION");
-        }
-    }
-
-    private void turnOff()
-    {
-        if (tag == "selectable")
-        {
-            _renderer.material.DisableKeyword("_EMISSION");
-        }
-    }
 
 
     public bool GetIsTaken()

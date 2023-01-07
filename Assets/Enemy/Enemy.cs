@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int worth = 20;
-    [SerializeField] int yoink = 20;
+    [SerializeField] int yoink = 10;
     Bank bank;
 
     // Start is called before the first frame update
@@ -18,9 +18,9 @@ public class Enemy : MonoBehaviour
         if (bank == null) { return; }
         bank.depostGold(worth);
     }
-    public void yoinkGoldOnExit()
+    public void yoinkHealthOnExit()
     {
         if (bank == null) { return; }
-        bank.withdrawGold(yoink);
+        bank.withdrawHealth(yoink);
     }
 }

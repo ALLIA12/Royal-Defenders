@@ -6,23 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class ScoreUI : MonoBehaviour
 {
-    public TextMeshProUGUI level1;
-    public TextMeshProUGUI level2;
-    public TextMeshProUGUI level3;
-    public TextMeshProUGUI level4;
+    public TextMeshProUGUI[] levels;
 
     public Animator animator;
     public float transationTime = 1f;
 
-    int[,] scores = new int[4, 3];
+    int[,] scores;
     private void Awake()
     {
+        scores = new int[levels.Length, 3];
         // Get scores from the save system later, coooooope
         for (int i = 0; i < scores.GetLength(0); i++)
         {
             for (int j = 0; j < scores.GetLength(1); j++)
             {
-                scores[i, j] = i + j;
+                scores[i, j] = PlayerPrefs.GetInt("score" + i + "" + j, 0);
             }
         }
         UpdateTexts(0);
@@ -31,15 +29,15 @@ public class ScoreUI : MonoBehaviour
     public void UpdateTexts(int difficulty)
     {
         // Maximum score is 999999999999
-        level1.text = $"Level 1\nBEST SCORE: \n{scores[0, difficulty]}";
-        level2.text = $"Level 2\nBEST SCORE: \n{scores[1, difficulty]}";
-        level3.text = $"Level 3\nBEST SCORE: \n{scores[2, difficulty]}";
-        level4.text = $"Level 4\nBEST SCORE: \n{scores[3, difficulty]}";
+        for (int i = 0; i < levels.Length; i++)
+        {
+            levels[i].text = $"Level {i+1}\nBest Score: \n{scores[i, difficulty]}";
+        }
     }
     public void StartLevel(int index)
     {
         // temp cope shit 
-        if (index > 2)
+        if (index > levels.Length+1)
         {
             Debug.Log("COPE");
             return;
@@ -49,7 +47,7 @@ public class ScoreUI : MonoBehaviour
 
     public void PlayGame()
     {
-        StartCoroutine(StartGameRoutine(1));
+        StartCoroutine(StartGameRoutine(2));
     }
     IEnumerator StartGameRoutine(int index)
     {

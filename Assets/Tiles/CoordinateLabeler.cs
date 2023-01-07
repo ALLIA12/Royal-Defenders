@@ -7,10 +7,10 @@ using TMPro;
 [RequireComponent(typeof(TextMeshPro))]
 public class CoordinateLabeler : MonoBehaviour
 {
-    [SerializeField] Color defaultColor = Color.white;
-    [SerializeField] Color blockedColor = Color.black;
-    [SerializeField] Color exploredColor = Color.yellow;
-    [SerializeField] Color pathColor = new Color(1, 0.5f, 0);
+    [SerializeField] Color defaultColorNew = Color.white;
+    [SerializeField] Color blockedColorNew = Color.black;
+    [SerializeField] Color exploredColorNew = Color.yellow;
+    [SerializeField] Color pathColorNew = Color.red;
 
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
@@ -50,19 +50,19 @@ public class CoordinateLabeler : MonoBehaviour
         if (temp == null) { return; }
         if (!temp.isWalkable)
         {
-            label.color = blockedColor;
+            label.color = blockedColorNew;
         }
         else if (temp.isPath)
         {
-            label.color = pathColor;
+            label.color = pathColorNew;
         }
         else if (temp.isExplored)
         {
-            label.color = exploredColor;
+            label.color = exploredColorNew;
         }
         else
         {
-            label.color = defaultColor;
+            label.color = defaultColorNew;
         }
     }
 

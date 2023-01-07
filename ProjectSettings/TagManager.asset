@@ -9,16 +9,22 @@ TagManager:
   - graphicsText
   - resolutionText
   - enemy
+  - scoreTracking
+  - asteroid
+  - test
+  - bank
+  - bingchilling
+  - BingChilling
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Tile
+  - 
   - Water
   - UI
   - grid manager
   - 
-  - 
+  - tile
   - 
   - 
   - 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7520866233457733867}
   m_Layer: 0
   m_Name: Bank
-  m_TagString: Untagged
+  m_TagString: bank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a232a3a11760e04ab4c03de0a215da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingGold: 300
+  startingGold: 250
+  startingHealth: 100
   currentGold: 0
+  currentHealth: 0
   displayGold: {fileID: 0}
+  displayHealth: {fileID: 0}
+  retryMenu: {fileID: 0}

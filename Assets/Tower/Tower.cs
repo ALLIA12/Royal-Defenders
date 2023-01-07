@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,27 +8,37 @@ public class Tower : MonoBehaviour
     [SerializeField] int cost = 50;
     [SerializeField] float DelayTimer = 1f;
     [SerializeField] GameObject canvas;
+    [SerializeField] GameObject body;
+    [SerializeField] GameObject weapon;
+    [SerializeField] GameObject shooter;
+    [SerializeField] GameObject upgradeBody;
+    [SerializeField] GameObject upgradeWeapon;
+    [SerializeField] GameObject[] upgradeBullets;
+    public Bank bank;
+    public int type = 0;
     private Tile tile;
+
 
     private void Start()
     {
         StartCoroutine(BuildTower());
-    }
+    } 
 
     public void CreateTower(out bool gotBuilt, out GameObject towerObject, Tower tower, Vector3 position, Tile tile)
     {
-        Bank bank = FindObjectOfType<Bank>();
+        bank = FindObjectOfType<Bank>();
         if (bank == null)
         {
             gotBuilt = false;
             towerObject = null;
             return;
         }
-        if (bank.getCurrentGold() >= cost)
+        if (bank.getCurrentGold() >= cost+PlayerController.penaltyHandler)
         {
             towerObject = Instantiate(tower.gameObject, position, new Quaternion());
             towerObject.GetComponent<Tower>().tile = tile;
-            bank.withdrawGold(cost);
+            bank.withdrawGold(cost+PlayerController.penaltyHandler);
+            PlayerController.penaltyHandler += 5;
             gotBuilt = true;
         }
         else
@@ -39,18 +50,18 @@ public class Tower : MonoBehaviour
 
     IEnumerator BuildTower()
     {
-        GameObject temp = this.transform.GetChild(0).gameObject;
-        GameObject temp2 = this.transform.GetChild(1).gameObject;
-        temp.SetActive(false);
-        temp2.SetActive(false);
-        temp.SetActive(true);
+        body.SetActive(false);
+        weapon.SetActive(false);
+        shooter.SetActive(false);
+        body.SetActive(true);
         yield return new WaitForSeconds(DelayTimer);
-        temp2.SetActive(true);
+        weapon.SetActive(true);
+        shooter.SetActive(true);
     }
 
     public int getTowerPrice()
     {
-        return cost;
+        return cost+PlayerController.penaltyHandler;
     }
 
     public void ShowCanvas(bool active)
@@ -62,10 +73,33 @@ public class Tower : MonoBehaviour
         tile.isTaken = false;
         tile.hasTower = false;
         tile.currentTower = null;
+        tile.tag = "selectable";
         tile.gridManager.unblockNode(tile.coordinates);
         tile.gridManager.changeCostOoNeighbors(tile.coordinates, -3);
         tile.pathFinding.notifiyReciviers();
-        Destroy(this.gameObject);
+
+        bank.depostGold((cost / 2));
+        Destroy(gameObject);
     }
 
+    public void FullyUpgraded()
+    {
+        if (type == 2)
+        {
+            body.SetActive(false);
+            upgradeBody.SetActive(true);
+        }
+        else if (type == 0)
+        {
+            weapon.SetActive(false);
+            upgradeWeapon.SetActive(true);
+            upgradeBullets[0].SetActive(true);
+            upgradeBullets[1].SetActive(true);
+        }
+        else if (type == 1)
+        {
+            upgradeWeapon.SetActive(true);
+            upgradeBullets[0].SetActive(true);
+        }
+    }
 }

@@ -21,7 +21,7 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private ColorBlock originalColor;
     private Button btn;
     public Button[] brnA;
-
+    private int abilitySelect = 0;
 
     private void Start()
     {
@@ -41,16 +41,17 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Update()
     {
-        if (_bank.getCurrentGold() < _tower.getTowerPrice() | Input.GetMouseButtonDown(1))
+        if (_bank.getCurrentGold() < _tower.getTowerPrice() | Input.GetMouseButtonDown(1) | abilitySelect>0)
         {
             ColorBlock lockedClr = btn.colors;
             lockedClr.normalColor = Color.black;
             lockedClr.highlightedColor = Color.gray;
             lockedClr.pressedColor = Color.gray;
             lockedClr.selectedColor = Color.gray;
-            lockedClr.disabledColor = Color.gray;
+            lockedClr.disabledColor = Color.gray;           
             btn.colors = lockedClr;
             btn.colors = originalColor;
+            
             if (_mouse.GetComponent<PlayerController>().gettowerType() == _keyNumber)
             {
                 unpickTower();
@@ -118,5 +119,15 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
 
         goldUI.SetActive(false);
+    }
+
+    public void TurnOff()
+    {
+        abilitySelect = 1;
+    }
+    
+    public void TurnOn()
+    {
+        abilitySelect = 0;
     }
 }

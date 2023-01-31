@@ -68,7 +68,7 @@ This project was inspired by the Complete C# Unity Game Developer 3D online cour
 </ul>
 
 # License
-Distributed under the MIT License.
+Distributed under the AGPL-3.0 license.
     
     
     

@@ -22,7 +22,7 @@ public class AbilityBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Button btn;
     public Button[] brnA;
     private int towerSelect = 0;
-
+    
     private void Start()
     {
         _keyNumber = transform.GetSiblingIndex() + 1;
@@ -39,6 +39,7 @@ public class AbilityBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         btn.onClick.AddListener(pickAbility);
     }
 
+    //makes button unclickable
     private void Update()
     {
         if (_bank.getCurrentGold() < abilityPrice | Input.GetMouseButtonDown(1) | towerSelect > 0)
@@ -64,6 +65,7 @@ public class AbilityBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
 
+    
     private void pickAbility()
     {
 

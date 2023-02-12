@@ -10,6 +10,7 @@ public class rockAbilityCode : MonoBehaviour
 
     int timer = 0;
 
+    //if timer has reached make particle explosion
     void Update(){
         if(timer >= 142){
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -20,6 +21,8 @@ public class rockAbilityCode : MonoBehaviour
         timer++;
         if(timer >= 143) timer = 0;
     }
+    
+    //if meteor hitbox touches enemy hitbox destroy enemy instantly
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "enemy")
@@ -29,9 +32,7 @@ public class rockAbilityCode : MonoBehaviour
             VictoryMenu victoryMenu = temp.GetComponent<VictoryMenu>();
             victoryMenu.numberOfEnemiesDestroyed++;
             enemy.giveGoldOnDeath();
-            //Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(enemy.gameObject);
-            Debug.Log(timer);
         }
 
         if(other.gameObject.layer == layer.value){

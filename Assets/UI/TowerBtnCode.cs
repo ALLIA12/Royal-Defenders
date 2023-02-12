@@ -64,6 +64,8 @@ public class TowerBtnCode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _mouse.SendMessage("TowerPicker", -1);
     }
 
+    //if tower is selected change the button color
+    //if you have no money for the tower and you select a tower a message will be shown
     private void pickTower()
     {
 

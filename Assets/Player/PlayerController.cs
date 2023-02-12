@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         penaltyHandler = 0;
     }
 
+    //checks if a tower or ability has been chosen
     void Update()
     {
         if (PauseMenu.gameIsPaused) { return; }
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //shoot raycast to tile to get location, draw circle of where the meteor would hit, take money and create a meteor
     private void ability()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    
     private void ShowTowerMenu()
     {
         //raycast
@@ -176,6 +178,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //build the tower change the tile properties
     private void BuildTower(Tile tile, RaycastHit hit)
     {
         bool isPlaced;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//turn on or turn off the buttons
 public class sendMessageToChildren : MonoBehaviour
 {
 
